@@ -84,7 +84,7 @@ function getSaints(map) {
 //       alert("Could not load the saints");
 //     }
 //   });
-}
+// }
 
 // function addSaintPopups(map) {
 //   map.featureLayer.on("layeradd", function(e){
