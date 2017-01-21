@@ -3,8 +3,8 @@ cache: bundler
 rvm:
   - 2.4.0
 script: 
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake test
 before_script:
   - mysql -e 'create database my_app_test'
