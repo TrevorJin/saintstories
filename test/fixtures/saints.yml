@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  feast_day: 2017-01-16
+  birth_date: 2017-01-16 18:06:26
+  birth_accuracy: 1
+  death_date: 2017-01-16 18:06:26
+  death_accuracy: 1
+  birth_location: MyString
+  death_location: MyString
+  beatification_date: 2017-01-16 18:06:26
+  canonization_date: 2017-01-16 18:06:26
+  birth_latitude: 48.8582
+  birth_longitude: 2.2945
+  death_latitude: 48.8582
+  death_longitude: 2.2945
+  pope: false
+  cardinal: false
+  bishop: false
+  priest: false
+  religious: false
+  lay: false
+  martyr: false
+  founder: false
+  mystic: false
+  doctor_of_the_church: false
+  early_church_father: false
+
+two:
+  name: MyString
+  gender: MyString
+  feast_day: 2017-01-16
+  birth_date: 2017-01-16 18:06:26
+  birth_accuracy: 1
+  death_date: 2017-01-16 18:06:26
+  death_accuracy: 1
+  birth_location: MyString
+  death_location: MyString
+  beatification_date: 2017-01-16 18:06:26
+  canonization_date: 2017-01-16 18:06:26
+  birth_latitude: 48.8582
+  birth_longitude: 2.2945
+  death_latitude: 48.8582
+  death_longitude: 2.2945
+  pope: false
+  cardinal: false
+  bishop: false
+  priest: false
+  religious: false
+  lay: false
+  martyr: false
+  founder: false
+  mystic: false
+  doctor_of_the_church: false
+  early_church_father: false

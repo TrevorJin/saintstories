@@ -24,6 +24,8 @@ gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
+# Easy forms
+gem 'simple_form',             '3.3.1'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record

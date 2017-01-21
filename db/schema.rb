@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115231814) do
+ActiveRecord::Schema.define(version: 20170118053410) do
+
+  create_table "saints", force: :cascade do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.date     "feast_day"
+    t.datetime "birth_date"
+    t.integer  "birth_accuracy"
+    t.datetime "death_date"
+    t.integer  "death_accuracy"
+    t.string   "birth_location"
+    t.string   "death_location"
+    t.datetime "beatification_date"
+    t.datetime "canonization_date"
+    t.boolean  "pope",                 default: false
+    t.boolean  "cardinal",             default: false
+    t.boolean  "bishop",               default: false
+    t.boolean  "priest",               default: false
+    t.boolean  "religious",            default: false
+    t.boolean  "lay",                  default: false
+    t.boolean  "martyr",               default: false
+    t.boolean  "founder",              default: false
+    t.boolean  "mystic",               default: false
+    t.boolean  "doctor_of_the_church", default: false
+    t.boolean  "early_church_father",  default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.float    "birth_latitude"
+    t.float    "birth_longitude"
+    t.float    "death_latitude"
+    t.float    "death_longitude"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

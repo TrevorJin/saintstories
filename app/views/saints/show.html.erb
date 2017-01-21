@@ -1,0 +1,27 @@
+<% provide(:title, "Saint: #{@saint.name}") %>
+<h1>
+Name: <%= @saint.name %>
+</h1>
+<table class="table table-striped table-hover">
+	<thead>
+
+	</thead>
+</table>
+<!-- /.table table-striped table-hover -->
+<h4>
+Gender: <%= @saint.gender %>
+<br>
+Feast Day: <%= @saint.feast_day.to_formatted_s(:short) %>
+<br>
+Birth Date: <%= @saint.birth_date.to_formatted_s(:long_ordinal) %>
+<br>
+Death Date: <%= @saint.death_date.to_formatted_s(:long_ordinal) %>
+<br>
+Birth Location: <%= @saint.birth_location %>
+<br>
+Death Location: <%= @saint.death_location %>
+<br>
+Beatification Date: <%= @saint.beatification_date.to_formatted_s(:long_ordinal) %>
+<br>
+Canonization Date: <%= @saint.canonization_date.to_formatted_s(:long_ordinal) %>
+</h4>

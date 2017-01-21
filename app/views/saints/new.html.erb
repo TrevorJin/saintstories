@@ -1,0 +1,51 @@
+<% provide(:title, 'Add A Saint') %>
+<div id="page-wrapper">
+  <%= render 'layouts/alerts' %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        Add A Saint
+      </h1>
+      <!-- /.page-header -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <%= simple_form_for @saint do |f| %>
+        <%= f.input :name %>
+        <%= f.input :gender, :collection => gender_options %>
+        <%= f.input :feast_day, as: :date, order: [:month, :day] %>
+        <%= f.input :birth_date, as: :date_time_picker %>
+        <%= f.input :birth_accuracy %>
+        <%= f.input :death_date, as: :date_time_picker %>
+        <%= f.input :death_accuracy %>
+        <%= f.input :birth_location %>
+        <%= f.input :birth_latitude %>
+        <%= f.input :birth_longitude %>
+        <%= f.input :death_location %>
+        <%= f.input :death_latitude %>
+        <%= f.input :death_longitude %>
+        <%= f.input :beatification_date, as: :date_time_picker %>
+        <%= f.input :canonization_date, as: :date_time_picker %>
+        <%= f.label "Descriptors" %>
+        <%= f.input :pope %>
+        <%= f.input :cardinal %>
+        <%= f.input :bishop %>
+        <%= f.input :priest %>
+        <%= f.input :religious %>
+        <%= f.input :lay %>
+        <%= f.input :martyr %>
+        <%= f.input :founder %>
+        <%= f.input :mystic %>
+        <%= f.input :doctor_of_the_church %>
+        <%= f.input :early_church_father %>
+        <%= f.submit "Add Saint", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <!-- /.col-md-8 col-md-offset-2 -->
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.page-wrapper -->

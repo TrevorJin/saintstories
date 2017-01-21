@@ -9,4 +9,11 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def gender_options
+    [
+      ['Male', 'Male'],
+      ['Female', 'Female']
+    ]
+  end
 end
