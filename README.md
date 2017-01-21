@@ -1,5 +1,7 @@
 # The Saint Journal
 
+<a href="https://codeclimate.com/github/TrevorJin/saint_journal"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/gpa.svg" /></a>
+
 ## Getting started
 
 To get started with the app, clone the repo and then install the needed gems:
