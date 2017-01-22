@@ -44,6 +44,8 @@ group :development do
   gem 'spring-watcher-listen', '2.0.0'
   # Check for security vulnerabilities
   gem 'brakeman', :require => false
+  # Check ruby style
+  gem 'rubocop', '~> 0.47.1', require: false
   # Improved error screens
   gem "better_errors"
   gem "binding_of_caller"
