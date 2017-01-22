@@ -1,6 +1,6 @@
 # The Saint Journal
 
-<a href="https://codeclimate.com/github/TrevorJin/saint_journal"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/gpa.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saint_journal/"><img src = "https://travis-ci.org/TrevorJin/saint_journal.svg?branch=master" /></a>
+<a href="https://codeclimate.com/github/TrevorJin/saint_journal"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/TrevorJin/saint_journal/coverage"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/coverage.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saint_journal/"><img src = "https://travis-ci.org/TrevorJin/saint_journal.svg?branch=master" /></a>
 
 ## Getting started
 
