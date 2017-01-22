@@ -4,8 +4,8 @@ rvm:
   - 2.4.0
 script: 
   - bundle exec rake db:test:prepare
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake test
+  - RAILS_ENV=test rails db:migrate --trace
+  - rails test
 before_script:
   - mysql -e 'create database my_app_test'
 bundler_args: --without production
