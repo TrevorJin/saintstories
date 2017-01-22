@@ -52,7 +52,11 @@ group :test do
   gem 'minitest-reporters',       '1.1.9'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+  # Provides Travis CI with rack access.
   gem 'rack',                     '2.0.1'
+  # Travis CI Ruby Test Coverage
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 group :production do

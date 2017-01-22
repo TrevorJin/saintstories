@@ -11,3 +11,5 @@ bundler_args: --without production
 addons:
     code_climate:
         repo_token: 7f59953bf846845cf25ebbe1a514b0f8251b7889c3e1a2ea1b8e59377b3a670f
+after_success:
+  - bundle exec codeclimate-test-reporter
