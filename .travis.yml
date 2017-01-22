@@ -8,6 +8,4 @@ script:
   - bundle exec rake db:test:prepare
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake test
-before_script:
-  - sqlite -e 'create database my_app_test'
 bundler_args: --without production
