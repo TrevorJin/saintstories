@@ -1,15 +1,15 @@
-$(document).on("ready", function() {
-  mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpbnRqb3VybmFsIiwiYSI6ImNpeTJqbzZzNzAwM2QycWxhenpubDJ6eTMifQ.z-C8BCVYHRlcct2jAYk9aA';
-  var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
-    center: [12.496, 41.9028], // starting position
-    zoom: 2 // starting zoom
-  });
-  // map.featureLayer.on("ready", function(e) {
-  //   getSaints(map);
-  // });
-});
+// $(document).on("ready", function() {
+//   mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpbnRqb3VybmFsIiwiYSI6ImNpeTJqbzZzNzAwM2QycWxhenpubDJ6eTMifQ.z-C8BCVYHRlcct2jAYk9aA';
+//   var map = new mapboxgl.Map({
+//     container: 'map', // container id
+//     style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+//     center: [12.496, 41.9028], // starting position
+//     zoom: 2 // starting zoom
+//   });
+//   // map.featureLayer.on("ready", function(e) {
+//   //   getSaints(map);
+//   // });
+// });
 
 // $(document).on("ready", function() {
 //   mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpbnRqb3VybmFsIiwiYSI6ImNpeTJqbzZzNzAwM2QycWxhenpubDJ6eTMifQ.z-C8BCVYHRlcct2jAYk9aA';
@@ -21,17 +21,17 @@ $(document).on("ready", function() {
 //   });
 // });
 
-function getSaints(map) {
-  $.ajax({
-    dataType: 'text',
-    url: '/map.json',
-    success: function(data) {
-      var geojson;
-      geojson = $.parseJSON(data);
-      return map.featureLayer.setGeoJSON(geojson);
-    }
-  });
-};
+// function getSaints(map) {
+//   $.ajax({
+//     dataType: 'text',
+//     url: '/map.json',
+//     success: function(data) {
+//       var geojson;
+//       geojson = $.parseJSON(data);
+//       return map.featureLayer.setGeoJSON(geojson);
+//     }
+//   });
+// };
 
 // function getSaints(map) {
 //   var $wheel = $("#spinning-wheel")

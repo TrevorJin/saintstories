@@ -9,6 +9,7 @@ gem 'carrierwave',             '0.11.2'
 gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
 gem 'fog',                     '1.38.0'
+gem 'gmaps4rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
 # Use jquery as the JavaScript library
@@ -26,6 +27,7 @@ gem 'turbolinks',              '5.0.1'
 gem 'will_paginate',           '3.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',                '3.0.0'
+gem 'underscore-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop
