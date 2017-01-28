@@ -17,9 +17,9 @@
         <%= f.input :name %>
         <%= f.input :gender, :collection => gender_options %>
         <%= f.input :feast_day, as: :date, order: [:month, :day] %>
-        <%= f.input :birth_date, as: :date_time_picker %>
+        <%= f.input :birth_date, as: :string, label: 'Birth Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
         <%= f.input :birth_accuracy %>
-        <%= f.input :death_date, as: :date_time_picker %>
+        <%= f.input :death_date, as: :string, label: 'Death Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
         <%= f.input :death_accuracy %>
         <%= f.input :birth_location %>
         <%= f.input :birth_latitude %>
@@ -27,8 +27,8 @@
         <%= f.input :death_location %>
         <%= f.input :death_latitude %>
         <%= f.input :death_longitude %>
-        <%= f.input :beatification_date, as: :date_time_picker %>
-        <%= f.input :canonization_date, as: :date_time_picker %>
+        <%= f.input :beatification_date, as: :string, label: 'Beatification Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
+        <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
         <%= f.label "Descriptors" %>
         <%= f.input :pope %>
         <%= f.input :cardinal %>

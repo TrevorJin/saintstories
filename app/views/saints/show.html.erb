@@ -1,6 +1,6 @@
 <% provide(:title, "Saint: #{@saint.name}") %>
 <h1>
-Name: <%= @saint.name %>
+<%= @saint.name %>
 </h1>
 <table class="table table-striped table-hover">
 	<thead>
@@ -8,20 +8,74 @@ Name: <%= @saint.name %>
 	</thead>
 </table>
 <!-- /.table table-striped table-hover -->
-<h4>
-Gender: <%= @saint.gender %>
+<b>Gender:</b> <%= @saint.gender %>
 <br>
-Feast Day: <%= @saint.feast_day.to_formatted_s(:short) %>
+<b>Feast Day:</b> <%= @saint.feast_day.to_formatted_s(:short) %>
 <br>
-Birth Date: <%= @saint.birth_date.to_formatted_s(:long_ordinal) %>
+<b>Birth Date:</b> <%= @saint.birth_date.to_formatted_s(:long_ordinal) %>
 <br>
-Death Date: <%= @saint.death_date.to_formatted_s(:long_ordinal) %>
+<b>Death Date:</b> <%= @saint.death_date.to_formatted_s(:long_ordinal) %>
 <br>
-Birth Location: <%= @saint.birth_location %>
+<b>Birth Location:</b> <%= @saint.birth_location %>
 <br>
-Death Location: <%= @saint.death_location %>
+<b>Birth Coordinates:</b> <%= @saint.birth_latitude %>, <%= @saint.birth_longitude %>
 <br>
-Beatification Date: <%= @saint.beatification_date.to_formatted_s(:long_ordinal) %>
+<b>Death Location:</b> <%= @saint.death_location %>
 <br>
-Canonization Date: <%= @saint.canonization_date.to_formatted_s(:long_ordinal) %>
-</h4>
+<b>Death Coordinates:</b> <%= @saint.death_latitude %>, <%= @saint.death_longitude %>
+<br>
+<b>Beatification Date:</b> <%= @saint.beatification_date.to_formatted_s(:long_ordinal) %>
+<br>
+<b>Canonization Date:</b> <%= @saint.canonization_date.to_formatted_s(:long_ordinal) %>
+<br>
+<b>Attributes:</b>
+<br>
+<% if @saint.pope %>
+	Pope
+	<br>
+<% end %>
+<% if @saint.cardinal %>
+	Cardinal
+	<br>
+<% end %>
+<% if @saint.bishop %>
+	Bishop
+	<br>
+<% end %>
+<% if @saint.priest %>
+	Priest
+	<br>
+<% end %>
+<% if @saint.religious %>
+	Religious
+	<br>
+<% end %>
+<% if @saint.lay %>
+	Layperson
+	<br>
+<% end %>
+<% if @saint.martyr %>
+	Martyr
+	<br>
+<% end %>
+<% if @saint.founder %>
+	<% if @saint.gender == "Male" %>
+		Founder
+	<% end %>
+	<% if @saint.gender =="Female" %>
+		Foundress
+	<% end %>
+	<br>
+<% end %>
+<% if @saint.mystic %>
+	Mystic
+	<br>
+<% end %>
+<% if @saint.doctor_of_the_church %>
+	Doctor of the Church
+	<br>
+<% end %>
+<% if @saint.early_church_father %>
+	Early Church Father
+	<br>
+<% end %>
