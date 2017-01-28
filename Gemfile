@@ -9,6 +9,7 @@ gem 'carrierwave',             '0.11.2'
 gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
 gem 'fog',                     '1.38.0'
+gem 'friendly_id',             '~> 5.1.0'
 gem 'gmaps4rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'

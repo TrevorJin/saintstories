@@ -1,0 +1,23 @@
+<h4>
+  <%= saint.name %>
+</h4>
+<%= link_to "Full Information Page", saint_path(saint), target: '_blank' %>
+<br>
+<b>
+  Born:
+</b>
+<%= saint.birth_date.strftime("%B %d, %Y") %> <%= saint.birth_location %>
+<br>
+<b>
+	Died:
+</b>
+<%= saint.death_date.strftime("%B %d, %Y") %> <%= saint.death_location %>
+<br>
+<b>
+	Feast Day:
+</b>
+<%= saint.feast_day.strftime("%B %d") %>
+<% if saint.image_url.present? %>
+	<br>
+	<%= image_tag saint.image_url, style: "width: 150px" %>
+<% end %>

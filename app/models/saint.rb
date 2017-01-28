@@ -1,4 +1,7 @@
 class Saint < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
   validates :name,
     presence: { message: 'name required' },
     length: { maximum: 255, message: 'must be 255 characters or less' }

@@ -7,7 +7,11 @@ class SaintsController < ApplicationController
   end
 
   def show
-    @saint = Saint.find(params[:id])
+    @saint = Saint.friendly.find(params[:id])
+    # Redirect to the latest slug.
+    if request.path != saint_path(@saint)
+      redirect_to @saint, status: :moved_permanently
+    end
   end
 
   def new
@@ -49,31 +53,10 @@ class SaintsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
       marker.lat saint.birth_latitude
       marker.lng saint.birth_longitude
-      
-      marker.infowindow "#{saint.name}, Born: #{saint.birth_location}"
+      # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
+      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
+      marker.title "#{saint.name}"
     end
-    # @saints = Saint.all
-    # @geojson = []
-    # @saints.each do |saint|
-    #   @geojson << {
-    #     type: 'Feature',
-    #     geometry: {
-    #       type: 'Point',
-    #       coordinates: [saint.birth_longitude, saint.birth_latitude]
-    #     },
-    #     properties: {
-    #       name: saint.name,
-    #       :'marker-color' => '#00607d',
-    #       :'marker-symbol' => 'circle',
-    #       :'marker-size' => 'medium'
-    #     }
-    #   }
-    # end
-    # respond_to do |format|
-    #   format.html
-    #   # Respond with the created JSON object.
-    #   format.json { render json: @geojson }
-    # end
   end
 
   private
@@ -85,7 +68,7 @@ class SaintsController < ApplicationController
       :canonization_date, :birth_latitude, :birth_longitude,
       :death_latitude, :death_longitude, :pope, :cardinal, :bishop,
       :priest, :religious, :lay, :martyr, :founder, :mystic,
-      :doctor_of_the_church, :early_church_father)
+      :doctor_of_the_church, :early_church_father, :image_url)
   end
 
   # Before filters
