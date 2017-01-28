@@ -46,27 +46,34 @@ class SaintsController < ApplicationController
 
   def map
     @saints = Saint.all
-    @geojson = []
-    @saints.each do |saint|
-      @geojson << {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [saint.birth_longitude, saint.birth_latitude]
-        },
-        properties: {
-          name: saint.name,
-          :'marker-color' => '#00607d',
-          :'marker-symbol' => 'circle',
-          :'marker-size' => 'medium'
-        }
-      }
+    @hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
+      marker.lat saint.birth_latitude
+      marker.lng saint.birth_longitude
+      
+      marker.infowindow "#{saint.name}, Born: #{saint.birth_location}"
     end
-    respond_to do |format|
-      format.html
-      # Respond with the created JSON object.
-      format.json { render json: @geojson }
-    end
+    # @saints = Saint.all
+    # @geojson = []
+    # @saints.each do |saint|
+    #   @geojson << {
+    #     type: 'Feature',
+    #     geometry: {
+    #       type: 'Point',
+    #       coordinates: [saint.birth_longitude, saint.birth_latitude]
+    #     },
+    #     properties: {
+    #       name: saint.name,
+    #       :'marker-color' => '#00607d',
+    #       :'marker-symbol' => 'circle',
+    #       :'marker-size' => 'medium'
+    #     }
+    #   }
+    # end
+    # respond_to do |format|
+    #   format.html
+    #   # Respond with the created JSON object.
+    #   format.json { render json: @geojson }
+    # end
   end
 
   private
