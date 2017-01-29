@@ -2,10 +2,10 @@
 <h1>
 <%= @saint.name %>
 </h1>
-<div class="row">
+<div class="container-fluid">
 	<% if @saint.image_url.present? %>
 		<div class="col-md-5">
-			<%= image_tag @saint.image_url, class: "img-circle" %>
+			<%= image_tag @saint.image_url, class: "img-circle", style: "width: 250px" %>
 		</div>
 		<!-- /.col-md-5 -->
 	<% end %>
@@ -91,4 +91,4 @@
 	</div>
 	<!-- /.col-md-6 -->
 </div>
-<!-- /.row -->
+<!-- /.container-fluid -->

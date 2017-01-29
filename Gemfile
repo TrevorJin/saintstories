@@ -23,8 +23,10 @@ gem 'rails',                   '5.0.1'
 gem 'sass-rails',              '5.0.6'
 # Easy forms
 gem 'simple_form',             '3.3.1'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks',              '5.0.1'
+# Turbolinks makes following links in your web application faster.
+# Read more: https://github.com/rails/turbolinks
+# Disabled to stop javascript glitches
+# gem 'turbolinks',              '5.0.1'
 gem 'will_paginate',           '3.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',                '3.0.0'
