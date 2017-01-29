@@ -10,11 +10,11 @@
 <% if saint.birth_date.present? %>
 	<b>Born:</b>
 	<% if saint.birth_accuracy == 0 %>
-		c. <%= saint.birth_date.strftime("%Y") %>
+		c. <%= saint.birth_date.strftime("%-Y") %>
 	<% elsif saint.birth_accuracy == 1 %>
-		<%= saint.birth_date.strftime("%Y") %>
+		<%= saint.birth_date.strftime("%-Y") %>
 	<% else %>
-		<%= saint.birth_date.strftime("%B %d, %Y") %>
+		<%= saint.birth_date.strftime("%B %d, %-Y") %>
 	<% end %>
 	<br>
 <% end %>
@@ -23,11 +23,11 @@
 <% if saint.death_date.present? %>
 	<b>Died:</b>
 	<% if saint.death_accuracy == 0 %>
-		c. <%= saint.death_date.strftime("%Y") %>
+		c. <%= saint.death_date.strftime("%-Y") %>
 	<% elsif saint.death_accuracy == 1 %>
-		<%= saint.death_date.strftime("%Y") %>
+		<%= saint.death_date.strftime("%-Y") %>
 	<% else %>
-		<%= saint.death_date.strftime("%B %d, %Y") %>
+		<%= saint.death_date.strftime("%B %d, %-Y") %>
 	<% end %>
 	<br>
 <% end %>

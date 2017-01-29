@@ -19,22 +19,22 @@
 		<% if @saint.birth_date.present? %>
 			<b>Birth Date:</b>
 			<% if @saint.birth_accuracy == 0 %>
-				c. <%= @saint.birth_date.strftime("%Y") %>
+				c. <%= @saint.birth_date.strftime("%-Y") %>
 			<% elsif @saint.birth_accuracy == 1 %>
-				<%= @saint.birth_date.strftime("%Y") %>
+				<%= @saint.birth_date.strftime("%-Y") %>
 			<% else %>
-				<%= @saint.birth_date.strftime("%B %d, %Y") %>
+				<%= @saint.birth_date.strftime("%B %d, %-Y") %>
 			<% end %>
 			<br>
 		<% end %>
 		<% if @saint.death_date.present? %>
 			<b>Death Date:</b>
 			<% if @saint.death_accuracy == 0 %>
-				c. <%= @saint.death_date.strftime("%Y") %>
+				c. <%= @saint.death_date.strftime("%-Y") %>
 			<% elsif @saint.death_accuracy == 1 %>
-				<%= @saint.death_date.strftime("%Y") %>
+				<%= @saint.death_date.strftime("%-Y") %>
 			<% else %>
-				<%= @saint.death_date.strftime("%B %d, %Y") %>
+				<%= @saint.death_date.strftime("%B %d, %-Y") %>
 			<% end %>
 			<br>
 		<% end %>
@@ -45,22 +45,22 @@
 		<% if @saint.beatification_date.present? %>
 			<b>Beatification Date:</b>
 			<% if @saint.beatification_accuracy == 0 %>
-				c. <%= @saint.beatification_date.strftime("%Y") %>
+				c. <%= @saint.beatification_date.strftime("%-Y") %>
 			<% elsif @saint.beatification_accuracy == 1 %>
-				<%= @saint.beatification_date.strftime("%Y") %>
+				<%= @saint.beatification_date.strftime("%-Y") %>
 			<% else %>
-				<%= @saint.beatification_date.strftime("%B %d, %Y") %>
+				<%= @saint.beatification_date.strftime("%B %d, %-Y") %>
 			<% end %>
 			<br>
 		<% end %>
 		<% if @saint.canonization_date.present? %>
 			<b>Canonization Date:</b>
 			<% if @saint.canonization_accuracy == 0 %>
-				c. <%= @saint.canonization_date.strftime("%Y") %>
+				c. <%= @saint.canonization_date.strftime("%-Y") %>
 			<% elsif @saint.canonization_accuracy == 1 %>
-				<%= @saint.canonization_date.strftime("%Y") %>
+				<%= @saint.canonization_date.strftime("%-Y") %>
 			<% else %>
-				<%= @saint.canonization_date.strftime("%B %d, %Y") %>
+				<%= @saint.canonization_date.strftime("%B %d, %-Y") %>
 			<% end %>
 			<br>
 		<% end %>
