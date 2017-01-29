@@ -17,8 +17,6 @@ class Saint < ApplicationRecord
   validates :death_location,
     presence: { message: 'death location' },
     length: { maximum: 255, message: 'must be 255 characters or less' }
-  validates :canonization_date,
-    presence: { message: 'canonization date required' }
   validates :birth_latitude, presence: { message: 'birth latitude required' }
   validates :birth_longitude, presence: { message: 'birth longitude required' }
   validates :death_latitude, presence: { message: 'death latitude required' }

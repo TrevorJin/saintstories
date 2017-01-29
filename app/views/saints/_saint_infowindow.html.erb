@@ -7,20 +7,31 @@
 </h4>
 <%= link_to "Full Information Page", saint_path(saint), target: '_blank' %>
 <br>
-<b>
-  Born:
-</b>
-<% if saint.birth_accuracy == 0 %>
-  c. <%= saint.birth_date.strftime("%Y") %>
-<% else %>
-  <%= saint.birth_date.strftime("%B %d, %Y") %>
+<% if saint.birth_date.present? %>
+	<b>Born:</b>
+	<% if saint.birth_accuracy == 0 %>
+		c. <%= saint.birth_date.strftime("%Y") %>
+	<% elsif saint.birth_accuracy == 1 %>
+		<%= saint.birth_date.strftime("%Y") %>
+	<% else %>
+		<%= saint.birth_date.strftime("%B %d, %Y") %>
+	<% end %>
+	<br>
 <% end %>
-<%= saint.birth_location %>
+- <%= saint.birth_location %>
 <br>
-<b>
-	Died:
-</b>
-<%= saint.death_date.strftime("%B %d, %Y") %> <%= saint.death_location %>
+<% if saint.death_date.present? %>
+	<b>Died:</b>
+	<% if saint.death_accuracy == 0 %>
+		c. <%= saint.death_date.strftime("%Y") %>
+	<% elsif saint.death_accuracy == 1 %>
+		<%= saint.death_date.strftime("%Y") %>
+	<% else %>
+		<%= saint.death_date.strftime("%B %d, %Y") %>
+	<% end %>
+	<br>
+<% end %>
+- <%= saint.death_location %>
 <br>
 <b>
 	Feast Day:
