@@ -1,3 +1,7 @@
+<% if saint.image_url.present? %>
+	<br>
+	<%= image_tag saint.image_url, style: "width: 150px" %>
+<% end %>
 <h4>
   <%= saint.name %>
 </h4>
@@ -22,7 +26,3 @@
 	Feast Day:
 </b>
 <%= saint.feast_day.strftime("%B %d") %>
-<% if saint.image_url.present? %>
-	<br>
-	<%= image_tag saint.image_url, style: "width: 150px" %>
-<% end %>

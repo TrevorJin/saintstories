@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128234741) do
+ActiveRecord::Schema.define(version: 20170129212617) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -36,25 +36,28 @@ ActiveRecord::Schema.define(version: 20170128234741) do
     t.string   "death_location"
     t.datetime "beatification_date"
     t.datetime "canonization_date"
-    t.boolean  "pope",                 default: false
-    t.boolean  "cardinal",             default: false
-    t.boolean  "bishop",               default: false
-    t.boolean  "priest",               default: false
-    t.boolean  "religious",            default: false
-    t.boolean  "lay",                  default: false
-    t.boolean  "martyr",               default: false
-    t.boolean  "founder",              default: false
-    t.boolean  "mystic",               default: false
-    t.boolean  "doctor_of_the_church", default: false
-    t.boolean  "early_church_father",  default: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.boolean  "pope",                   default: false
+    t.boolean  "cardinal",               default: false
+    t.boolean  "bishop",                 default: false
+    t.boolean  "priest",                 default: false
+    t.boolean  "religious",              default: false
+    t.boolean  "lay",                    default: false
+    t.boolean  "martyr",                 default: false
+    t.boolean  "founder",                default: false
+    t.boolean  "mystic",                 default: false
+    t.boolean  "doctor_of_the_church",   default: false
+    t.boolean  "early_church_father",    default: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.float    "birth_latitude"
     t.float    "birth_longitude"
     t.float    "death_latitude"
     t.float    "death_longitude"
     t.string   "image_url"
     t.string   "slug"
+    t.integer  "beatification_accuracy"
+    t.integer  "canonization_accuracy"
+    t.boolean  "royalty",                default: false
     t.index ["slug"], name: "index_saints_on_slug", unique: true
   end
 

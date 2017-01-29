@@ -11,6 +11,7 @@ gem 'faker',                   '1.6.6'
 gem 'fog',                     '1.38.0'
 gem 'friendly_id',             '~> 5.1.0'
 gem 'gmaps4rails'
+gem 'gon'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
 # Use jquery as the JavaScript library

@@ -1,6 +1,5 @@
 class SaintsController < ApplicationController
   # before_action :logged_in_user, only: [:new, :create, :edit, :update]
-  
 
   def index
     @saints = Saint.all
@@ -50,13 +49,24 @@ class SaintsController < ApplicationController
 
   def map
     @saints = Saint.all
-    @hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
+    @birth_hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
       marker.lat saint.birth_latitude
       marker.lng saint.birth_longitude
       # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
       marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
       marker.title "#{saint.name}"
     end
+
+    @death_hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
+      marker.lat saint.death_latitude
+      marker.lng saint.death_longitude
+      # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
+      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
+      marker.title "#{saint.name}"
+    end
+
+    gon.my_hash = @birth_hash
+    gon.their_hash = @birth_hash
   end
 
   private

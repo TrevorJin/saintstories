@@ -28,7 +28,9 @@
         <%= f.input :death_latitude %>
         <%= f.input :death_longitude %>
         <%= f.input :beatification_date, as: :string, label: 'Beatification Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
+        <%= f.input :beatification_accuracy %>
         <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Strict Format YYYY-MM-DD 00:00:00 UTC' %>
+        <%= f.input :canonization_accuracy %>
         <%= f.input :image_url %>
         <%= f.label "Descriptors" %>
         <%= f.input :pope %>
