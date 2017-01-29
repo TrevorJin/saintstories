@@ -29,11 +29,11 @@ class SaintsController < ApplicationController
   end
 
   def edit
-    @saint = Saint.find(params[:id])
+    @saint = Saint.friendly.find(params[:id])
   end
 
   def update
-    @saint = Saint.find(params[:id])
+    @saint = Saint.friendly.find(params[:id])
     if @saint.update_attributes(saint_params)
       flash[:success] = 'Saint updated'
       redirect_to @saint
