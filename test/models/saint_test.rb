@@ -106,14 +106,4 @@ class SaintTest < ActiveSupport::TestCase
     @saint.death_longitude = nil
     assert_not @saint.valid?
   end
-
-  test 'beatification date should be present' do
-    @saint.beatification_date = nil
-    assert_not @saint.valid?
-  end
-
-  test 'canonization date should be present' do
-    @saint.canonization_date = nil
-    assert_not @saint.valid?
-  end
 end

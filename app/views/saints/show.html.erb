@@ -14,24 +14,29 @@
 		<br>
 		<b>Gender:</b> <%= @saint.gender %>
 		<br>
-		<b>Feast Day:</b> <%= @saint.feast_day.to_formatted_s(:short) %>
+		<b>Feast Day:</b> <%= @saint.feast_day.strftime("%B %d") %>
 		<br>
-		<b>Birth Date:</b> <%= @saint.birth_date.to_formatted_s(:long_ordinal) %>
+		<b>Birth Date:</b>
+		<% if @saint.birth_accuracy == 0 %>
+			c. <%= @saint.birth_date.strftime("%Y") %>
+		<% else %>
+		<%= @saint.birth_date.strftime("%B %d, %Y") %>
+		<% end %>
 		<br>
-		<b>Death Date:</b> <%= @saint.death_date.to_formatted_s(:long_ordinal) %>
+		<b>Death Date:</b> <%= @saint.death_date.strftime("%B %d, %Y") %>
 		<br>
 		<b>Birth Location:</b> <%= @saint.birth_location %>
 		<br>
-		<b>Birth Coordinates:</b> <%= @saint.birth_latitude %>, <%= @saint.birth_longitude %>
-		<br>
 		<b>Death Location:</b> <%= @saint.death_location %>
 		<br>
-		<b>Death Coordinates:</b> <%= @saint.death_latitude %>, <%= @saint.death_longitude %>
-		<br>
-		<b>Beatification Date:</b> <%= @saint.beatification_date.to_formatted_s(:long_ordinal) %>
-		<br>
-		<b>Canonization Date:</b> <%= @saint.canonization_date.to_formatted_s(:long_ordinal) %>
-		<br>
+		<% if @saint.beatification_date.present? %>
+			<b>Beatification Date:</b> <%= @saint.beatification_date.strftime("%B %d, %Y") %>
+			<br>
+		<% end %>
+		<% if @saint.canonization_date.present? %>
+			<b>Canonization Date:</b> <%= @saint.canonization_date.strftime("%B %d, %Y") %>
+			<br>
+		<% end %>
 		<b>Attributes:</b>
 		<br>
 		<% if @saint.pope %>
