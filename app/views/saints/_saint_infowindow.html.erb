@@ -6,7 +6,12 @@
 <b>
   Born:
 </b>
-<%= saint.birth_date.strftime("%B %d, %Y") %> <%= saint.birth_location %>
+<% if saint.birth_accuracy == 0 %>
+  c. <%= saint.birth_date.strftime("%Y") %>
+<% else %>
+  <%= saint.birth_date.strftime("%B %d, %Y") %>
+<% end %>
+<%= saint.birth_location %>
 <br>
 <b>
 	Died:
