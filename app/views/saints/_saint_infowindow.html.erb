@@ -15,10 +15,11 @@
 		<%= saint.birth_date.strftime("%-Y") %>
 	<% else %>
 		<%= saint.birth_date.strftime("%B %d, %-Y") %>
-	<% end %>
-	<br>
+	<% end %> - 
 <% end %>
-- <%= saint.birth_location %>
+<% if saint.birth_location.present? %>
+	<%= saint.birth_location %>
+<% end %>
 <br>
 <% if saint.death_date.present? %>
 	<b>Died:</b>
@@ -28,10 +29,11 @@
 		<%= saint.death_date.strftime("%-Y") %>
 	<% else %>
 		<%= saint.death_date.strftime("%B %d, %-Y") %>
-	<% end %>
-	<br>
+	<% end %> - 
 <% end %>
-- <%= saint.death_location %>
+<% if saint.death_location.present? %>
+	<%= saint.death_location %>
+<% end %>
 <br>
 <b>
 	Feast Day:

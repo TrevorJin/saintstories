@@ -38,10 +38,14 @@
 			<% end %>
 			<br>
 		<% end %>
-		<b>Birth Location:</b> <%= @saint.birth_location %>
-		<br>
-		<b>Death Location:</b> <%= @saint.death_location %>
-		<br>
+		<% if @saint.birth_location,present? %>
+			<b>Birth Location:</b> <%= @saint.birth_location %>
+			<br>
+		<% end %>
+		<% if @saint.death_location.present? %>
+			<b>Death Location:</b> <%= @saint.death_location %>
+			<br>
+		<% end %>
 		<% if @saint.beatification_date.present? %>
 			<b>Beatification Date:</b>
 			<% if @saint.beatification_accuracy == 0 %>
