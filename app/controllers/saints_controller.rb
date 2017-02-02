@@ -66,7 +66,7 @@ class SaintsController < ApplicationController
     end
 
     gon.my_hash = @birth_hash
-    gon.their_hash = @birth_hash
+    gon.their_hash = @death_hash
   end
 
   private
