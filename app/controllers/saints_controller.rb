@@ -126,7 +126,8 @@ class SaintsController < ApplicationController
       :canonization_date, :birth_latitude, :birth_longitude,
       :death_latitude, :death_longitude, :pope, :cardinal, :bishop,
       :priest, :religious, :lay, :martyr, :founder, :mystic, :royalty,
-      :doctor_of_the_church, :early_church_father, :image_url)
+      :doctor_of_the_church, :early_church_father, :image_url,
+      :beatification_accuracy, :canonization_accuracy)
   end
 
   def build_birth_markers(saints)
