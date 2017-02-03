@@ -125,7 +125,7 @@ class SaintsController < ApplicationController
       :birth_location, :death_location, :beatification_date,
       :canonization_date, :birth_latitude, :birth_longitude,
       :death_latitude, :death_longitude, :pope, :cardinal, :bishop,
-      :priest, :religious, :lay, :martyr, :founder, :mystic,
+      :priest, :religious, :lay, :martyr, :founder, :mystic, :royalty,
       :doctor_of_the_church, :early_church_father, :image_url)
   end
 
