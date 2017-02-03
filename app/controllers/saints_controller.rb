@@ -49,24 +49,72 @@ class SaintsController < ApplicationController
 
   def map
     @saints = Saint.all
-    @birth_hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
-      marker.lat saint.birth_latitude
-      marker.lng saint.birth_longitude
-      # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
-      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
-      marker.title "#{saint.name}"
-    end
+    @popes = @saints.where(pope: true)
+    @cardinals = @saints.where(cardinal: true)
+    @bishops = @saints.where(bishop: true)
+    @priests = @saints.where(priest: true)
+    @religious = @saints.where(religious: true)
+    @laypeople = @saints.where(lay: true)
+    @martyrs = @saints.where(martyr: true)
+    @founders = @saints.where(founder: true)
+    @mystics = @saints.where(mystic: true)
+    @royalty = @saints.where(royalty: true)
+    @doctors_of_the_church = @saints.where(doctor_of_the_church: true)
+    @early_church_fathers = @saints.where(early_church_father: true)
 
-    @death_hash = Gmaps4rails.build_markers(@saints) do |saint, marker|
-      marker.lat saint.death_latitude
-      marker.lng saint.death_longitude
-      # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
-      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
-      marker.title "#{saint.name}"
-    end
+    @birth_hash = build_birth_markers(@saints)
+    @death_hash = build_death_markers(@saints)
+    @pope_birth_hash = build_birth_markers(@popes)
+    @pope_death_hash = build_death_markers(@popes)
+    @cardinal_birth_hash = build_birth_markers(@cardinals)
+    @cardinal_death_hash = build_death_markers(@cardinals)
+    @bishop_birth_hash = build_birth_markers(@bishops)
+    @bishop_death_hash = build_death_markers(@bishops)
+    @priest_birth_hash = build_birth_markers(@priests)
+    @priest_death_hash = build_death_markers(@priests)
+    @religious_birth_hash = build_birth_markers(@religious)
+    @religious_death_hash = build_death_markers(@religious)
+    @layperson_birth_hash = build_birth_markers(@laypeople)
+    @layperson_death_hash = build_death_markers(@laypeople)
+    @martyr_birth_hash = build_birth_markers(@martyrs)
+    @martyr_death_hash = build_death_markers(@martyrs)
+    @founder_birth_hash = build_birth_markers(@founders)
+    @founder_death_hash = build_death_markers(@founders)
+    @mystic_birth_hash = build_birth_markers(@mystics)
+    @mystic_death_hash = build_death_markers(@mystics)
+    @royalty_birth_hash = build_birth_markers(@royalty)
+    @royalty_death_hash = build_death_markers(@royalty)
+    @doctor_of_the_church_birth_hash = build_birth_markers(@doctors_of_the_church)
+    @doctor_of_the_church_death_hash = build_death_markers(@doctors_of_the_church)
+    @early_church_father_birth_hash = build_birth_markers(@early_church_fathers)
+    @early_church_father_death_hash = build_death_markers(@early_church_fathers)
 
-    gon.my_hash = @birth_hash
-    gon.their_hash = @death_hash
+    gon.birth_hash = @birth_hash
+    gon.death_hash = @death_hash
+    gon.pope_birth_hash = @pope_birth_hash
+    gon.pope_death_hash = @pope_death_hash
+    gon.cardinal_birth_hash = @cardinal_birth_hash
+    gon.cardinal_death_hash = @cardinal_death_hash
+    gon.bishop_birth_hash = @bishop_birth_hash
+    gon.bishop_death_hash = @bishop_death_hash
+    gon.priest_birth_hash = @priest_birth_hash
+    gon.priest_death_hash = @priest_death_hash
+    gon.religious_birth_hash = @religious_birth_hash
+    gon.religious_death_hash = @religious_death_hash
+    gon.layperson_birth_hash = @layperson_birth_hash
+    gon.layperson_death_hash = @layperson_death_hash
+    gon.martyr_birth_hash = @martyr_birth_hash
+    gon.martyr_death_hash = @martyr_death_hash
+    gon.founder_birth_hash = @founder_birth_hash
+    gon.founder_death_hash = @founder_death_hash
+    gon.mystic_birth_hash = @mystic_birth_hash
+    gon.mystic_death_hash = @mystic_death_hash
+    gon.royalty_birth_hash = @royalty_birth_hash
+    gon.royalty_death_hash = @royalty_death_hash
+    gon.doctor_of_the_church_birth_hash = @doctor_of_the_church_birth_hash
+    gon.doctor_of_the_church_death_hash = @doctor_of_the_church_death_hash
+    gon.early_church_father_birth_hash = @early_church_father_birth_hash
+    gon.early_church_father_death_hash = @early_church_father_death_hash
   end
 
   private
@@ -79,6 +127,26 @@ class SaintsController < ApplicationController
       :death_latitude, :death_longitude, :pope, :cardinal, :bishop,
       :priest, :religious, :lay, :martyr, :founder, :mystic,
       :doctor_of_the_church, :early_church_father, :image_url)
+  end
+
+  def build_birth_markers(saints)
+    saints_birth_hash = Gmaps4rails.build_markers(saints) do |saint, marker|
+      marker.lat saint.birth_latitude
+      marker.lng saint.birth_longitude
+      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
+      marker.title "#{saint.name}"
+    end
+    return saints_birth_hash
+  end
+
+  def build_death_markers(saints)
+    saints_death_hash = Gmaps4rails.build_markers(saints) do |saint, marker|
+      marker.lat saint.death_latitude
+      marker.lng saint.death_longitude
+      # marker.infowindow "<h4>#{saint.name}</h4><br><b>Born:</b> #{saint.birth_date.strftime("%B %d, %Y")} #{saint.birth_location}<br> <img src='http://www.totus2us.com/typo3temp/pics/feaf790989.jpg' style='width: 50%; height: 50%' />"
+      marker.infowindow render_to_string(:partial => "/saints/saint_infowindow", :locals => { :saint => saint })
+      marker.title "#{saint.name}"
+    end
   end
 
   # Before filters

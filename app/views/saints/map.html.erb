@@ -4,18 +4,62 @@
   <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
   <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
-  <div id ="myButtons" class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active">
-      <input type="radio" name="options" id="birth_option" autocomplete="off" checked> Birth Places
+  <div class="btn-group buttons" id="saint-attributes" data-toggle="buttons">
+    <label class="btn btn-primary saint-options active">
+      <input type="radio" name="options" autocomplete="off" value="all" checked> All
     </label>
-    <label class="btn btn-primary">
-      <input type="radio" name="options" id="death_option" autocomplete="off"> Death Places
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="popes"> Popes
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="cardinals"> Cardinals
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="bishops"> Bishops
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="priests"> Priests
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="religious"> Religious
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options"  autocomplete="off" value="laypeople"> Laypeople
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="martyrs"> Martyrs
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="founders"> Founders
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="mystics"> Mystics
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="royalty"> Royalty
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="doctors_of_the_church"> Doctors of the Church
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="early_church_fathers"> Early Church Fathers
     </label>
   </div>
 
-<script>
-  $('.btn-primary').on('click', function(){
-    if ($(this).find('input').attr('id') == 'birth_option') {
+  <div class="btn-group buttons" id="birth-death" data-toggle="buttons">
+    <label class="btn btn-primary saint-options active">
+      <input type="radio" name="options" autocomplete="off" value="birth" checked> Birth Places
+    </label>
+    <label class="btn btn-primary saint-options">
+      <input type="radio" name="options" autocomplete="off" value="death"> Death Places
+    </label>
+  </div>
+
+  <button type="button" class="btn btn-success search">Search</button>
+
+  <script>
+    $(document).on("ready", function() {
+      handler = Gmaps.build('Google');
       handler.buildMap({ 
         provider: {
           center: {lat: 41.9028, lng: 12.4964},
@@ -26,31 +70,112 @@
         }
       },
       function(){
-        var markers = handler.addMarkers(gon.my_hash);
+          var markers = handler.addMarkers(gon.birth_hash);
       });
+    })
 
-      map = handler.getMap();
-    } else if ($(this).find('input').attr('id') == 'death_option') {
-      handler.buildMap({ 
-        provider: {
-          center: {lat: 41.9028, lng: 12.4964},
-          zoom: 4
-        },
-        internal: { 
-          id: 'sidebar_builder'
-        }
-      },
-      function(){
-        var markers = handler.addMarkers(gon.their_hash);
-      });
-
-      map = handler.getMap();
-    }
-  });
-</script>
+    $('.search').on('click', function(){
+      var birth_death = $('#birth-death label.active input').val()
+      var saint_attributes = $('#saint-attributes label.active input').val()
+      var birth = (birth_death == 'birth')
+      switch (saint_attributes) {
+        case 'all':
+          if (birth) {
+            createMarkers(gon.birth_hash);
+          } else {
+            createMarkers(gon.death_hash);
+          }
+          break;
+        case 'popes':
+          if (birth) {
+            createMarkers(gon.pope_birth_hash);
+          } else {
+            createMarkers(gon.pope_death_hash);
+          }
+          break;
+        case 'cardinals':
+          if (birth) {
+            createMarkers(gon.cardinal_birth_hash);
+          } else {
+            createMarkers(gon.cardinal_death_hash);
+          }
+          break;
+        case 'bishops':
+          if (birth) {
+            createMarkers(gon.bishop_birth_hash);
+          } else {
+            createMarkers(gon.bishop_death_hash);
+          }
+          break;
+        case 'priests':
+          if (birth) {
+            createMarkers(gon.priest_birth_hash);
+          } else {
+            createMarkers(gon.priest_death_hash);
+          }
+          break;
+        case 'religious':
+          if (birth) {
+            createMarkers(gon.religious_birth_hash);
+          } else {
+            createMarkers(gon.religious_death_hash);
+          }
+          break;
+        case 'laypeople':
+          if (birth) {
+            createMarkers(gon.layperson_birth_hash);
+          } else {
+            createMarkers(gon.layperson_death_hash);
+          }
+          break;
+        case 'martyrs':
+          if (birth) {
+            createMarkers(gon.martyr_birth_hash);
+          } else {
+            createMarkers(gon.martyr_death_hash);
+          }
+          break;
+        case 'founders':
+          if (birth) {
+            createMarkers(gon.founder_birth_hash);
+          } else {
+            createMarkers(gon.founder_death_hash);
+          }
+          break;
+        case 'mystics':
+          if (birth) {
+            createMarkers(gon.mystic_birth_hash);
+          } else {
+            createMarkers(gon.mystic_death_hash);
+          }
+          break;
+        case 'royalty':
+          if (birth) {
+            createMarkers(gon.royalty_birth_hash);
+          } else {
+            createMarkers(gon.royalty_death_hash);
+          }
+          break;
+        case 'doctors_of_the_church':
+          if (birth) {
+            createMarkers(gon.doctor_of_the_church_birth_hash);
+          } else {
+            createMarkers(gon.doctor_of_the_church_death_hash);
+          }
+          break;
+        case 'early_church_fathers':
+          if (birth) {
+            createMarkers(gon.early_church_father_birth_hash);
+          } else {
+            createMarkers(gon.early_church_father_death_hash);
+          }
+          break;
+      }
+    });
+  </script>
   
   <div style='width: 100%;'>
-    <div id="sidebar_builder" style='width: 100%; height: 600px;'></div>
+    <div id="sidebar_builder" style='width: 100%; height: 500px;'></div>
   </div>
 
 </div>

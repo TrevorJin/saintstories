@@ -1,23 +1,38 @@
-var handler;
-var map;
+function createMarkers(gon_hash) {
+  handler.buildMap({ 
+    provider: {
+      center: {lat: 41.9028, lng: 12.4964},
+      zoom: 4
+    },
+    internal: { 
+      id: 'sidebar_builder'
+    }
+  },
+  function(){
+    var markers = handler.addMarkers(gon_hash);
+  });
+}
 
-$(document).on("ready", function() {
-	handler = Gmaps.build('Google');
-	handler.buildMap({ 
-	  provider: {
-	    center: {lat: 41.9028, lng: 12.4964},
-	    zoom: 4
-	  },
-	  internal: { 
-	    id: 'sidebar_builder'
-	  }
-	},
-	function(){
-	  	var markers = handler.addMarkers(gon.my_hash);
-	});
+// var handler;
+// var map;
 
-	map = handler.getMap();
-})
+// $(document).on("ready", function() {
+// 	handler = Gmaps.build('Google');
+// 	handler.buildMap({ 
+// 	  provider: {
+// 	    center: {lat: 41.9028, lng: 12.4964},
+// 	    zoom: 4
+// 	  },
+// 	  internal: { 
+// 	    id: 'sidebar_builder'
+// 	  }
+// 	},
+// 	function(){
+// 	  	var markers = handler.addMarkers(gon.my_hash);
+// 	});
+
+// 	map = handler.getMap();
+// })
 
 
 
