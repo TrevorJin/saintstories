@@ -11,7 +11,9 @@ one:
   birth_location: MyString
   death_location: MyString
   beatification_date: 2017-01-16 18:06:26
+  beatification_accuracy: 3
   canonization_date: 2017-01-16 18:06:26
+  canonization_accuracy: 3
   birth_latitude: 48.8582
   birth_longitude: 2.2945
   death_latitude: 48.8582
@@ -25,6 +27,7 @@ one:
   martyr: false
   founder: false
   mystic: false
+  royalty: false
   doctor_of_the_church: false
   early_church_father: false
 
@@ -39,7 +42,9 @@ two:
   birth_location: MyString
   death_location: MyString
   beatification_date: 2017-01-16 18:06:26
+  beatification_accuracy: 3
   canonization_date: 2017-01-16 18:06:26
+  canonization_accuracy: 3
   birth_latitude: 48.8582
   birth_longitude: 2.2945
   death_latitude: 48.8582
@@ -53,5 +58,6 @@ two:
   martyr: false
   founder: false
   mystic: false
+  royalty: false
   doctor_of_the_church: false
   early_church_father: false

@@ -11,6 +11,14 @@
 	<% end %>
 	<div class="col-md-5">
 		<%= link_to "Edit Saint", edit_saint_path(@saint) %>
+		<%= form_for(@saint.active_relationships.build) do |f| %>
+  		<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
+  		<%= text_field_tag(:followed_id) %>
+  		<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+  		<%= f.submit "Create Relationship", class: "btn btn-primary" %>
+		<% end %>
+		<br>
+		<b>ID:</b> <%= @saint.id %>
 		<br>
 		<b>Gender:</b> <%= @saint.gender %>
 		<br>
@@ -122,6 +130,13 @@
 		<% if @saint.early_church_father %>
 			Early Church Father
 			<br>
+		<% end %>
+		<% if @following_saints.any? %>
+			<b>Related Saints:</b>
+				<% @following_saints.each do |saint| %>
+    			<br>
+    			<%= link_to saint.name, saint %>
+    		<% end %>
 		<% end %>
 	</div>
 	<!-- /.col-md-6 -->

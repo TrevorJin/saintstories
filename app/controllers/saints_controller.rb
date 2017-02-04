@@ -11,6 +11,8 @@ class SaintsController < ApplicationController
     if request.path != saint_path(@saint)
       redirect_to @saint, status: :moved_permanently
     end
+    @following_saints = @saint.following
+    @follower_saints = @saint.followers
   end
 
   def new

@@ -17,10 +17,13 @@ class SaintTest < ActiveSupport::TestCase
                 death_latitude: 49.1459,
                 death_longitude: 0.2278,
                 beatification_date: Date.new(1923, 04, 29),
+                beatification_accuracy: 3,
                 canonization_date: Date.new(1925, 05, 17),
+                canonization_accuracy: 3,
                 pope: false, cardinal: false, bishop: false, priest: false,
                 religious: true, lay: false, martyr: false, founder: false,
-                mystic: true, doctor_of_the_church: true, early_church_father: false)
+                mystic: true, royalty: false, doctor_of_the_church: true,
+                early_church_father: false)
   end
 
   test 'should be valid' do
@@ -45,5 +48,16 @@ class SaintTest < ActiveSupport::TestCase
   test 'feast_day should be present' do
     @saint.feast_day = nil
     assert_not @saint.valid?
+  end
+
+  test "should follow and unfollow a saint" do
+    michael = saints(:one)
+    sebastian  = saints(:two)
+    assert_not michael.following?(sebastian)
+    michael.follow(sebastian)
+    assert michael.following?(sebastian)
+    assert sebastian.followers.include?(michael)
+    michael.unfollow(sebastian)
+    assert_not michael.following?(sebastian)
   end
 end
