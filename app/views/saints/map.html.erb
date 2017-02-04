@@ -4,48 +4,6 @@
   <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
   <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
-  <div class="btn-group buttons" id="saint-attributes" data-toggle="buttons">
-    <label class="btn btn-primary saint-options active">
-      <input type="radio" name="options" autocomplete="off" value="all" checked> All
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="popes"> Popes
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="cardinals"> Cardinals
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="bishops"> Bishops
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="priests"> Priests
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="religious"> Religious
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options"  autocomplete="off" value="laypeople"> Laypeople
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="martyrs"> Martyrs
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="founders"> Founders
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="mystics"> Mystics
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="royalty"> Royalty
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="doctors_of_the_church"> Doctors of the Church
-    </label>
-    <label class="btn btn-primary saint-options">
-      <input type="radio" name="options" autocomplete="off" value="early_church_fathers"> Early Church Fathers
-    </label>
-  </div>
-
   <div class="btn-group buttons" id="birth-death" data-toggle="buttons">
     <label class="btn btn-primary saint-options active">
       <input type="radio" name="options" autocomplete="off" value="birth" checked> Birth Places
@@ -53,6 +11,68 @@
     <label class="btn btn-primary saint-options">
       <input type="radio" name="options" autocomplete="off" value="death"> Death Places
     </label>
+  </div>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Search Options
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="btn-group buttons" id="saint-attributes" data-toggle="buttons">
+            <label class="btn btn-primary saint-options active">
+              <input type="radio" name="options" autocomplete="off" value="all" checked> All
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="popes"> Popes
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="cardinals"> Cardinals
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="bishops"> Bishops
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="priests"> Priests
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="religious"> Religious
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options"  autocomplete="off" value="laypeople"> Laypeople
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="martyrs"> Martyrs
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="founders"> Founders
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="mystics"> Mystics
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="royalty"> Royalty
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="doctors_of_the_church"> Doctors of the Church
+            </label>
+            <label class="btn btn-primary saint-options">
+              <input type="radio" name="options" autocomplete="off" value="early_church_fathers"> Early Church Fathers
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <button type="button" class="btn btn-success search">Search</button>
