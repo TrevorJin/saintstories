@@ -5,6 +5,8 @@ michael:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  approved: true
+  approved_at: <%= Time.zone.now %>
 
 jeremiah:
   name: Jeremiah Stanford
@@ -12,6 +14,8 @@ jeremiah:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  approved: true
+  approved_at: <%= Time.zone.now %>
 
 alex:
   name: Alex Mafia
@@ -19,6 +23,8 @@ alex:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  approved: true
+  approved_at: <%= Time.zone.now %>
 
 jose:
   name: Jose Delgado
@@ -26,6 +32,36 @@ jose:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+
+# Regular User
+sterling:
+  name: Sterling
+  email: chocolatemilk@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  approved: true
+  approved_at: <%= Time.zone.now %>
+
+# Regular User (Not Approved Yet)
+flaky:
+  name: Flaky
+  email: flaky@snowflake.gov
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  approved: false
+  approved_at:
+
+# Regular User (Deactivated)
+crusty:
+  name: Crusty
+  email: crusty@example.gov
+  password_digest: <%= User.digest('password') %>
+  activated: false
+  activated_at:
+  approved: true
+  approved_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:

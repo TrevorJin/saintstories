@@ -1,5 +1,6 @@
 class SaintsController < ApplicationController
-  # before_action :logged_in_user, only: [:new, :create, :edit, :update]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update]
+  before_action :admin_user,     only: [:new, :create, :edit, :update]
 
   def index
     @saints = Saint.all
@@ -156,9 +157,15 @@ class SaintsController < ApplicationController
 
   # Confirms a logged-in user.
   def logged_in_user
-    return unless user_logged_in?
-    store_location
-    flash[:danger] = 'Please log in.'
-    redirect_to login_url
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in.'
+      redirect_to login_url
+    end
+  end
+
+  # Confirms an admin user.
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end

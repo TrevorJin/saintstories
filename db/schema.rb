@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204062012) do
+ActiveRecord::Schema.define(version: 20170204202708) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(version: 20170204062012) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.boolean  "approved",          default: false
+    t.datetime "approved_at"
+    t.boolean  "active",            default: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :approve_account,
+                                        :pending_users, :promote_to_admin,
+                                        :demote_to_user, :deactivate_user,
+                                        :reactivate_user, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:index, :approve_account, :pending_users,
+                                        :promote_to_admin, :demote_to_user,
+                                        :deactivate_user, :reactivate_user, :destroy]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -46,6 +51,66 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def pending_users
+    # Manager Search
+    if params[:search]
+      @pending_users = User.search(params[:search][:query], params[:page]).order(admin: :desc, name: :asc).where(approved: false)
+      if params[:search][:account_requested_after].present?
+        account_requested_after_string = params[:search][:account_requested_after].to_s
+        account_requested_after = DateTime.strptime(account_requested_after_string, '%m-%d-%Y %H:%M')
+        @pending_users = @pending_users.where("created_at >= ?", account_requested_after)
+      if params[:search][:account_requested_before].present?
+          account_requested_before_string = params[:search][:account_requested_before].to_s
+          account_requested_before = DateTime.strptime(account_requested_before_string, '%m-%d-%Y %H:%M')
+          @pending_users = @pending_users.where("created_at <= ?", account_requested_before)
+        end
+      elsif params[:search][:account_requested_before].present?
+        account_requested_before_string = params[:search][:account_requested_before].to_s
+        account_requested_before = DateTime.strptime(account_requested_before_string, '%m-%d-%Y %H:%M')
+        @pending_users = @pending_users.where("created_at <= ?", account_requested_before)
+      end
+    else
+      @pending_users = User.paginate(page: params[:page]).order(admin: :desc, name: :asc).where(approved: false)
+    end
+  end
+
+  def approve_account
+    @user = User.find(params[:id])
+    @approving_admin = current_user
+    @user.approve_user_account
+    @user.send_account_approved_email(@approving_admin)
+    flash[:success] = "#{@user.name} has been approved. They have been notified via email."
+    redirect_to pending_users_url
+  end
+
+  def deactivate_user
+    @user = User.find(params[:id])
+    @user.deactivate_user
+    flash[:success] = "#{@user.name}'s account has been deactivated."
+    redirect_to user_url(@user)
+  end
+
+  def reactivate_user
+    @user = User.find(params[:id])
+    @user.reactivate_user
+    flash[:success] = "#{@user.name}'s account has been reactivated."
+    redirect_to user_url(@user)
+  end
+
+  def promote_to_admin
+    @user = User.find(params[:id])
+    @user.change_to_admin
+    flash[:success] = "#{@user.name} has been promoted to an admin."
+    redirect_to user_url(@user)
+  end
+
+  def demote_to_user
+    @user = User.find(params[:id])
+    @user.change_to_user
+    flash[:success] = "#{@user.name} has been demoted to a user."
+    redirect_to user_url(@user)
+  end
+
   private
 
   def user_params
@@ -57,10 +122,11 @@ class UsersController < ApplicationController
 
   # Confirms a logged-in user.
   def logged_in_user
-    return unless !logged_in?
-    store_location
-    flash[:danger] = 'Please log in.'
-    redirect_to login_url
+    unless logged_in?
+      store_location
+      flash[:danger] = 'Please log in.'
+      redirect_to login_url
+    end
   end
 
   # Confirms the correct user.

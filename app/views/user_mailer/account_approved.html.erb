@@ -1,20 +1,9 @@
-<h1>Saint Journal</h1>
-
-<p>Hi <%= @user.name %>,</p>
-
-<p>
-Welcome to the Saint Journal! Click on the link below to activate your account:
-</p>
-
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Account Activation with the Saint Journal</title>
+    <title>You have been approved as a user with The Saint Journal</title>
     <style type="text/css">
     /* -------------------------------------
         RESPONSIVE AND MOBILE FRIENDLY STYLES
@@ -93,9 +82,7 @@ Welcome to the Saint Journal! Click on the link below to activate your account:
                     <tr>
                       <td style="font-family:sans-serif;font-size:14px;vertical-align:top;">
                         <p style="font-family:sans-serif;font-size:14px;font-weight:normal;margin:0;Margin-bottom:15px;">Hi <%= @user.name %>,</p>
-                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;margin:0;Margin-bottom:15px;">Welcome to the Saint Journal! Click on the link below to activate your account:</p>
-                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;margin:0;Margin-bottom:15px;"><%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %></p>
+                        <p style="font-family:sans-serif;font-size:14px;font-weight:normal;margin:0;Margin-bottom:15px;">Your account request with the Saint Journal has been approved by <%= @admin.name %>. You will now be able to login.</p>
                       </td>
                     </tr>
                   </table>

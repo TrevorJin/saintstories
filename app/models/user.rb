@@ -12,6 +12,12 @@ class User < ApplicationRecord
                        length: { minimum: 6 },
                        allow_nil: true
 
+  def self.search(search, page)
+    order(admin: :desc, name: :asc).where("cast(id as text) LIKE ? OR name LIKE ? OR
+                                           email LIKE ?", "%#{search}%", "%#{search}%",
+                                           "%#{search}%").paginate(page: page, per_page: 20)
+  end
+
   # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -68,6 +74,37 @@ class User < ApplicationRecord
   # Returns true if a password reset has expired.
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # Sends account approved email.
+  def send_account_approved_email(approving_admin)
+    UserMailer.account_approved(self, approving_admin).deliver_now
+  end
+
+  # Approve user's account
+  def approve_user_account
+    update_attribute(:approved, true)
+    update_attribute(:approved_at, Time.zone.now)
+  end
+
+  # Deactivate user's account
+  def deactivate_user
+    update_attribute(:active, false)
+  end
+
+  # Reactivate user's account
+  def reactivate_user
+    update_attribute(:active, true)
+  end
+
+  # Change to admin.
+  def change_to_admin
+    update_attribute(:admin,    true)
+  end
+
+  # Change to user
+  def change_to_user
+    update_attribute(:admin,    false)
   end
 
   private
