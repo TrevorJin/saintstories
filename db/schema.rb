@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204202708) do
+ActiveRecord::Schema.define(version: 20170215190932) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20170204202708) do
     t.datetime "approved_at"
     t.boolean  "active",            default: true
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "written_works", force: :cascade do |t|
+    t.string   "title"
+    t.date     "publication_date"
+    t.string   "description"
+    t.integer  "saint_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "publication_accuracy"
+    t.index ["saint_id", "created_at"], name: "index_written_works_on_saint_id_and_created_at"
+    t.index ["saint_id"], name: "index_written_works_on_saint_id"
   end
 
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'written_works/new'
+
   get 'saints/new'
 
   get 'password_resets/new'
@@ -37,4 +39,5 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
+  resources :written_works
 end

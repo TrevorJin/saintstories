@@ -141,6 +141,39 @@
   			<%= f.submit "Create Relationship", class: "btn btn-primary" %>
 			<% end %>
 			<br>
+		<% end %>
+		<% if @written_works.any? %>
+			<b>Written Works</b>
+			<% @written_works.each do |written_work| %>
+				<br>
+				<%= written_work.title %> - 
+				<% if written_work.publication_accuracy == 0 %>
+					<%= written_work.publication_date.strftime("%-Y") %>
+				<% elsif written_work.publication_accuracy == 1 %>
+					<%= written_work.publication_date.strftime("%-Y") %>
+				<% else %>
+					<%= written_work.publication_date.strftime("%B %d, %-Y") %>
+				<% end %>
+				<% if logged_in? && current_user.admin? %>
+    			<%= link_to "delete", written_work, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if logged_in? && current_user.admin? %>
+			<%= form_for(@saint.written_works.build) do |f| %>
+  			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+  			<%= label_tag(:title, "Write the title of the written work:") %>
+  			<%= text_field_tag(:title) %>
+  			<%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
+  			<%= text_field_tag(:publication_date) %>
+  			<%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
+  			<%= text_field_tag(:publication_accuracy) %>
+  			<%= label_tag(:description, "Create optional description") %>
+  			<%= text_area_tag(:description) %>
+  			<%= f.submit "Create Written Work", class: "btn btn-primary" %>
+			<% end %>
+			<br>
 			<%= link_to "Edit Saint", edit_saint_path(@saint) %>
 		<% end %>
 	</div>

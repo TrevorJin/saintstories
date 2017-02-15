@@ -14,6 +14,7 @@ class SaintsController < ApplicationController
     end
     @following_saints = @saint.following
     @follower_saints = @saint.followers
+    @written_works = @saint.written_works.order(publication_date: :asc)
   end
 
   def new

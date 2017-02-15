@@ -60,4 +60,13 @@ class SaintTest < ActiveSupport::TestCase
     michael.unfollow(sebastian)
     assert_not michael.following?(sebastian)
   end
+
+  test "associated written works should be destroyed" do
+    @saint.save
+    @saint.written_works.create!(title: "Lorem ipsum", publication_date: Date.parse('May 3rd 2017'),
+                                 publication_accuracy: 3, description: "Lorem ipsum fun.")
+    assert_difference 'WrittenWork.count', -1 do
+      @saint.destroy
+    end
+  end
 end

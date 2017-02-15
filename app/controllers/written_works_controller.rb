@@ -1,18 +1,19 @@
-class RelationshipsController < ApplicationController
+class WrittenWorksController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
   before_action :admin_user,     only: [:create, :destroy]
 
-  def create
-    other_saint = Saint.find(params[:followed_id])
+	def create
     current_saint = Saint.find(params[:current_saint_id])
-    current_saint.follow(other_saint)
-    redirect_to other_saint
+    current_saint.written_works.create(title: params[:title], publication_date: params[:publication_date],
+    																	 publication_accuracy: params[:publication_accuracy],
+    																	 description: params[:description])
+    redirect_to current_saint
   end
 
   def destroy
-    saint = Relationship.find(params[:id]).followed
-    # current_user.unfollow(saint)
-    redirect_to saint
+  	WrittenWork.find(params[:id]).destroy
+    flash[:success] = "Written work deleted"
+    redirect_to saints_url
   end
 
   private
