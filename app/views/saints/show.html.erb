@@ -1,182 +1,85 @@
-<% provide(:title, "#{@saint.name}") %>
-<h1>
-<%= @saint.name %>
-</h1>
-<div class="container-fluid">
-	<% if @saint.image_url.present? %>
-		<div class="col-md-5">
-			<%= image_tag @saint.image_url, class: "img-circle", style: "width: 250px" %>
+<% set_meta_tags title: @saint.name,
+                 description: @saint.short_description,
+                 keywords: @saint.name %>
+<div class ="container-fluid">
+	<div class="row">
+		<div class="col-md-12 column">
+			<div class="tabbable" id="tabs-444468">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#panel-200304" data-toggle="tab">General</a>
+					</li>
+					<% if @saint.timeline_events.any? %>
+						<li>
+							<a href="#panel-567649" data-toggle="tab">Life Timeline</a>
+						</li>
+					<% end %>
+					<li>
+						<a href="#panel-987654" data-toggle="tab">Related Saints</a>
+					</li>
+					<% if @saint.written_works.any? %>
+						<li>
+							<a href="#panel-123456" data-toggle="tab">Written Works</a>
+						</li>
+					<% end %>
+				</ul>
+				<!-- /.nav nav-tabs -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-200304">
+						<div class="row" style="margin-left: 0; margin-right: 0;">
+            	<div class="col-md-8 column saint-info">
+            		<h1>
+									<%= title @saint.name %>
+								</h1>
+								<% if @saint.long_description.present? %>
+									<%= @saint.long_description.html_safe %>
+								<% end %>
+            	</div>
+            	<!-- /.col-md-8 column -->
+            	<div class="col-md-3 column">
+            		<% if !@saint.avatar.blank? %>
+            			<% if @saint.avatar_alternative_text.blank? %>
+            				<%= image_tag @saint.avatar.url, class: "img-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
+            			<% else %>
+            				<%= image_tag @saint.avatar.url, class: "img-circle saint-image" %>
+            			<% end %>
+            		<% end %>            		
+            		<%= render 'saints/info_sidebar' %>
+            	</div>
+            	<!-- /.col-md-3 column -->
+            </div>
+            <!-- /.row -->
+            <%= render 'saints/admin_saint_controls' %>
+					</div>
+					<!-- /.tab-pane active -->
+					<% if @saint.timeline_events.any? %>
+						<div class="tab-pane" id="panel-567649">
+    					<div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0;">
+    						<%= render 'saints/saint_timeline' %>
+    					</div>
+    					<!-- /.row -->
+						</div>
+						<!-- /.tab-pane -->
+					<% end %>
+					<% if @saint.written_works.any? %>
+						<div class="tab-pane" id="panel-123456">
+    					<div class="row" style="margin-left: 0; margin-right: 0;">
+        				<div class="section section-dark text-center landing-section" style="margin-left: 0; margin-right: 0;">
+									<%= render 'saints/saint_written_works' %>
+								</div>
+								<!-- /.section section-dark text-center landing-section -->
+    					</div>
+    					<!-- /.row -->
+						</div>
+						<!-- /.tab-pane -->
+					<% end %>
+				</div>
+				<!-- /.tab-content -->
+			</div>
+			<!-- /.tabbable -->
 		</div>
-		<!-- /.col-md-5 -->
-	<% end %>
-	<div class="col-md-5">
-    <% if logged_in? && current_user.admin? %>
-			<b>ID:</b> <%= @saint.id %>
-		<% end %>
-		<br>
-		<b>Gender:</b> <%= @saint.gender %>
-		<br>
-		<b>Feast Day:</b> <%= @saint.feast_day.strftime("%B %d") %>
-		<br>
-		<% if @saint.birth_date.present? %>
-			<b>Birth Date:</b>
-			<% if @saint.birth_accuracy == 0 %>
-				c. <%= @saint.birth_date.strftime("%-Y") %>
-			<% elsif @saint.birth_accuracy == 1 %>
-				<%= @saint.birth_date.strftime("%-Y") %>
-			<% else %>
-				<%= @saint.birth_date.strftime("%B %d, %-Y") %>
-			<% end %>
-			<br>
-		<% end %>
-		<% if @saint.death_date.present? %>
-			<b>Death Date:</b>
-			<% if @saint.death_accuracy == 0 %>
-				c. <%= @saint.death_date.strftime("%-Y") %>
-			<% elsif @saint.death_accuracy == 1 %>
-				<%= @saint.death_date.strftime("%-Y") %>
-			<% else %>
-				<%= @saint.death_date.strftime("%B %d, %-Y") %>
-			<% end %>
-			<br>
-		<% end %>
-		<% if @saint.birth_location.present? %>
-			<b>Birth Location:</b> <%= @saint.birth_location %>
-			<br>
-		<% end %>
-		<% if @saint.death_location.present? %>
-			<b>Death Location:</b> <%= @saint.death_location %>
-			<br>
-		<% end %>
-		<% if @saint.beatification_date.present? %>
-			<b>Beatification Date:</b>
-			<% if @saint.beatification_accuracy == 0 %>
-				c. <%= @saint.beatification_date.strftime("%-Y") %>
-			<% elsif @saint.beatification_accuracy == 1 %>
-				<%= @saint.beatification_date.strftime("%-Y") %>
-			<% else %>
-				<%= @saint.beatification_date.strftime("%B %d, %-Y") %>
-			<% end %>
-			<br>
-		<% end %>
-		<% if @saint.canonization_date.present? %>
-			<b>Canonization Date:</b>
-			<% if @saint.canonization_accuracy == 0 %>
-				c. <%= @saint.canonization_date.strftime("%-Y") %>
-			<% elsif @saint.canonization_accuracy == 1 %>
-				<%= @saint.canonization_date.strftime("%-Y") %>
-			<% else %>
-				<%= @saint.canonization_date.strftime("%B %d, %-Y") %>
-			<% end %>
-			<br>
-		<% end %>
-		<b>Attributes:</b>
-		<br>
-		<% if @saint.pope %>
-			Pope
-			<br>
-		<% end %>
-		<% if @saint.cardinal %>
-			Cardinal
-			<br>
-		<% end %>
-		<% if @saint.bishop %>
-			Bishop
-			<br>
-		<% end %>
-		<% if @saint.priest %>
-			Priest
-			<br>
-		<% end %>
-		<% if @saint.religious %>
-			Religious
-			<br>
-		<% end %>
-		<% if @saint.lay %>
-			Layperson
-			<br>
-		<% end %>
-		<% if @saint.martyr %>
-			Martyr
-			<br>
-		<% end %>
-		<% if @saint.founder %>
-			<% if @saint.gender == "Male" %>
-				Founder
-			<% end %>
-			<% if @saint.gender =="Female" %>
-				Foundress
-			<% end %>
-			<br>
-		<% end %>
-		<% if @saint.mystic %>
-			Mystic
-			<br>
-		<% end %>
-		<% if @saint.royalty %>
-			Royalty
-			<br>
-		<% end %>
-		<% if @saint.doctor_of_the_church %>
-			Doctor of the Church
-			<br>
-		<% end %>
-		<% if @saint.early_church_father %>
-			Early Church Father
-			<br>
-		<% end %>
-		<% if @following_saints.any? %>
-			<b>Related Saints:</b>
-				<% @following_saints.each do |saint| %>
-    			<br>
-    			<%= link_to saint.name, saint %>
-    		<% end %>
-    	<br>
-		<% end %>
-		<% if logged_in? && current_user.admin? %>
-			<%= form_for(@saint.active_relationships.build) do |f| %>
-  			<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
-  			<%= text_field_tag(:followed_id) %>
-  			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-  			<%= f.submit "Create Relationship", class: "btn btn-primary" %>
-			<% end %>
-			<br>
-		<% end %>
-		<% if @written_works.any? %>
-			<b>Written Works</b>
-			<% @written_works.each do |written_work| %>
-				<br>
-				<%= written_work.title %> - 
-				<% if written_work.publication_accuracy == 0 %>
-					<%= written_work.publication_date.strftime("%-Y") %>
-				<% elsif written_work.publication_accuracy == 1 %>
-					<%= written_work.publication_date.strftime("%-Y") %>
-				<% else %>
-					<%= written_work.publication_date.strftime("%B %d, %-Y") %>
-				<% end %>
-				<% if logged_in? && current_user.admin? %>
-    			<%= link_to "delete", written_work, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-				<% end %>
-			<% end %>
-		<% end %>
-		<% if logged_in? && current_user.admin? %>
-			<%= form_for(@saint.written_works.build) do |f| %>
-  			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-  			<%= label_tag(:title, "Write the title of the written work:") %>
-  			<%= text_field_tag(:title) %>
-  			<%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
-  			<%= text_field_tag(:publication_date) %>
-  			<%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
-  			<%= text_field_tag(:publication_accuracy) %>
-  			<%= label_tag(:description, "Create optional description") %>
-  			<%= text_area_tag(:description) %>
-  			<%= f.submit "Create Written Work", class: "btn btn-primary" %>
-			<% end %>
-			<br>
-			<%= link_to "Edit Saint", edit_saint_path(@saint) %>
-		<% end %>
+		<!-- /.col-md-12 column -->
 	</div>
-	<!-- /.col-md-6 -->
+	<!-- /.row -->
 </div>
 <!-- /.container-fluid -->

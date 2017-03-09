@@ -8,14 +8,18 @@ gem 'carrierwave',             '0.11.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
+gem 'figaro'
 gem 'fog',                     '1.38.0'
 gem 'friendly_id',             '~> 5.1.0'
 gem 'gmaps4rails'
 gem 'gon'
+gem 'hover-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails',            '4.1.1'
+gem 'jquery-slick-rails'
+gem 'meta-tags'
 gem 'mini_magick',             '4.5.1'
 gem 'puma',                    '3.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

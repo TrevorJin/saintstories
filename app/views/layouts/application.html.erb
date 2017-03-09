@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <%= display_meta_tags site: 'Saint Journal' %>
     <%= include_gon %>
     <%= render 'layouts/rails_default' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= render 'layouts/shim' %>
+    <%= display_meta_tags site: 'Saint Journal' %>
   </head>
   <body>
     <%= render 'layouts/header' %>

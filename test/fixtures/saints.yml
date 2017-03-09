@@ -18,6 +18,8 @@ one:
   birth_longitude: 2.2945
   death_latitude: 48.8582
   death_longitude: 2.2945
+  short_description: Cool
+  long_description: Really cool
   pope: false
   cardinal: false
   bishop: false
@@ -49,6 +51,8 @@ two:
   birth_longitude: 2.2945
   death_latitude: 48.8582
   death_longitude: 2.2945
+  short_description: Cool
+  long_description: Really cool
   pope: false
   cardinal: false
   bishop: false

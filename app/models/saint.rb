@@ -1,4 +1,5 @@
 class Saint < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 
@@ -11,12 +12,15 @@ class Saint < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :written_works, dependent: :destroy
+  has_many :timeline_events, dependent: :destroy
 
   validates :name,
     presence: { message: 'name required' },
     length: { maximum: 255, message: 'must be 255 characters or less' }
   validates :gender, presence: { message: 'gender required' }
   validates :feast_day, presence: { message: 'feast day required' }
+  validates :short_description, presence: { message: 'short description required' }
+  validates :long_description, presence: { message: 'long description required' }
 
   # Follows a saint.
   def follow(other_saint)

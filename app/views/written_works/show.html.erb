@@ -1,0 +1,27 @@
+<p>
+  <strong>Saint:</strong>
+  <%= link_to @written_work.saint.name, @written_work.saint %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @written_work.title %>
+</p>
+
+<p>
+  <strong>Publication Date:</strong>
+  <%= @written_work.publication_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @written_work.description %>
+</p>
+
+<p>
+  <strong>Publication Accuracy:</strong>
+  <%= @written_work.publication_accuracy %>
+</p>
+
+<%= link_to 'Edit', edit_written_work_path(@written_work) %> |
+<%= link_to 'Back', written_works_path %>

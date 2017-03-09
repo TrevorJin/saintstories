@@ -1,6 +1,9 @@
-<% if saint.image_url.present? %>
-	<br>
-	<%= image_tag saint.image_url, style: "width: 150px" %>
+<% if !saint.avatar.blank? %>
+	<% if saint.avatar_alternative_text.blank? %>
+		<%= image_tag saint.avatar.map_thumb.url, class: "img-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
+ 	<% else %>
+  	<%= image_tag saint.avatar.map_thumb.url, class: "img-circle saint-image" %>
+ 	<% end %>
 <% end %>
 <h4>
   <%= saint.name %>

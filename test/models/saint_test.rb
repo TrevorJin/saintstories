@@ -20,6 +20,8 @@ class SaintTest < ActiveSupport::TestCase
                 beatification_accuracy: 3,
                 canonization_date: Date.new(1925, 05, 17),
                 canonization_accuracy: 3,
+                short_description: 'Hi',
+                long_description: 'Hello',
                 pope: false, cardinal: false, bishop: false, priest: false,
                 religious: true, lay: false, martyr: false, founder: false,
                 mystic: true, royalty: false, doctor_of_the_church: true,
@@ -45,8 +47,18 @@ class SaintTest < ActiveSupport::TestCase
     assert_not @saint.valid?
   end
 
-  test 'feast_day should be present' do
+  test 'feast day should be present' do
     @saint.feast_day = nil
+    assert_not @saint.valid?
+  end
+
+  test 'short description should be present' do
+    @saint.short_description = nil
+    assert_not @saint.valid?
+  end
+
+  test 'long description should be present' do
+    @saint.long_description = nil
     assert_not @saint.valid?
   end
 

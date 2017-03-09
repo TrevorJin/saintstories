@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :timeline_events
   get 'written_works/new'
 
   get 'saints/new'

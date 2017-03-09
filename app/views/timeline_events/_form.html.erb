@@ -1,0 +1,18 @@
+<%= simple_form_for(@timeline_event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :event_priority %>
+    <%= f.input :event_title %>
+    <%= f.input :event_time %>
+    <%= f.input :image %>
+    <%= f.input :image_caption %>
+    <%= f.input :image_description %>
+    <%= f.input :image_alternative_text %>
+    <%= f.input :event_description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

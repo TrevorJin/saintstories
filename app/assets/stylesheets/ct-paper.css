@@ -1,0 +1,37 @@
+.section {
+    padding: 0;
+    position: relative;
+    background-color: #f4f3ef;
+    background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
+}
+
+.section-dark {
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+ background-blend-mode: multiply;
+    color: #FFFFFF;
+}
+
+.landing-section {
+    padding: 25px 0;
+}
+
+.paper-small {
+    color: #9A9A9A;
+    font-weight: 300;
+    line-height: 1.4em;
+}
+
+.text-muted {
+    color: #DDDDDD;
+}
+
+h5 small {
+    color: #9A9A9A;
+    font-weight: 300;
+    line-height: 1.4em;
+}
+
+.written-work-description {
+	text-align: left;
+    padding: 20px;
+}

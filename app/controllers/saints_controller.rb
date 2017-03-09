@@ -15,6 +15,7 @@ class SaintsController < ApplicationController
     @following_saints = @saint.following
     @follower_saints = @saint.followers
     @written_works = @saint.written_works.order(publication_date: :asc)
+    @timeline_events = @saint.timeline_events.order(event_priority: :asc)
   end
 
   def new
@@ -130,8 +131,10 @@ class SaintsController < ApplicationController
       :canonization_date, :birth_latitude, :birth_longitude,
       :death_latitude, :death_longitude, :pope, :cardinal, :bishop,
       :priest, :religious, :lay, :martyr, :founder, :mystic, :royalty,
-      :doctor_of_the_church, :early_church_father, :image_url,
-      :beatification_accuracy, :canonization_accuracy)
+      :doctor_of_the_church, :early_church_father, :avatar,
+      :avatar_caption, :avatar_description, :avatar_alternative_text,
+      :beatification_accuracy, :canonization_accuracy,
+      :short_description, :long_description)
   end
 
   def build_birth_markers(saints)

@@ -31,7 +31,12 @@
         <%= f.input :beatification_accuracy, label: 'Beatification Accuracy: 0-3' %>
         <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Strict Format YYYY-MM-DD' %>
         <%= f.input :canonization_accuracy, label: 'Canonization Accuracy: 0-3' %>
-        <%= f.input :image_url %>
+        <%= f.file_field :avatar %>
+        <%= f.input :avatar_caption %>
+        <%= f.input :avatar_description %>
+        <%= f.input :avatar_alternative_text %>
+        <%= f.input :short_description %>
+        <%= f.input :long_description %>
         <%= f.label "Descriptors" %>
         <%= f.input :pope %>
         <%= f.input :cardinal %>

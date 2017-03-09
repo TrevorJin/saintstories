@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215190932) do
+ActiveRecord::Schema.define(version: 20170309040914) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -47,29 +47,50 @@ ActiveRecord::Schema.define(version: 20170215190932) do
     t.string   "death_location"
     t.datetime "beatification_date"
     t.datetime "canonization_date"
-    t.boolean  "pope",                   default: false
-    t.boolean  "cardinal",               default: false
-    t.boolean  "bishop",                 default: false
-    t.boolean  "priest",                 default: false
-    t.boolean  "religious",              default: false
-    t.boolean  "lay",                    default: false
-    t.boolean  "martyr",                 default: false
-    t.boolean  "founder",                default: false
-    t.boolean  "mystic",                 default: false
-    t.boolean  "doctor_of_the_church",   default: false
-    t.boolean  "early_church_father",    default: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.boolean  "pope",                    default: false
+    t.boolean  "cardinal",                default: false
+    t.boolean  "bishop",                  default: false
+    t.boolean  "priest",                  default: false
+    t.boolean  "religious",               default: false
+    t.boolean  "lay",                     default: false
+    t.boolean  "martyr",                  default: false
+    t.boolean  "founder",                 default: false
+    t.boolean  "mystic",                  default: false
+    t.boolean  "doctor_of_the_church",    default: false
+    t.boolean  "early_church_father",     default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.float    "birth_latitude"
     t.float    "birth_longitude"
     t.float    "death_latitude"
     t.float    "death_longitude"
-    t.string   "image_url"
     t.string   "slug"
     t.integer  "beatification_accuracy"
     t.integer  "canonization_accuracy"
-    t.boolean  "royalty",                default: false
+    t.boolean  "royalty",                 default: false
+    t.text     "short_description"
+    t.text     "long_description"
+    t.string   "avatar"
+    t.string   "avatar_caption"
+    t.string   "avatar_description"
+    t.string   "avatar_alternative_text"
     t.index ["slug"], name: "index_saints_on_slug", unique: true
+  end
+
+  create_table "timeline_events", force: :cascade do |t|
+    t.string   "image"
+    t.string   "image_caption"
+    t.string   "image_description"
+    t.string   "image_alternative_text"
+    t.text     "event_description"
+    t.integer  "saint_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "event_priority"
+    t.string   "event_title"
+    t.string   "event_time"
+    t.index ["saint_id", "created_at"], name: "index_timeline_events_on_saint_id_and_created_at"
+    t.index ["saint_id"], name: "index_timeline_events_on_saint_id"
   end
 
   create_table "users", force: :cascade do |t|
