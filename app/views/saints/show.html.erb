@@ -38,7 +38,7 @@
             	<!-- /.col-md-8 column -->
             	<div class="col-md-3 column">
             		<% if !@saint.avatar.blank? %>
-            			<% if @saint.avatar_alternative_text.blank? %>
+            			<% if @saint.avatar_alternative_text? %>
             				<%= image_tag @saint.avatar.url, class: "img-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
             			<% else %>
             				<%= image_tag @saint.avatar.url, class: "img-circle saint-image" %>
