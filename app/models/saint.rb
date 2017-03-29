@@ -13,6 +13,7 @@ class Saint < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :written_works, dependent: :destroy
   has_many :timeline_events, dependent: :destroy
+  has_many :saint_photos, dependent: :destroy
 
   validates :name,
     presence: { message: 'name required' },

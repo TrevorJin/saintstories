@@ -11,11 +11,12 @@ class SaintsController < ApplicationController
     # Redirect to the latest slug.
     if request.path != saint_path(@saint)
       redirect_to @saint, status: :moved_permanently
-    end
+  end
     @following_saints = @saint.following
     @follower_saints = @saint.followers
     @written_works = @saint.written_works.order(publication_date: :asc)
     @timeline_events = @saint.timeline_events.order(event_priority: :asc)
+    @saint_photos = @saint.saint_photos.order(photo_priority: :asc)
   end
 
   def new

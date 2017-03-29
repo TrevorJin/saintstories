@@ -22,6 +22,11 @@
 							<a href="#panel-123456" data-toggle="tab">Written Works</a>
 						</li>
 					<% end %>
+					<% if @saint.saint_photos.any? %>
+						<li>
+							<a href="#panel-777777" data-toggle="tab">Photos</a>
+						</li>
+					<% end %>
 				</ul>
 				<!-- /.nav nav-tabs -->
 				<div class="tab-content">
@@ -49,7 +54,9 @@
             	<!-- /.col-md-3 column -->
             </div>
             <!-- /.row -->
-            <%= render 'saints/admin_saint_controls' %>
+            <% if logged_in? && current_user.admin? %>
+            	<%= render 'saints/admin_saint_controls' %>
+            <% end %>
 					</div>
 					<!-- /.tab-pane active -->
 					<% if @saint.timeline_events.any? %>
@@ -68,6 +75,15 @@
 									<%= render 'saints/saint_written_works' %>
 								</div>
 								<!-- /.section section-dark text-center landing-section -->
+    					</div>
+    					<!-- /.row -->
+						</div>
+						<!-- /.tab-pane -->
+					<% end %>
+					<% if @saint.saint_photos.any? %>
+						<div class="tab-pane" id="panel-777777">
+    					<div class="row" style="margin-left: 0; margin-right: 0;">
+								<%= render 'saints/saint_photo_page' %>
     					</div>
     					<!-- /.row -->
 						</div>

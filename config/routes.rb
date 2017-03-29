@@ -41,4 +41,5 @@ Rails.application.routes.draw do
   end
   resources :relationships,       only: [:create, :destroy]
   resources :written_works
+  resources :saint_photos
 end

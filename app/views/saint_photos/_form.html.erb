@@ -1,0 +1,17 @@
+<%= simple_form_for(@saint_photo) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :photo %>
+    <%= f.input :photo_priority %>
+    <%= f.input :photo_caption %>
+    <%= f.input :photo_description %>
+    <%= f.input :photo_alternative_text %>
+    <%= f.input :width %>
+    <%= f.input :height %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

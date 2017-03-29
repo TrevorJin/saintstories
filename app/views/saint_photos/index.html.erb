@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Saint Photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Photo priority</th>
+      <th>Photo caption</th>
+      <th>Photo description</th>
+      <th>Photo alternative text</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @saint_photos.each do |saint_photo| %>
+      <tr>
+        <td><%= saint_photo.photo %></td>
+        <td><%= saint_photo.photo_priority %></td>
+        <td><%= saint_photo.photo_caption %></td>
+        <td><%= saint_photo.photo_description %></td>
+        <td><%= saint_photo.photo_alternative_text %></td>
+        <td><%= saint_photo.width %></td>
+        <td><%= saint_photo.height %></td>
+        <td><%= link_to 'Show', saint_photo %></td>
+        <td><%= link_to 'Edit', edit_saint_photo_path(saint_photo) %></td>
+        <td><%= link_to 'Destroy', saint_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Saint Photo', new_saint_photo_path %>

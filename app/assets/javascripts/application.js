@@ -16,4 +16,5 @@
 //= require underscore
 //= require gmaps/google
 //= require jquery.slick
+//= require photoswipe
 //= require_tree .

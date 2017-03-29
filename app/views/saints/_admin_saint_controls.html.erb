@@ -1,24 +1,96 @@
 <div class="container-fluid">
 	<div class="col-md-5">
-		<%= link_to "Edit Saint", edit_saint_path(@saint) %>
+		<h1>
+			<%= link_to "Edit Saint", edit_saint_path(@saint) %>
+		</h1>
 		<br>
-		<% if @following_saints.any? %>
-			<b>Related Saints:</b>
-				<% @following_saints.each do |saint| %>
-    			<br>
-    			<%= link_to saint.name, saint %>
-    		<% end %>
-    	<br>
+		<h2>Create Timeline Event</h2>
+		<%= form_for(@saint.timeline_events.build) do |f| %>
+			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+			<%= label_tag(:event_priority, "Event Priority Level (Required)") %>
+			<%= text_field_tag(:event_priority) %>
+			<%= label_tag(:event_title, "Event Title (Required)") %>
+			<%= text_field_tag(:event_title) %>
+			<%= label_tag(:event_time, "Event Time (Required)") %>
+			<%= text_field_tag(:event_time) %>
+			<%= label_tag(:event_description, "Write the event's description") %>
+			<%= text_field_tag(:event_description) %>
+			<%= label_tag(:image, "Upload Image") %>
+			<%= f.file_field :image %>
+			<%= label_tag(:image_caption, "Write an Image Caption") %>
+			<%= text_field_tag(:image_caption) %>
+			<%= label_tag(:image_description, "Write an Image Description") %>
+			<%= text_field_tag(:image_description) %>
+			<%= label_tag(:image_alternative_text, "Write the alternative text for the image") %>
+			<%= text_field_tag(:image_alternative_text) %>
+			<%= f.submit "Create Timeline Event", class: "btn btn-primary" %>
 		<% end %>
-		<% if logged_in? && current_user.admin? %>
-			<%= form_for(@saint.active_relationships.build) do |f| %>
-  			<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
-  			<%= text_field_tag(:followed_id) %>
-  			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-  			<%= f.submit "Create Relationship", class: "btn btn-primary" %>
+		<h2>Create Saint Photo</h2>
+		<%= form_for(@saint.saint_photos.build) do |f| %>
+			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+			<%= label_tag(:photo, "Upload Photo") %>
+			<%= f.file_field :photo %>
+			<%= label_tag(:photo_priority, "Photo Priority Level (Required)") %>
+			<%= text_field_tag(:photo_priority) %>
+			<%= label_tag(:photo_caption, "Write a Photo Caption") %>
+			<%= text_field_tag(:photo_caption) %>
+			<%= label_tag(:photo_description, "Write a Photo Description") %>
+			<%= text_field_tag(:photo_description) %>
+			<%= label_tag(:photo_alternative_text, "Write the alternative text for the photo") %>
+			<%= text_field_tag(:photo_alternative_text) %>
+			<%= label_tag(:width, "Width (Required)") %>
+			<%= text_field_tag(:width) %>
+			<%= label_tag(:height, "Height (Required)") %>
+			<%= text_field_tag(:height) %>
+			<%= f.submit "Create Saint Photo", class: "btn btn-primary" %>
+		<% end %>
+		<br>
+		<% if @saint.timeline_events.any? %>
+			<h3>Saint Timeline Events</h3>
+			<% @timeline_events.each do |timeline_event| %>
+				<br>
+				<%= timeline_event.event_priority %>
+				<br>
+				<%= timeline_event.event_title %>
+				<br>
+				<%= timeline_event.event_time %>
+				<br>
+				<%= timeline_event.event_description %>
+				<br>
+				<%= image_tag timeline_event.image.url unless timeline_event.image.blank? %> 
+				<br>
+				<%= timeline_event.image_caption %>
+				<br>
+				<%= timeline_event.image_description %>
+				<br>
+				<%= timeline_event.image_alternative_text %>
+				<br>
+				<%= link_to "Edit Timeline Event", edit_timeline_event_path(timeline_event) %>
+				<br>
 			<% end %>
-			<br>
 		<% end %>
+		<br>
+		<% if @saint_photos.any? %>
+			<h3>Saint Photos</h3>
+			<% @saint_photos.each do |saint_photo| %>
+				<br>
+				<%= image_tag saint_photo.photo.url unless saint_photo.photo.blank? %> 
+				<br>
+				<%= saint_photo.photo_caption %>
+				<br>
+				<%= saint_photo.photo_description %>
+				<br>
+				<%= saint_photo.photo_alternative_text %>
+				<br>
+				<%= saint_photo.width %>
+				<br>
+				<%= saint_photo.height %>
+				<br>
+				<%= link_to "Edit Saint Photo", edit_saint_photo_path(saint_photo) %>
+				<br>
+			<% end %>
+		<% end %>
+		<br>
 		<% if @written_works.any? %>
 			<b>Written Works</b>
 			<% @written_works.each do |written_work| %>
@@ -38,66 +110,32 @@
 				<% end %>
 			<% end %>
 		<% end %>
-		<% if logged_in? && current_user.admin? %>
-			<%= form_for(@saint.written_works.build) do |f| %>
-  			<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-  			<%= label_tag(:title, "Write the title of the written work:") %>
-  			<%= text_field_tag(:title) %>
-  			<%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
-  			<%= text_field_tag(:publication_date) %>
-  			<%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
-  			<%= text_field_tag(:publication_accuracy) %>
-  			<%= label_tag(:description, "Create optional description") %>
-  			<%= text_area_tag(:description) %>
-  			<%= f.submit "Create Written Work", class: "btn btn-primary" %>
-			<% end %>
-			<br>
-			<h2>Create Timeline Event</h2>
-			<%= form_for(@saint.timeline_events.build) do |f| %>
-				<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-				<%= label_tag(:event_priority, "Event Priority Level (Required)") %>
-				<%= text_field_tag(:event_priority) %>
-				<%= label_tag(:event_title, "Event Title (Required)") %>
-				<%= text_field_tag(:event_title) %>
-				<%= label_tag(:event_time, "Event Time (Required)") %>
-				<%= text_field_tag(:event_time) %>
-				<%= label_tag(:event_description, "Write the event's description") %>
-				<%= text_field_tag(:event_description) %>
-				<%= label_tag(:image, "Upload Image") %>
-				<%= f.file_field :image %>
-				<%= label_tag(:image_caption, "Write an Image Caption") %>
-				<%= text_field_tag(:image_caption) %>
-				<%= label_tag(:image_description, "Write an Image Description") %>
-				<%= text_field_tag(:image_description) %>
-				<%= label_tag(:image_alternative_text, "Write the alternative text for the image") %>
-				<%= text_field_tag(:image_alternative_text) %>
-				<%= f.submit "Create Timeline Event", class: "btn btn-primary" %>
-			<% end %>
-			<br>
-			<h3>Saint Timeline Events</h3>
-			<% if @saint.timeline_events.any? %>
-				<% @timeline_events.each do |timeline_event| %>
-					<br>
-					<%= timeline_event.event_priority %>
-					<br>
-					<%= timeline_event.event_title %>
-					<br>
-					<%= timeline_event.event_time %>
-					<br>
-					<%= timeline_event.event_description %>
-					<br>
-					<%= image_tag timeline_event.image.url unless timeline_event.image.blank? %> 
-					<br>
-					<%= timeline_event.image_caption %>
-					<br>
-					<%= timeline_event.image_description %>
-					<br>
-					<%= timeline_event.image_alternative_text %>
-					<br>
-					<%= link_to "Edit Timeline Event", edit_timeline_event_path(timeline_event) %>
-					<br>
-				<% end %>
-			<% end %>
+		<%= form_for(@saint.written_works.build) do |f| %>
+  		<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+ 			<%= label_tag(:title, "Write the title of the written work:") %>
+ 			<%= text_field_tag(:title) %>
+  		<%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
+  		<%= text_field_tag(:publication_date) %>
+  		<%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
+ 			<%= text_field_tag(:publication_accuracy) %>
+ 			<%= label_tag(:description, "Create optional description") %>
+  		<%= text_area_tag(:description) %>
+  		<%= f.submit "Create Written Work", class: "btn btn-primary" %>
+		<% end %>
+		<br>
+		<% if @following_saints.any? %>
+			<b>Related Saints:</b>
+			<% @following_saints.each do |saint| %>
+    		<br>
+   			<%= link_to saint.name, saint %>
+   		<% end %>
+   		<br>
+		<% end %>
+		<%= form_for(@saint.active_relationships.build) do |f| %>
+ 			<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
+ 			<%= text_field_tag(:followed_id) %>
+  		<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+  		<%= f.submit "Create Relationship", class: "btn btn-primary" %>
 		<% end %>
 	</div>
 	<!-- /.col-md-6 -->

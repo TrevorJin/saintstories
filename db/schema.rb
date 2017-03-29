@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309040914) do
+ActiveRecord::Schema.define(version: 20170329010026) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -33,6 +33,21 @@ ActiveRecord::Schema.define(version: 20170309040914) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "saint_photos", force: :cascade do |t|
+    t.string   "photo"
+    t.string   "photo_caption"
+    t.string   "photo_description"
+    t.string   "photo_alternative_text"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "saint_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "photo_priority"
+    t.index ["saint_id", "created_at"], name: "index_saint_photos_on_saint_id_and_created_at"
+    t.index ["saint_id"], name: "index_saint_photos_on_saint_id"
   end
 
   create_table "saints", force: :cascade do |t|

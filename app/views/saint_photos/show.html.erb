@@ -1,0 +1,42 @@
+<p>
+  <strong>Saint:</strong>
+  <%= link_to @saint_photo.saint.name, @saint_photo.saint %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @saint_photo.photo.url unless @saint_photo.photo.blank? %> 
+</p>
+
+<p>
+  <strong>Photo priority:</strong>
+  <%= image_tag @saint_photo.photo_priority %>
+</p>
+
+<p>
+  <strong>Photo caption:</strong>
+  <%= @saint_photo.photo_caption %>
+</p>
+
+<p>
+  <strong>Photo description:</strong>
+  <%= @saint_photo.photo_description %>
+</p>
+
+<p>
+  <strong>Photo alternative text:</strong>
+  <%= @saint_photo.photo_alternative_text %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @saint_photo.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @saint_photo.height %>
+</p>
+
+<%= link_to 'Edit', edit_saint_photo_path(@saint_photo) %> |
+<%= link_to 'Back', saint_photos_path %>
