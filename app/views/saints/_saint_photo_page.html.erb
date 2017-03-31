@@ -1,6 +1,6 @@
 <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
   <% @saint_photos.each do |saint_photo| %>
-    <% if saint_photo.photo.url? %>
+    <% if saint_photo.photo? %>
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <%= link_to saint_photo.photo.url, itemprop: "contentUrl", data: { size: ("#{saint_photo.width}" + "x" + "#{saint_photo.height}") } do %>
             <%= image_tag saint_photo.photo.thumb.url, itemprop: "thumbnail", alt: saint_photo.photo_alternative_text %>
