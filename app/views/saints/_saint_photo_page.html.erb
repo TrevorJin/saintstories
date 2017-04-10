@@ -6,7 +6,7 @@
             <%= image_tag saint_photo.photo.thumb.url, itemprop: "thumbnail", alt: saint_photo.photo_alternative_text %>
         <% end %>
             <%= saint_photo.photo_caption %>
-            <figcaption itemprop="caption description"><%= saint_photo.photo_caption %></figcaption>
+            <figcaption itemprop="caption description"><%= saint_photo.photo_description %></figcaption>
         </figure>
     <% end %>
   <% end %>
