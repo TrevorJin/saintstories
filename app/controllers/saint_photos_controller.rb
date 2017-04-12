@@ -45,11 +45,14 @@ class SaintPhotosController < ApplicationController
   end
 
   def destroy
-    @saint_photo.destroy
-    respond_to do |format|
-      format.html { redirect_to saint_photos_url, notice: 'Saint photo was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    # @saint_photo.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to saint_photos_url, notice: 'Saint photo was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
+    SaintPhoto.find(params[:id]).destroy
+    flash[:success] = "Saint photo deleted"
+    redirect_to saint_photos_url
   end
 
   private
