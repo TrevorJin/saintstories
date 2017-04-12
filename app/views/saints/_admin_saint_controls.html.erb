@@ -160,6 +160,9 @@
 						<%= saint_photo.height %>
 						<br>
 						<%= link_to "Edit Saint Photo", edit_saint_photo_path(saint_photo) %>
+						<br>
+						<%= link_to "Delete", saint_photo, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
 					<% end %>
 				</div>
 				<!-- /.well -->
