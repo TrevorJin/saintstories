@@ -443,15 +443,15 @@ input {
 }
 
 .my-gallery img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 150px;
 }
 
 .my-gallery figure {
   display: block;
   float: left;
   margin: 0 5px 5px 0;
-  width: 150px;
+  width: 200px;
 }
 
 .my-gallery figcaption {
