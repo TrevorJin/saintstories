@@ -5,7 +5,9 @@
             <%= link_to saint_photo.photo.url, itemprop: "contentUrl", data: { size: ("#{saint_photo.width}" + "x" + "#{saint_photo.height}") } do %>
             <%= image_tag saint_photo.photo.thumb.url, itemprop: "thumbnail", alt: saint_photo.photo_alternative_text %>
         <% end %>
-            <%= saint_photo.photo_caption %>
+            <p style="font-size:14px;">
+                <%= saint_photo.photo_caption %>
+            </p>
             <figcaption itemprop="caption description"><%= saint_photo.photo_description %></figcaption>
         </figure>
     <% end %>
