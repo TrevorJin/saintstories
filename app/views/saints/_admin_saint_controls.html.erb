@@ -147,7 +147,7 @@
 				<div class="well">
 					<% @saint_photos.each do |saint_photo| %>
 						<br>
-						<%= image_tag saint_photo.photo.url unless saint_photo.photo.blank? %> 
+						<%= image_tag saint_photo.photo.thumb.url unless saint_photo.photo.blank? %> 
 						<br>
 						<%= saint_photo.photo_caption %>
 						<br>
