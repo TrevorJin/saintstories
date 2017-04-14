@@ -445,6 +445,8 @@ input {
 .my-gallery img {
   width: auto;
   height: 150px;
+  display: block;
+  margin: 0 auto;
 }
 
 .my-gallery figure {
