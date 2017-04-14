@@ -149,13 +149,39 @@
 						<br>
 						<%= image_tag saint_photo.photo.thumb.url unless saint_photo.photo.blank? %> 
 						<br>
+						<b>
+							Photo Priority
+						</b>
+						<br>
+						<%= saint_photo.photo_priority %>
+						<br>
+						<b>
+							Caption:
+						</b>
+						<br>
 						<%= saint_photo.photo_caption %>
+						<br>
+						<b>
+							Description:
+						</b>
 						<br>
 						<%= saint_photo.photo_description %>
 						<br>
+						<b>
+							Alternative Text:
+						</b>
+						<br>
 						<%= saint_photo.photo_alternative_text %>
 						<br>
+						<b>
+							Width:
+						</b>
+						<br>
 						<%= saint_photo.width %>
+						<br>
+						<b>
+							Height:
+						</b>
 						<br>
 						<%= saint_photo.height %>
 						<br>

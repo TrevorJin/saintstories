@@ -3,9 +3,11 @@
     <% if saint_photo.photo? %>
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <%= link_to saint_photo.photo.url, itemprop: "contentUrl", data: { size: ("#{saint_photo.width}" + "x" + "#{saint_photo.height}") } do %>
-            <%= image_tag saint_photo.photo.thumb.url, itemprop: "thumbnail", alt: saint_photo.photo_alternative_text %>
-        <% end %>
-            <figcaption itemprop="caption description"><%= saint_photo.photo_description %></figcaption>
+                <%= image_tag saint_photo.photo.thumb.url, itemprop: "thumbnail", alt: saint_photo.photo_alternative_text %>
+            <% end %>
+            <figcaption itemprop="caption description">
+                <%= saint_photo.photo_description %>
+            </figcaption>
             <p style="font-size:14px; width: 150px;">
                 <%= saint_photo.photo_caption %>
             </p>
