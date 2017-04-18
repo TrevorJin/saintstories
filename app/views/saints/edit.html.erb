@@ -15,6 +15,7 @@
     <div class="col-md-8 col-md-offset-2">
       <%= simple_form_for @saint do |f| %>
         <%= f.input :name %>
+        <%= f.input :canonization_status, :collection => canonization_status_options %>
         <%= f.input :gender, :collection => gender_options %>
         <%= f.input :feast_day, as: :date, order: [:month, :day] %>
         <%= f.input :birth_date, as: :string, label: 'Birth Date: Strict Format YYYY-MM-DD' %>

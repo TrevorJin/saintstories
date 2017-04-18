@@ -135,7 +135,7 @@ class SaintsController < ApplicationController
       :doctor_of_the_church, :early_church_father, :avatar,
       :avatar_caption, :avatar_description, :avatar_alternative_text,
       :beatification_accuracy, :canonization_accuracy,
-      :short_description, :long_description)
+      :short_description, :long_description, :canonization_status)
   end
 
   def build_birth_markers(saints)

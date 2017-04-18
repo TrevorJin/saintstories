@@ -25,7 +25,8 @@ class SaintTest < ActiveSupport::TestCase
                 pope: false, cardinal: false, bishop: false, priest: false,
                 religious: true, lay: false, martyr: false, founder: false,
                 mystic: true, royalty: false, doctor_of_the_church: true,
-                early_church_father: false)
+                early_church_father: false,
+                canonization_status: 'Saint')
   end
 
   test 'should be valid' do
@@ -59,6 +60,11 @@ class SaintTest < ActiveSupport::TestCase
 
   test 'long description should be present' do
     @saint.long_description = nil
+    assert_not @saint.valid?
+  end
+
+  test 'canonization status should be present' do
+    @saint.canonization_status = nil
     assert_not @saint.valid?
   end
 

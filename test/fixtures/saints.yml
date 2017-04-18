@@ -2,7 +2,7 @@
 
 one:
   name: MyString
-  gender: MyString
+  gender: Male
   feast_day: 2017-01-16
   birth_date: 2017-01-16 18:06:26
   birth_accuracy: 1
@@ -32,10 +32,11 @@ one:
   royalty: false
   doctor_of_the_church: false
   early_church_father: false
+  canonization_status: Saint
 
 two:
   name: MyString
-  gender: MyString
+  gender: Female
   feast_day: 2017-01-16
   birth_date: 2017-01-16 18:06:26
   birth_accuracy: 1
@@ -65,3 +66,4 @@ two:
   royalty: false
   doctor_of_the_church: false
   early_church_father: false
+  canonization_status: Blessed

@@ -22,6 +22,7 @@ class Saint < ApplicationRecord
   validates :feast_day, presence: { message: 'feast day required' }
   validates :short_description, presence: { message: 'short description required' }
   validates :long_description, presence: { message: 'long description required' }
+  validates :canonization_status, presence: { message: 'canonization status required' }
 
   # Follows a saint.
   def follow(other_saint)
