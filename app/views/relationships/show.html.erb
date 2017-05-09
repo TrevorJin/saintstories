@@ -2,29 +2,43 @@
   <strong>Relationship:</strong>
   <br>
   <%= @relationship %>
-  <%= link_to @timeline_event.saint.name, @timeline_event.saint %>
 </p>
 
 <p>
-  <strong>Relationship ID</strong>
-  <%= @timeline_event.event_priority %>
+  <strong>Relationship ID:</strong>
+  <br>
+  <%= @relationship.id %>
 </p>
 
+<p>
+  <strong>Follower ID:</strong>
+  <br>
+  <%= @relationship.follower_id %>
+</p>
 
+<p>
+  <strong>Follower Name</strong>
+  <br>
+  <%= Saint.find(@relationship.follower_id).name %>
+</p>
 
-<%= link_to 'Edit', edit_timeline_event_path(@timeline_event) %> |
-<%= link_to 'Back', timeline_events_path %>
+<p>
+  <strong>Followed ID:</strong>
+  <br>
+  <%= @relationship.followed_id %>
+</p>
 
+<p>
+  <strong>Followed Name</strong>
+  <br>
+  <%= Saint.find(@relationship.followed_id).name %>
+</p>
 
+<p>
+  <strong>Status</strong>
+  <br>
+  <%= @relationship.status %>
+</p>
 
-<%= relationship %>
-    <br>
-    <%= relationship.id %>
-    <br>
-    <%= relationship.follower_id %>
-    <br>
-    <%= relationship.followed_id %>
-    <br>
-    <%= Saint.find(relationship.follower_id).name %>
-    <br>
-    <%= Saint.find(relationship.followed_id).name %>
+<%= link_to 'Edit', edit_relationship_path(@relationship) %> |
+<%= link_to 'Back', relationships_path %>

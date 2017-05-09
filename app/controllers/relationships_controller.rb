@@ -26,9 +26,10 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    saint = Relationship.find(params[:id]).followed
-    # current_user.unfollow(saint)
-    redirect_to saint
+    followed_saint = Relationship.find(params[:id]).followed
+    follower_saint = Saint.find(params[:current_saint_id])
+    follower_saint.unfollow(followed_saint)
+    redirect_to follower_saint
   end
 
   private
