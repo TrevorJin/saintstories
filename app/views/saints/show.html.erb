@@ -14,9 +14,11 @@
 							<a href="#panel-567649" data-toggle="tab">Life Timeline</a>
 						</li>
 					<% end %>
-					<li>
-						<a href="#panel-987654" data-toggle="tab">Related Saints</a>
-					</li>
+					<% if @following_saints.any? %>
+						<li>
+							<a href="#panel-987654" data-toggle="tab">Related Saints</a>
+						</li>
+					<% end %>
 					<% if @saint.written_works.any? %>
 						<li>
 							<a href="#panel-123456" data-toggle="tab">Written Works</a>
@@ -65,6 +67,30 @@
     						<%= render 'saints/saint_timeline' %>
     					</div>
     					<!-- /.row -->
+						</div>
+						<!-- /.tab-pane -->
+					<% end %>
+					<% if @following_saints.any? %>
+						<div class="tab-pane" id="panel-987654">
+							<% @saint.active_relationships.each do |relationship| %>
+								Relationship: <%= relationship %>
+								<br>
+								Relationship ID: <%= relationship.id %>
+								<br>
+								Follower ID: <%= relationship.follower_id %>
+								<br>
+								Followed ID: <%= relationship.followed_id %>
+								<br>
+								Follower Saint Name: <%= Saint.find(relationship.follower_id).name %>
+								<br>
+								Status: <%= relationship.status %>
+								<br>
+								
+							<% end %>
+								<% @following_saints.each do |saint| %>
+    							<br>
+									<%= link_to saint.name, saint %>
+								<% end %>
 						</div>
 						<!-- /.tab-pane -->
 					<% end %>

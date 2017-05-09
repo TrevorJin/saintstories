@@ -1,0 +1,30 @@
+<p>
+  <strong>Relationship:</strong>
+  <br>
+  <%= @relationship %>
+  <%= link_to @timeline_event.saint.name, @timeline_event.saint %>
+</p>
+
+<p>
+  <strong>Relationship ID</strong>
+  <%= @timeline_event.event_priority %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_timeline_event_path(@timeline_event) %> |
+<%= link_to 'Back', timeline_events_path %>
+
+
+
+<%= relationship %>
+    <br>
+    <%= relationship.id %>
+    <br>
+    <%= relationship.follower_id %>
+    <br>
+    <%= relationship.followed_id %>
+    <br>
+    <%= Saint.find(relationship.follower_id).name %>
+    <br>
+    <%= Saint.find(relationship.followed_id).name %>

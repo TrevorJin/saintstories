@@ -1,0 +1,27 @@
+<div id="page-wrapper">
+  <%= render 'layouts/alerts' %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+          All Relationships
+      </h1>
+      <!-- /.page-header -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <% @relationships.each do |relationship| %>
+    <%= relationship %>
+    <br>
+    <%= relationship.id %>
+    <br>
+    <%= relationship.follower_id %>
+    <br>
+    <%= relationship.followed_id %>
+    <br>
+    <%= Saint.find(relationship.follower_id).name %>
+    <br>
+    <%= Saint.find(relationship.followed_id).name %>
+  <% end %>
+</div>
+<!-- /.page-wrapper -->

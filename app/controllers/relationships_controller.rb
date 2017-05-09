@@ -1,12 +1,28 @@
 class RelationshipsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :destroy]
-  before_action :admin_user,     only: [:create, :destroy]
+	before_action :logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :admin_user,     only: [:index, :new, :create, :edit, :update, :destroy]
+
+  def index
+    @relationships = Relationship.all
+  end
+
+  def show
+    @relationship = Relationship.find(params[:id])
+  end
+
+  def edit
+    @relationship = Relationship.find(params[:id])
+  end
 
   def create
     other_saint = Saint.find(params[:followed_id])
     current_saint = Saint.find(params[:current_saint_id])
     current_saint.follow(other_saint)
     redirect_to other_saint
+  end
+
+  def update
+    @relationship = Relationship.where(follower_id: params[:follower_id], followed_id: params[:followed_id])
   end
 
   def destroy

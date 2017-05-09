@@ -96,6 +96,8 @@
 				<%= form_for(@saint.active_relationships.build) do |f| %>
  					<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
  					<%= text_field_tag(:followed_id) %>
+ 					<%= label_tag(:status, "Explain this relationship:") %>
+ 					<%= text_field_tag(:status) %>
   				<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
   				<%= f.submit "Create Relationship", class: "btn btn-primary" %>
 				<% end %>
