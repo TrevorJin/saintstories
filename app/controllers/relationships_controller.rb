@@ -22,7 +22,16 @@ class RelationshipsController < ApplicationController
   end
 
   def update
-    @relationship = Relationship.where(follower_id: params[:follower_id], followed_id: params[:followed_id])
+    @relationship = Relationship.find(params[:id])
+    respond_to do |format|
+      if @relationship.update(relationship_params)
+        format.html { redirect_to @relationship, notice: 'Relationship was successfully updated.' }
+        format.json { render :show, status: :ok, location: @relationship }
+      else
+        format.html { render :edit }
+        format.json { render json: @relationship.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -33,6 +42,10 @@ class RelationshipsController < ApplicationController
   end
 
   private
+
+  def relationship_params
+    params.require(:relationship).permit(:follower_id, :followed_id, :status)
+  end
 
   # Before filters
 
