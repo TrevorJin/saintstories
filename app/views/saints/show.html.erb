@@ -72,33 +72,7 @@
 					<% end %>
 					<% if @following_saints.any? %>
 						<div class="tab-pane" id="panel-987654">
-							<% @saint.active_relationships.each do |relationship| %>
-								Relationship: <%= relationship %>
-								<br>
-								Relationship ID: <%= relationship.id %>
-								<br>
-								Follower ID: <%= relationship.follower_id %>
-								<br>
-								Followed ID: <%= relationship.followed_id %>
-								<br>
-								Follower Saint Name: <%= Saint.find(relationship.follower_id).name %>
-								<br>
-								Status: <%= relationship.status %>
-								<br>
-								<% if logged_in? && current_user.admin? %>
-									<% if relationship.id? %>
-										<%= form_for(@saint.active_relationships.find_by(followed_id: relationship.followed_id), html: { method: :delete }) do |f| %>
-											<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-  										<%= f.submit "Destroy relationship", class: "btn" %>
-										<% end %>
-									<% end %>
-								<% end %>
-							<% end %>
-							<% @following_saints.each do |saint| %>
-    						<br>
-								<%= link_to saint.name, saint %>
-
-							<% end %>
+							<%= render 'saints/saint_related_saints' %>
 						</div>
 						<!-- /.tab-pane -->
 					<% end %>
