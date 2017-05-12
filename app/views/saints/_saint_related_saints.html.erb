@@ -1,11 +1,21 @@
-<% @following_saints.each do |saint| %>
-	<% if !saint.avatar.blank? %>
-    <% if saint.avatar_alternative_text? %>
-      <%= image_tag saint.avatar.url, class: "img-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
-    <% else %>
-      <%= image_tag saint.avatar.url, class: "img-circle saint-image" %>
-    <% end %>
-  <% end %>
-	<br>
-	<%= link_to saint.name, saint %>
-<% end %>
+<div class="related-saints">
+	<% @following_saints.each do |saint| %>
+		<div class="related-saint">
+			<% if !saint.avatar.blank? %>
+    		<% if saint.avatar_alternative_text? %>
+      		<%= image_tag saint.avatar.url, class: "img-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
+    		<% else %>
+      		<%= image_tag saint.avatar.url, class: "img-circle saint-image" %>
+    		<% end %>
+  		<% end %>
+			<p>
+				<%= link_to saint.name, saint %>
+			</p>
+			<p>
+				<%= Relationship.where("follower_id = ? AND followed_id = ?", @saint.id, saint.id).first.status %>
+			</p>
+		</div>
+		<!--/.related-saint -->
+	<% end %>
+</div>
+<!-- /.related-saints -->

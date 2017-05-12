@@ -459,3 +459,22 @@ input {
 .my-gallery figcaption {
   display: none;
 }
+
+/* Related Saints Gallery */
+
+.related-saints {
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+}
+
+.related-saint {
+  display: block;
+  float: left;
+  margin: 0 15px 0 15px;
+  width: 200px;
+}
+
+.related-saint p {
+  text-align: center;
+}
