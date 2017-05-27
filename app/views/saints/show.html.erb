@@ -34,7 +34,7 @@
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-200304">
 						<div class="row" style="margin-left: 0; margin-right: 0;">
-            	<div class="col-md-3 column">
+            	<div class="col-md-3 col-md-push-8 column">
             		<% if !@saint.avatar.blank? %>
             			<% if @saint.avatar_alternative_text? %>
             				<%= image_tag @saint.avatar.url, class: "img-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
@@ -45,7 +45,7 @@
             		<%= render 'saints/info_sidebar' %>
             	</div>
             	<!-- /.col-md-3 column -->
-            	<div class="col-md-8 column saint-info">
+            	<div class="col-md-8 col-md-pull-3 column saint-info">
             		<h1>
 									<%= title @saint.name %>
 								</h1>
