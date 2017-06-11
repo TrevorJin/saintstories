@@ -1,29 +1,3 @@
-# The Saint Journal
+# Saint Stories
 
-<a href="https://codeclimate.com/github/TrevorJin/saint_journal"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/TrevorJin/saint_journal/coverage"><img src="https://codeclimate.com/github/TrevorJin/saint_journal/badges/coverage.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saint_journal/"><img src = "https://travis-ci.org/TrevorJin/saint_journal.svg?branch=master" /></a>
-
-## Getting started
-
-To get started with the app, clone the repo and then install the needed gems:
-
-```
-$ bundle install --without production
-```
-
-Next, migrate the database:
-
-```
-$ rails db:migrate
-```
-
-Finally, run the test suite to verify that everything is working correctly:
-
-```
-$ rails test
-```
-
-If the test suite passes, you'll be ready to run the app in a local server:
-
-```
-$ rails server
-```
+<a href="https://codeclimate.com/github/TrevorJin/saintstories"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/TrevorJin/saintstories/coverage"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/coverage.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saintstories/"><img src = "https://travis-ci.org/TrevorJin/saintstories.svg?branch=master" /></a>

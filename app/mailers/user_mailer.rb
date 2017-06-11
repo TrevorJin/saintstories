@@ -12,6 +12,6 @@ class UserMailer < ApplicationMailer
   def account_approved(approved_user, approving_admin)
     @user = approved_user
     @admin = approving_admin
-    mail to: @user.email, subject: "You have been approved as a user for the Saint Journal"
+    mail to: @user.email, subject: "You have been approved as a user for the Saint Stories"
   end
 end

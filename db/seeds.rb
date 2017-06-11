@@ -1,5 +1,5 @@
 User.create!(name:  'Example User',
-             email: 'example@saintjournal.com',
+             email: 'example@saintstories.org',
              password:              'foobar',
              password_confirmation: 'foobar',
              admin: true,
