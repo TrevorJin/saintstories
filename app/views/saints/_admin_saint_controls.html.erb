@@ -115,19 +115,47 @@
 				<div class="well">
 					<% @timeline_events.each do |timeline_event| %>
 						<br>
+						<b>
+							Event Priority
+						</b>
+						<br>
 						<%= timeline_event.event_priority %>
+						<br>
+						<b>
+							Event Title
+						</b>
 						<br>
 						<%= timeline_event.event_title %>
 						<br>
+						<b>
+							Event Time
+						</b>
+						<br>
 						<%= timeline_event.event_time %>
+						<br>
+						<b>
+							Event Description
+						</b>
 						<br>
 						<%= timeline_event.event_description %>
 						<br>
 						<%= image_tag timeline_event.image.url unless timeline_event.image.blank? %> 
 						<br>
+						<b>
+							Image Caption
+						</b>
+						<br>
 						<%= timeline_event.image_caption %>
 						<br>
+						<b>
+							Image Description
+						</b>
+						<br>
 						<%= timeline_event.image_description %>
+						<br>
+						<b>
+							Image Alternative Text
+						</b>
 						<br>
 						<%= timeline_event.image_alternative_text %>
 						<br>
