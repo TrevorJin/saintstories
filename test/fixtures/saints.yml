@@ -33,6 +33,7 @@ one:
   doctor_of_the_church: false
   early_church_father: false
   canonization_status: Saint
+  fame_level: 50
 
 two:
   name: MyString
@@ -67,3 +68,4 @@ two:
   doctor_of_the_church: false
   early_church_father: false
   canonization_status: Blessed
+  fame_level: 50

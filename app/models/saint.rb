@@ -23,6 +23,7 @@ class Saint < ApplicationRecord
   validates :short_description, presence: { message: 'short description required' }
   validates :long_description, presence: { message: 'long description required' }
   validates :canonization_status, presence: { message: 'canonization status required' }
+  validates :fame_level, presence: { message: 'fame level required' }
 
   # Follows a saint.
   def follow(other_saint)
