@@ -69,6 +69,11 @@ class SaintTest < ActiveSupport::TestCase
     assert_not @saint.valid?
   end
 
+  test 'fame level should be present' do
+    @saint.fame_level = nil
+    assert_not @saint.valid?
+  end
+
   test "should follow and unfollow a saint" do
     michael = saints(:one)
     sebastian  = saints(:two)
