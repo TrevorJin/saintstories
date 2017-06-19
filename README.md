@@ -1,10 +1,17 @@
-# <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Therese_von_Lisieux.jpg" alt="St. Therese of Lisieux">
+<h1 align="center">
+  <br>
+  <a href="http://www.saintstories.org/"><img src="https://image.ibb.co/mpR8F5/florence.jpg" alt="Saint Stories Banner" width="961"></a>
+  <br>
+  Saint Stories
+  <br>
+</h1>
 
-# Saint Stories
+<h4 align="center">The future starts today, not tomorrow. - Pope St. John Paul II</h4>
 
-> Let's bring the saints to the 21st century. St. Therese of Lisieux, pray for us.
-
-<a href="https://codeclimate.com/github/TrevorJin/saintstories"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/TrevorJin/saintstories/coverage"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/coverage.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saintstories/"><img src = "https://travis-ci.org/TrevorJin/saintstories.svg?branch=master" /></a>
+<p align="center">
+  <a href="https://codeclimate.com/github/TrevorJin/saintstories"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/TrevorJin/saintstories/coverage"><img src="https://codeclimate.com/github/TrevorJin/saintstories/badges/coverage.svg" /></a> <a href="https://travis-ci.org/TrevorJin/saintstories/"><img src = "https://travis-ci.org/TrevorJin/saintstories.svg?branch=master" /></a>
+</p>
+<br>
 
 ## Table of Contents
 
@@ -16,7 +23,7 @@
 
 Each saint will have plenty of easy to consume information:
 
-- Basic information
+- Basic saint information
 - Short description
 - Life timeline
 - Related saints
@@ -27,6 +34,10 @@ Each saint will have plenty of easy to consume information:
 - Sources where information was gathered
 
 ### Map
+
+<h1 align="center">
+  <a href="http://www.saintstories.org/"><img src="https://image.ibb.co/iPZTF5/saintmap.jpg" alt="Saint Stories Map" width="800"></a>
+</h1>
 
 Saint Stories tracks the birth and death locations of every saint in its database. With this data, their locations are displayed on a world map and can be filtered by demographics (martyrs, popes, mystics, etc.)
 
