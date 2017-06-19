@@ -1,9 +1,6 @@
 <h1 align="center">
   <br>
   <a href="http://www.saintstories.org/"><img src="https://image.ibb.co/mpR8F5/florence.jpg" alt="Saint Stories Banner" width="961"></a>
-  <br>
-  Saint Stories
-  <br>
 </h1>
 
 <h4 align="center">The future starts today, not tomorrow. - Pope St. John Paul II</h4>
@@ -13,13 +10,14 @@
 </p>
 <br>
 
-## Table of Contents
+# Table of Contents
 
 - [Saint Page](#saint-page)
 - [Map](#map)
+- [Bug Reports](#bug-reports)
 - [Saint Stories Blog](#saint-stories-blog)
 
-### Saint Page
+## Saint Page
 
 Each saint will have plenty of easy to consume information:
 
@@ -33,7 +31,7 @@ Each saint will have plenty of easy to consume information:
 - Resources by other authors
 - Sources where information was gathered
 
-### Map
+## Map
 
 <h1 align="center">
   <a href="http://www.saintstories.org/"><img src="https://image.ibb.co/iPZTF5/saintmap.jpg" alt="Saint Stories Map" width="800"></a>
@@ -41,10 +39,36 @@ Each saint will have plenty of easy to consume information:
 
 Saint Stories tracks the birth and death locations of every saint in its database. With this data, their locations are displayed on a world map and can be filtered by demographics (martyrs, popes, mystics, etc.)
 
-### Saint Stories Blog
+## Bug Reports
+
+Github Issues are used for managing bug reports and feature requests.
+
+If you run into issues or have an idea; please search and then submit the ticket
+[here](https://github.com/TrevorJin/saintstories/issues)
+
+The best way to get quick responses to your issues and swift fixes to your bugs
+is to submit detailed bug reports, include test cases and respond to developer
+questions in a timely manner.
+
+## Testing
+
+Our internal tests are passed through Travis, testing against the following
+Ruby versions on Linux:
+
+- 2.4.0
+
+## Saint Stories Blog
 
 The blog will be the main form of saint discovery for the world. It will bring their stories to the light, all with hard data to back it up.
 
 Check out the separate code for the Saint Stories [blog](https://github.com/TrevorJin/saintstories-blog).
 
+## License
+
+Copyright (c) 2017 Trevor Jin.
+
 AMDG - JMJ
+
+[saintstories]: http://www.saintstories.org/
+[travis]: https://travis-ci.org/TrevorJin/saintstories
+[codeclimate]: https://codeclimate.com/github/TrevorJin/saintstories
