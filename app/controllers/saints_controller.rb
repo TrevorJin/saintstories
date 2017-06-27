@@ -3,6 +3,8 @@ class SaintsController < ApplicationController
   before_action :admin_user,     only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    prepare_meta_tags title: "Saints List", description: "Explore the Catholic Church's entire list of saints."
+
     @all_saints = Saint.all
     if current_user
       @saints = @all_saints
@@ -24,6 +26,10 @@ class SaintsController < ApplicationController
       @written_works = @saint.written_works.order(publication_date: :asc)
       @timeline_events = @saint.timeline_events.order(event_priority: :asc)
       @saint_photos = @saint.saint_photos.order(photo_priority: :asc)
+
+      prepare_meta_tags(title: @saint.name,
+                        description: @saint.short_description,
+                        keywords: @saint.name)
     else
       redirect_to saints_url
     end
@@ -64,6 +70,8 @@ class SaintsController < ApplicationController
   end
 
   def map
+    prepare_meta_tags title: "Saint Map", description: "Explore the Catholic Church's entire map of saints."
+
     @all_saints = Saint.all
     @saints = @all_saints.where(published: true)
     @popes = @saints.where(pope: true)
