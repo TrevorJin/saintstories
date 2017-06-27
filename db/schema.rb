@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617204814) do
+ActiveRecord::Schema.define(version: 20170624202739) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20170617204814) do
     t.string   "avatar_alternative_text"
     t.string   "canonization_status"
     t.integer  "fame_level"
+    t.boolean  "published",               default: false
     t.index ["slug"], name: "index_saints_on_slug", unique: true
   end
 

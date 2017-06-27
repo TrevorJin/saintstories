@@ -27,7 +27,8 @@ class SaintTest < ActiveSupport::TestCase
                 mystic: true, royalty: false, doctor_of_the_church: true,
                 early_church_father: false,
                 canonization_status: 'Saint',
-                fame_level: 50)
+                fame_level: 50,
+                published: true)
   end
 
   test 'should be valid' do

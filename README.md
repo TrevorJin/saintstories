@@ -15,7 +15,9 @@
 - [Saint Page](#saint-page)
 - [Map](#map)
 - [Bug Reports](#bug-reports)
+- [Testing](#testing)
 - [Saint Stories Blog](#saint-stories-blog)
+- [License](#license)
 
 ## Saint Page
 

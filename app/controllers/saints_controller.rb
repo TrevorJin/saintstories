@@ -3,7 +3,12 @@ class SaintsController < ApplicationController
   before_action :admin_user,     only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @saints = Saint.all
+    @all_saints = Saint.all
+    if current_user
+      @saints = @all_saints
+    else
+      @saints = @all_saints.where(published: true)
+    end
   end
 
   def show
@@ -11,12 +16,17 @@ class SaintsController < ApplicationController
     # Redirect to the latest slug.
     if request.path != saint_path(@saint)
       redirect_to @saint, status: :moved_permanently
-  end
-    @following_saints = @saint.following
-    @follower_saints = @saint.followers
-    @written_works = @saint.written_works.order(publication_date: :asc)
-    @timeline_events = @saint.timeline_events.order(event_priority: :asc)
-    @saint_photos = @saint.saint_photos.order(photo_priority: :asc)
+    end
+
+    if @saint.published || current_user
+      @following_saints = @saint.following
+      @follower_saints = @saint.followers
+      @written_works = @saint.written_works.order(publication_date: :asc)
+      @timeline_events = @saint.timeline_events.order(event_priority: :asc)
+      @saint_photos = @saint.saint_photos.order(photo_priority: :asc)
+    else
+      redirect_to saints_url
+    end
   end
 
   def new
@@ -54,7 +64,8 @@ class SaintsController < ApplicationController
   end
 
   def map
-    @saints = Saint.all
+    @all_saints = Saint.all
+    @saints = @all_saints.where(published: true)
     @popes = @saints.where(pope: true)
     @cardinals = @saints.where(cardinal: true)
     @bishops = @saints.where(bishop: true)
@@ -136,7 +147,7 @@ class SaintsController < ApplicationController
       :avatar_caption, :avatar_description, :avatar_alternative_text,
       :beatification_accuracy, :canonization_accuracy,
       :short_description, :long_description, :canonization_status,
-      :fame_level)
+      :fame_level, :published)
   end
 
   def build_birth_markers(saints)
