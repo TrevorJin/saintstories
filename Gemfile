@@ -54,6 +54,8 @@ group :development do
   gem 'brakeman', require: false
   # Listen to file modifications and notifiy about the changes
   gem 'listen', '3.0.8'
+  # Favicon generator
+  gem 'rails_real_favicon'
   # Rubocop isn't compiling with Travis.
   # Check ruby style
   # gem 'rubocop', '~> 0.47.1', require: false
