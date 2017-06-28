@@ -1,5 +1,5 @@
 <div class="container-fluid">
-	<div class="col-md-5">
+	<div class="col-lg-5">
 		<h1>
 			<%= link_to "Edit Saint", edit_saint_path(@saint) %>
 		</h1>
@@ -9,7 +9,7 @@
 		</a>
 		<!-- /.btn btn-primary -->
 		<div class="collapse" id="collapseCreateTimelineEvent">
-  		<div class="well">
+  		<div class="card bg-faded card-block mb-3">
     		<%= form_for(@saint.timeline_events.build) do |f| %>
 					<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
 					<%= label_tag(:event_priority, "Event Priority Level (Required)") %>
@@ -31,7 +31,7 @@
 					<%= f.submit "Create Timeline Event", class: "btn btn-primary" %>
 				<% end %>
   		</div>
-  		<!-- /.well -->
+  		<!-- /.card bg-faded card-block mb-3 -->
 		</div>
 		<!-- /.collapse -->
 		<br>
@@ -40,7 +40,7 @@
 		</a>
 		<!-- /.btn btn-primary -->
 		<div class="collapse" id="collapseCreateSaintPhoto">
-			<div class="well">
+			<div class="card bg-faded card-block mb-3">
 				<%= form_for(@saint.saint_photos.build) do |f| %>
 					<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
 					<%= label_tag(:photo, "Upload Photo") %>
@@ -60,7 +60,7 @@
 					<%= f.submit "Create Saint Photo", class: "btn btn-primary" %>
 				<% end %>
 			</div>
-			<!-- /.well -->
+			<!-- /.card bg-faded card-block mb-3 -->
 		</div>
 		<!-- /.collapse -->
 		<br>
@@ -69,7 +69,7 @@
 		</a>
 		<!-- /.btn btn-primary -->
 		<div class="collapse" id="collapseCreateWrittenWork">
-			<div class="well">
+			<div class="card bg-faded card-block mb-3">
 				<%= form_for(@saint.written_works.build) do |f| %>
   				<div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
  					<%= label_tag(:title, "Write the title of the written work:") %>
@@ -83,7 +83,7 @@
   				<%= f.submit "Create Written Work", class: "btn btn-primary" %>
 				<% end %>
 			</div>
-			<!-- /.well -->
+			<!-- /.card bg-faded card-block mb-3 -->
 		</div>
 		<!-- /.collapse -->
 		<br>
@@ -92,7 +92,7 @@
 		</a>
 		<!-- /.btn btn-primary -->
 		<div class="collapse" id="collapseCreateRelatedSaint">
-			<div class="well">
+			<div class="card bg-faded card-block mb-3">
 				<%= form_for(@saint.active_relationships.build) do |f| %>
  					<%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
  					<%= text_field_tag(:followed_id) %>
@@ -102,7 +102,7 @@
   				<%= f.submit "Create Relationship", class: "btn btn-primary" %>
 				<% end %>
 			</div>
-			<!-- /.well -->
+			<!-- /.card bg-faded card-block mb-3 -->
 		</div>
 		<!-- /.collapse -->
 		<br>
@@ -112,7 +112,7 @@
 			</a>
 			<!-- /.btn btn-primary -->
 			<div class="collapse" id="collapseSaintTimelineEvents">
-				<div class="well">
+				<div class="card bg-faded card-block mb-3">
 					<% @timeline_events.each do |timeline_event| %>
 						<br>
 						<b>
@@ -163,7 +163,7 @@
 						<br>
 					<% end %>
 				</div>
-				<!-- /.well -->
+				<!-- /.card bg-faded card-block mb-3 -->
 			</div>
 			<!-- /.collapse -->
 			<br>
@@ -174,7 +174,7 @@
 			</a>
 			<!-- /.btn btn-primary -->
 			<div class="collapse" id="collapseSaintPhotos">
-				<div class="well">
+				<div class="card bg-faded card-block mb-3">
 					<% @saint_photos.each do |saint_photo| %>
 						<br>
 						<%= image_tag saint_photo.photo.thumb.url unless saint_photo.photo.blank? %> 
@@ -221,7 +221,7 @@
                                   data: { confirm: "Are you sure?" } %>
 					<% end %>
 				</div>
-				<!-- /.well -->
+				<!-- /.card bg-faded card-block mb-3 -->
 			</div>
 			<!-- /.collapse -->
 			<br>
@@ -232,7 +232,7 @@
 			</a>
 			<!-- /.btn btn-primary -->
 			<div class="collapse" id="collapseWrittenWorks">
-				<div class="well">
+				<div class="card bg-faded card-block mb-3">
 					<% @written_works.each do |written_work| %>
 						<br>
 						<%= written_work.title %> - 
@@ -250,7 +250,7 @@
 						<% end %>
 					<% end %>
 				</div>
-				<!-- /.well -->
+				<!-- /.card bg-faded card-block mb-3 -->
 			</div>
 			<!-- /.collapse -->
 			<br>
@@ -261,7 +261,7 @@
 			</a>
 			<!-- /.btn btn-primary -->
 			<div class="collapse" id="collapseRelatedSaints">
-				<div class="well">
+				<div class="card bg-faded card-block mb-3">
 					<% @saint.active_relationships.each do |relationship| %>
 						Relationship: <%= relationship %>
 						<br>
@@ -285,12 +285,12 @@
 						<% end %>
 					<% end %>
    			</div>
-   			<!-- /.well -->
+   			<!-- /.card bg-faded card-block mb-3 -->
    		</div>
    		<!-- /.collapse -->
    		<br>
 		<% end %>		
 	</div>
-	<!-- /.col-md-6 -->
+	<!-- /.col-lg-5 -->
 </div>
 <!-- /.container-fluid -->

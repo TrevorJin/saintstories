@@ -3,9 +3,9 @@
 		<div class="related-saint">
 			<% if !saint.avatar.blank? %>
     		<% if saint.avatar_alternative_text? %>
-      		<%= image_tag saint.avatar.url, class: "img-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
+      		<%= image_tag saint.avatar.url, class: "rounded-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
     		<% else %>
-      		<%= image_tag saint.avatar.url, class: "img-circle saint-image" %>
+      		<%= image_tag saint.avatar.url, class: "rounded-circle saint-image" %>
     		<% end %>
   		<% end %>
 			<p>

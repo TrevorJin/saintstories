@@ -1,48 +1,53 @@
-<div class ="container-fluid">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12 column">
+		<div class="col-xl-12 column">
 			<div class="tabbable" id="tabs-444468">
 				<ul class="nav nav-tabs">
-					<li class="active">
-						<a href="#panel-200304" data-toggle="tab">General</a>
+					<li class="nav-item">
+						<a href="#panel-200304" data-toggle="tab" class="nav-link active">General</a>
 					</li>
+					<!-- /.active nav-item -->
 					<% if @saint.timeline_events.any? %>
-						<li>
-							<a href="#panel-567649" data-toggle="tab">Life Timeline</a>
+						<li class="nav-item">
+							<a href="#panel-567649" data-toggle="tab" class="nav-link">Life Timeline</a>
 						</li>
+						<!-- /.nav-item -->
 					<% end %>
 					<% if @following_saints.any? %>
-						<li>
-							<a href="#panel-987654" data-toggle="tab">Related Saints</a>
+						<li class="nav-item">
+							<a href="#panel-987654" data-toggle="tab" class="nav-link">Related Saints</a>
 						</li>
+						<!-- /.nav-item -->
 					<% end %>
 					<% if @saint.written_works.any? %>
-						<li>
-							<a href="#panel-123456" data-toggle="tab">Written Works</a>
+						<li class="nav-item">
+							<a href="#panel-123456" data-toggle="tab" class="nav-link">Written Works</a>
 						</li>
+						<!-- /.nav-item -->
 					<% end %>
 					<% if @saint.saint_photos.any? %>
-						<li>
-							<a href="#panel-777777" data-toggle="tab">Photos</a>
+						<li class="nav-item">
+							<a href="#panel-777777" data-toggle="tab" class="nav-link">Photos</a>
 						</li>
+						<!-- /.nav-item -->
 					<% end %>
 				</ul>
 				<!-- /.nav nav-tabs -->
 				<div class="tab-content">
 					<div class="tab-pane active" id="panel-200304">
 						<div class="row" style="margin-left: 0; margin-right: 0;">
-            	<div class="col-md-3 col-md-push-8 column">
+            	<div class="col-xl-3 push-md-8 column">
             		<% if !@saint.avatar.blank? %>
             			<% if @saint.avatar_alternative_text? %>
-            				<%= image_tag @saint.avatar.url, class: "img-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
+            				<%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
             			<% else %>
-            				<%= image_tag @saint.avatar.url, class: "img-circle saint-image" %>
+            				<%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
             			<% end %>
             		<% end %>
             		<%= render 'saints/info_sidebar' %>
             	</div>
-            	<!-- /.col-md-3 column -->
-            	<div class="col-md-8 col-md-pull-3 column saint-info">
+            	<!-- /.col-xl-3 push-md-8 column -->
+            	<div class="col-xl-8 pull-md-3 column saint-info">
             		<h1>
 									<%= title @saint.name %>
 								</h1>
@@ -50,7 +55,7 @@
 									<%= @saint.long_description.html_safe %>
 								<% end %>
             	</div>
-            	<!-- /.col-md-8 column -->
+            	<!-- /.col-xl-8 pull-md-3 column saint-info -->
             </div>
             <!-- /.row -->
             <% if logged_in? && current_user.admin? %>
@@ -99,7 +104,7 @@
 			</div>
 			<!-- /.tabbable -->
 		</div>
-		<!-- /.col-md-12 column -->
+		<!-- /.col-xl-12 column -->
 	</div>
 	<!-- /.row -->
 </div>

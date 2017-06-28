@@ -1,13 +1,13 @@
-<div class="col-lg-12">
+<div class="col-xl-12">
   <ul class="timeline">
     <% @timeline_events.each do |timeline_event| %>
       <li class="<%= cycle('', 'timeline-inverted') -%>">
         <% if !timeline_event.image.blank? %>
           <div class="timeline-image">
             <% if timeline_event.image_alternative_text.blank? %>
-              <%= image_tag timeline_event.image.url, class: "img-circle img-responsive hvr-grow" %>
+              <%= image_tag timeline_event.image.url, class: "rounded-circle img-responsive hvr-grow" %>
     				<% else %>
-    					<%= image_tag timeline_event.image.url, class: "img-circle img-responsive hvr-grow", alt: timeline_event.image_alternative_text, title: timeline_event.image_alternative_text %>
+    					<%= image_tag timeline_event.image.url, class: "rounded-circle img-responsive hvr-grow", alt: timeline_event.image_alternative_text, title: timeline_event.image_alternative_text %>
 						<% end %>
 					</div>
 					<!-- /.timeline-image -->
@@ -34,16 +34,7 @@
 				<!-- /.timeline-panel -->
 			</li>
 		<% end %>
-		<li class="timeline-inverted">
-      <div class="timeline-image">
-          <h4>
-          	<%= @saint.name %>,
-          	<br>
-          	pray for us.
-          </h4>
-      </div>
-    </li>
 	</ul>
 	<!-- /.timeline -->
 </div>
-<!-- /.col-lg-12 -->
+<!-- /.col-xl-12 -->

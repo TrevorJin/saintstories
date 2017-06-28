@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt',                  '3.1.11'
-gem 'bootstrap-sass',          '3.3.6'
-gem 'bootstrap-will_paginate', '0.0.10'
+gem 'bootstrap',               '~> 4.0.0.alpha6'
 gem 'carrierwave',             '0.11.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.1'

@@ -2,25 +2,25 @@
 <div id="page-wrapper">
   <%= render 'layouts/alerts' %>
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-xl-12">
       <h1 class="page-header">
         Pending Users
       </h1>
       <!-- /.page-header -->
     </div>
-    <!-- /.col-lg-12 -->
+    <!-- /.col-xl-12 -->
   </div>
   <!-- /.row -->
 
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 class="panel-title">
+  <div class="card card-inverse card-info">
+    <div class="card-header">
+      <h3 class="card-title">
         Search by: ID, Name, or Email
       </h3>
-      <!-- /.panel-title -->
+      <!-- /.card-title -->
     </div>
-    <!-- /.panel-heading -->
-    <div class="panel-body">
+    <!-- /.card-header -->
+    <div class="card-block">
       <% if params[:search].present? %>
         <% if params[:search][:account_requested_after].present? %>
           <% if params[:search][:account_requested_before].present? %>
@@ -87,9 +87,9 @@
         <% end %>
       <% end %>
     </div>
-    <!-- /.panel-body -->
+    <!-- /.card-block -->
   </div>
-  <!-- /.panel panel-info -->
+  <!-- /.card card-inverse card-info -->
 
   <script type="text/javascript">
     $('.form_datetime').datetimepicker({

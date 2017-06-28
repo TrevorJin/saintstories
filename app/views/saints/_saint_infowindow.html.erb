@@ -1,8 +1,8 @@
 <% if !saint.avatar.blank? %>
 	<% if saint.avatar_alternative_text.blank? %>
-		<%= image_tag saint.avatar.map_thumb.url, class: "img-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
+		<%= image_tag saint.avatar.map_thumb.url, class: "rounded-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
  	<% else %>
-  	<%= image_tag saint.avatar.map_thumb.url, class: "img-circle saint-image" %>
+  	<%= image_tag saint.avatar.map_thumb.url, class: "rounded-circle saint-image" %>
  	<% end %>
 <% end %>
 <h4>
