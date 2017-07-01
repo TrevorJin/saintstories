@@ -40,9 +40,15 @@ gem 'underscore-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop
   # execution and get a debugger console
-  gem 'byebug',      '9.0.0', platform: :mri
+  gem 'byebug',                '9.0.0', platform: :mri
+  # Ensures clean testing databases each time
+  gem 'database_cleaner'
+  # Fixtures replacement with a straightforward definition syntax
+  gem "factory_girl_rails",    "~> 4.0"
+  # Testing Framework
+  gem 'rspec-rails'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3',     '1.3.12'
+  gem 'sqlite3',               '1.3.12'
 end
 
 group :development do
@@ -68,6 +74,8 @@ group :development do
 end
 
 group :test do
+  # Tests by simulating how a real user would interact with the app.
+  gem 'capybara'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
@@ -75,6 +83,10 @@ group :test do
   # Provides Travis CI with rack access.
   gem 'rack',                     '2.0.1'
   gem 'rails-controller-testing', '0.1.1'
+  # A browser automation framework and ecosystem.
+  gem 'selenium-webdriver'
+  # Provides RSpec-compatible one-liners that test common Rails functionality.
+  gem 'shoulda-matchers'
   # Travis CI Ruby Test Coverage
   gem 'simplecov'
 end
