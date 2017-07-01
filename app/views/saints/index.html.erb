@@ -12,6 +12,9 @@
   <!-- /.row -->
   <% @saints.each do |saint| %>
     <%= link_to "#{saint.name}", saint %>
+    <% if current_user && saint.published? %>
+     - (Published)
+    <% end %>
     <br>
   <% end %>
 </div>
