@@ -8,20 +8,21 @@ gem 'carrierwave',             '0.11.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
-gem 'figaro'
+gem 'figaro',                  '~> 1.1.0  '
 gem 'fog',                     '1.38.0'
-gem 'friendly_id',             '~> 5.1.0'
-gem 'gmaps4rails'
-gem 'gon'
-gem 'hover-rails'
+gem 'friendly_id',             '5.1.0'
+gem 'gmaps4rails',             '2.1.2'
+gem 'gon',                     '6.1.0'
+gem 'hover-rails',             '2.0.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails',            '4.1.1'
-gem 'jquery-slick-rails'
-gem 'meta-tags'
+gem 'jquery-slick-rails',      '1.6.0.2'
+gem 'leaflet-rails',           '1.1.0'
+gem 'meta-tags',               '2.4.0'
 gem 'mini_magick',             '4.5.1'
-gem 'photoswipe-rails'
+gem 'photoswipe-rails',        '4.1.1'
 gem 'puma',                    '3.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                   '5.0.1'
@@ -36,32 +37,32 @@ gem 'simple_form',             '3.3.1'
 gem 'will_paginate',           '3.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',                '3.0.0'
-gem 'underscore-rails'
+gem 'underscore-rails',        '1.8.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop
   # execution and get a debugger console
   gem 'byebug',                '9.0.0', platform: :mri
   # Ensures clean testing databases each time
-  gem 'database_cleaner'
+  gem 'database_cleaner',      '1.6.1'
   # Fixtures replacement with a straightforward definition syntax
-  gem "factory_girl_rails",    "~> 4.0"
+  gem "factory_girl_rails",    '4.8.0'
   # Testing Framework
-  gem 'rspec-rails'
+  gem 'rspec-rails',           '3.6.0'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3',               '1.3.12'
 end
 
 group :development do
   # Improved error screens
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'better_errors',         '2.1.1'
+  gem 'binding_of_caller',     '0.7.2'
   # Check for security vulnerabilities
   gem 'brakeman', require: false
   # Listen to file modifications and notifiy about the changes
   gem 'listen', '3.0.8'
   # Favicon generator
-  gem 'rails_real_favicon'
+  gem 'rails_real_favicon',    '0.0.7'
   # Rubocop isn't compiling with Travis.
   # Check ruby style
   # gem 'rubocop', '~> 0.47.1', require: false
@@ -76,20 +77,20 @@ end
 
 group :test do
   # Tests by simulating how a real user would interact with the app.
-  gem 'capybara'
-  gem 'codeclimate-test-reporter', '~> 1.0.0'
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
-  gem 'minitest-reporters',       '1.1.9'
+  gem 'capybara',                  '2.14.4'
+  gem 'codeclimate-test-reporter', '1.0.5'
+  gem 'guard',                     '2.13.0'
+  gem 'guard-minitest',            '2.4.4'
+  gem 'minitest-reporters',        '1.1.9'
   # Provides Travis CI with rack access.
-  gem 'rack',                     '2.0.1'
-  gem 'rails-controller-testing', '0.1.1'
+  gem 'rack',                      '2.0.1'
+  gem 'rails-controller-testing',  '0.1.1'
   # A browser automation framework and ecosystem.
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver',        '3.4.3'
   # Provides RSpec-compatible one-liners that test common Rails functionality.
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers',          '3.1.1'
   # Travis CI Ruby Test Coverage
-  gem 'simplecov'
+  gem 'simplecov',                 '0.12.0'
 end
 
 group :production do

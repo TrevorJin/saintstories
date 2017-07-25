@@ -3,15 +3,14 @@ class SaintsController < ApplicationController
   before_action :admin_user,     only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    # prepare_meta_tags title: "Saints List", description: "Explore the Catholic Church's entire list of saints."
+    prepare_meta_tags title: "Saints List", description: "Explore the Catholic Church's entire list of saints."
 
-    # @all_saints = Saint.all
-    # if current_user
-    #   @saints = @all_saints
-    # else
-    #   @saints = @all_saints.where(published: true)
-    # end
-    @saints = Saint.all
+    @all_saints = Saint.all
+    if current_user
+      @saints = @all_saints
+    else
+      @saints = @all_saints.where(published: true)
+    end
   end
 
   def show
@@ -71,12 +70,10 @@ class SaintsController < ApplicationController
   end
 
   def map
-    # prepare_meta_tags title: "Saint Map", description: "Explore the Catholic Church's entire map of saints."
+    prepare_meta_tags title: "Saint Map", description: "Explore the Catholic Church's entire map of saints."
 
-    @saints = Saint.all
-
-    # @all_saints = Saint.all
-    # @saints = @all_saints.where(published: true)
+    @all_saints = Saint.all
+    @saints = @all_saints.where(published: true)
     @popes = @saints.where(pope: true)
     @cardinals = @saints.where(cardinal: true)
     @bishops = @saints.where(bishop: true)
