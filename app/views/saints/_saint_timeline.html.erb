@@ -6,35 +6,35 @@
           <div class="timeline-image">
             <% if timeline_event.image_alternative_text.blank? %>
               <%= image_tag timeline_event.image.url, class: "rounded-circle img-fluid hvr-grow" %>
-    				<% else %>
-    					<%= image_tag timeline_event.image.url, class: "rounded-circle img-fluid hvr-grow", alt: timeline_event.image_alternative_text, title: timeline_event.image_alternative_text %>
-						<% end %>
-					</div>
-					<!-- /.timeline-image -->
-				<% end %>
-				<div class="timeline-panel">
-					<div class="timeline-heading">
-						<h3>
-							<%= timeline_event.event_time %>
-						</h3>
-						<h4 class="subheading">
-							<%= timeline_event.event_title %>
-						</h4>
-						<!-- /.subheading -->
-					</div>
-					<!-- /.timeline-heading -->
-					<div class="timeline-body">
-						<p class="text-muted">
-							<%= timeline_event.event_description %>
-						</p>
-						<!-- /.text-muted -->
-					</div>
-					<!-- /.timeline-body -->
-				</div>
-				<!-- /.timeline-panel -->
-			</li>
-		<% end %>
-	</ul>
-	<!-- /.timeline -->
+            <% else %>
+              <%= image_tag timeline_event.image.url, class: "rounded-circle img-fluid hvr-grow", alt: timeline_event.image_alternative_text, title: timeline_event.image_alternative_text %>
+            <% end %>
+          </div>
+          <!-- /.timeline-image -->
+        <% end %>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h3>
+              <%= timeline_event.event_time %>
+            </h3>
+            <h4 class="subheading">
+              <%= timeline_event.event_title %>
+            </h4>
+            <!-- /.subheading -->
+          </div>
+          <!-- /.timeline-heading -->
+          <div class="timeline-body">
+            <p class="text-muted">
+              <%= timeline_event.event_description %>
+            </p>
+            <!-- /.text-muted -->
+          </div>
+          <!-- /.timeline-body -->
+        </div>
+        <!-- /.timeline-panel -->
+      </li>
+    <% end %>
+  </ul>
+  <!-- /.timeline -->
 </div>
 <!-- /.col-xl-12 -->

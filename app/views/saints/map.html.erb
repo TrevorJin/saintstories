@@ -14,26 +14,113 @@
   <div id="mapid", style="height: 550px;"></div>
 
   <script>
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var saintmap = L.map('mapid').setView([44.505, 10.09], 4);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: '',
-    maxZoom: 18,
+    maxZoom: 10,
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1Ijoic2FpbnRqb3VybmFsIiwiYSI6ImNpeTJqbzZzNzAwM2QycWxhenpubDJ6eTMifQ.z-C8BCVYHRlcct2jAYk9aA'
-}).addTo(mymap);
-    var marker = L.marker([51.5, -0.09]).addTo(mymap);
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
+}).addTo(saintmap);
 
-    var popup = L.popup();
+    var augustine = L.marker([36.2708, 7.9477]).addTo(saintmap);
+    augustine.bindPopup("<h6>St. Augustine</h6>Thagaste, Numidia");
+    augustine.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    augustine.on('mouseout', function (e) {
+      this.closePopup();
+    });
 
-    function onMarkerHover(e) {
-      popup
-            .setLatLng(e.latlng)
-            .setContent("You hovered the map at " + e.latlng.toString())
-            .openOn(mymap);
-    }
-    marker.on('mouseover', onMarkerHover);
+    var johnpaulii = L.marker([49.8828, 19.4940]).addTo(saintmap);
+    johnpaulii.bindPopup("<h6>Pope St. John Paul II</h6>Wadowice, Republic of Poland");
+    johnpaulii.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    johnpaulii.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var motherteresa = L.marker([41.9973, 21.4280]).addTo(saintmap);
+    motherteresa.bindPopup("<h6>St. Teresa of Calcutta</h6>Üsküp, Kosovo Vilayet, Ottoman Empire");
+    motherteresa.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    motherteresa.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var faustina = L.marker([52.0278, 18.9284]).addTo(saintmap);
+    faustina.bindPopup("<h6>St. Faustina</h6>Głogowiec, Łęczyca County, Poland");
+    faustina.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    faustina.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var bakhita = L.marker([14.5524, 24.8823]).addTo(saintmap);
+    bakhita.bindPopup("<h6>St. Josephine Bakhita</h6>Olgossa, Darfur, Sudan");
+    bakhita.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    bakhita.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var teresaofavila = L.marker([40.8264, -4.7401]).addTo(saintmap);
+    teresaofavila.bindPopup("<h6>St. Teresa of Ávila</h6>Gotarrendura, Ávila, Crown of Castile");
+    teresaofavila.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    teresaofavila.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var thomasmore = L.marker([51.5145, -0.0941]).addTo(saintmap);
+    thomasmore.bindPopup("<h6>St. Thomas More</h6>London, England");
+    thomasmore.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    thomasmore.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var aquinas = L.marker([41.5526, 13.6692]).addTo(saintmap);
+    aquinas.bindPopup("<h6>St. Thomas Aquinas</h6>Roccasecca, Kingdom of Sicily");
+    aquinas.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    aquinas.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var louis = L.marker([48.9294, 2.0463]).addTo(saintmap);
+    louis.bindPopup("<h6>St. Louis IX</h6>Poissy, France");
+    louis.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    louis.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var albert = L.marker([48.5702, 10.4303]).addTo(saintmap);
+    albert.bindPopup("<h6>St. Albert the Great</h6>Lauingen, Duchy of Bavaria");
+    albert.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    albert.on('mouseout', function (e) {
+      this.closePopup();
+    });
+
+    var therese = L.marker([48.4329, 0.0913]).addTo(saintmap);
+    therese.bindPopup("<h6>St. Thérèse of Lisieux</h6>Alençon, Orne, France");
+    therese.on('mouseover', function (e) {
+      this.openPopup();
+    });
+    therese.on('mouseout', function (e) {
+      this.closePopup();
+    });
   </script>
 </div>
 <!-- /.page-wrapper -->
