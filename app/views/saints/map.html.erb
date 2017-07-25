@@ -98,11 +98,15 @@
     var marker = L.marker([51.5, -0.09]).addTo(mymap);
     marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
 
-    function onMapClick(e) {
-      alert("You clicked the map at " + e.latlng);
-    }
+    var popup = L.popup();
 
-    mymap.on('click', onMapClick);
+    function onMarkerHover(e) {
+      popup
+            .setLatLng(e.latlng)
+            .setContent("You hovered the map at " + e.latlng.toString())
+            .openOn(mymap);
+    }
+    marker.on('mouseover', onMarkerHover);
   </script>
 
   <script>
