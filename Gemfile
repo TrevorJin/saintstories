@@ -23,7 +23,7 @@ gem 'leaflet-rails',           '1.1.0'
 gem 'meta-tags',               '2.4.0'
 gem 'mini_magick',             '4.5.1'
 gem 'photoswipe-rails',        '4.1.1'
-gem 'puma',                    '3.4.0'
+gem 'puma',                    '3.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails',                   '5.0.1'
 # Use SCSS for stylesheets
