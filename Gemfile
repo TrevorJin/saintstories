@@ -25,7 +25,7 @@ gem 'mini_magick',             '4.5.1'
 gem 'photoswipe-rails',        '4.1.1'
 gem 'puma',                    '3.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails',                   '5.0.1'
+gem 'rails',                   '5.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails',              '5.0.6'
 # Easy forms
