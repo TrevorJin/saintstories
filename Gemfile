@@ -3,7 +3,7 @@ ruby '2.4.0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt',                  '3.1.11'
-gem 'bootstrap',               '~> 4.0.0.alpha6'
+gem 'bootstrap',               '~> 4.0.0.beta'
 gem 'carrierwave',             '0.11.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.1'
