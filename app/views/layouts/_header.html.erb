@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<div id="layout">
 <!-- Menu toggle -->
 <a href="#menu" id="menuLink" class="menu-link">
   <!-- Hamburger icon -->
@@ -10,37 +10,83 @@
 
       <ul class="pure-menu-list">
         <li class="pure-menu-item">
-          <%= link_to "Home", root_path, class: "sideitem" %>
+          <%= link_to "Home", root_path, class: "pure-menu-link" %>
         </li>
 
           <li class="pure-menu-item">
-            <%= link_to "The Map", root_path, class: "sideitem" %>
+            <%= link_to "The Map", root_path, class: "pure-menu-link" %>
           </li>
 
           <li class="pure-menu-item">
-            <%= link_to "The Saints", saints_path, class: "sideitem" %>
+            <%= link_to "The Saints", saints_path, class: "pure-menu-link" %>
           </li>
 
           <li class="pure-menu-item">
-            <%= link_to "About", about_path, class: "sideitem" %>
+            <%= link_to "About", about_path, class: "pure-menu-link" %>
           </li>
 
           <% if logged_in? %>
           <div class="dropdown-divider"></div>
             <li class="pure-menu-item">
-              <%= link_to "Profile", current_user, class: "sideitem" %>
+              <%= link_to "Profile", current_user, class: "pure-menu-link" %>
             </li>
             <li class="pure-menu-item"> <!--<%= active_class(about_path) %>-->
-              <%= link_to "Settings", edit_user_path(current_user), class: "sideitem" %>
+              <%= link_to "Settings", edit_user_path(current_user), class: "pure-menu-link" %>
             </li>
 
             <% if logged_in? && current_user.admin? %>
-              <li class="pure-menu-item"><%= link_to "Users", users_path, class: "sideitem" %></li>
-              <li class="pure-menu-item"><%= link_to "Pending Users", pending_users_path, class: "sideitem" %></li>
-              <li class="pure-menu-item"><%= link_to "Add Saint", new_saint_path, class: "sideitem" %></li>
-              <li class="pure-menu-item menu-item-divided"><%= link_to "Log out", logout_path, method: "delete", class: "sideitem" %></li>
+              <li class="pure-menu-item"><%= link_to "Users", users_path, class: "pure-menu-link" %></li>
+              <li class="pure-menu-item"><%= link_to "Pending Users", pending_users_path, class: "pure-menu-link" %></li>
+              <li class="pure-menu-item"><%= link_to "Add Saint", new_saint_path, class: "pure-menu-link" %></li>
+              <li class="pure-menu-item menu-item-divided"><%= link_to "Log out", logout_path, method: "delete", class: "pure-menu-link" %></li>
             <% end %>
           <% end %>
       </ul>
   </div>
 </div>
+</div>
+<!-- /.layout -->
+<script>
+  var layout   = document.getElementById('layout'),
+        menu     = document.getElementById('menu'),
+        menuLink = document.getElementById('menuLink'),
+        content  = document.getElementById('main');
+
+    function toggleClass(element, className) {
+        var classes = element.className.split(/\s+/),
+            length = classes.length,
+            i = 0;
+
+        for(; i < length; i++) {
+          if (classes[i] === className) {
+            classes.splice(i, 1);
+            break;
+          }
+        }
+        // The className is not found
+        if (length === classes.length) {
+            classes.push(className);
+        }
+
+        element.className = classes.join(' ');
+    }
+
+    function toggleAll(e) {
+        var active = 'active';
+
+        e.preventDefault();
+        toggleClass(layout, active);
+        toggleClass(menu, active);
+        toggleClass(menuLink, active);
+    }
+
+    menuLink.onclick = function (e) {
+        toggleAll(e);
+    };
+
+    content.onclick = function(e) {
+        if (menu.className.indexOf('active') !== -1) {
+            toggleAll(e);
+        }
+    };
+</script>
