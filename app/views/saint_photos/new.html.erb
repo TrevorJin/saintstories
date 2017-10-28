@@ -1,5 +1,14 @@
-<h1>New Saint Photo</h1>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <h1>New Saint Photo</h1>
 
-<%= render 'form', saint_photo: @saint_photo %>
+  <%= render 'form', saint_photo: @saint_photo %>
 
-<%= link_to 'Back', saint_photos_path %>
+  <%= link_to 'Back', saint_photos_path %>
+</div>
+<!-- /.page-content-wrapper -->
+
+<%= render 'shared/side_menu_script' %>

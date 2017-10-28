@@ -1,5 +1,9 @@
-<div id="page-wrapper">
+<div id="page-content-wrapper">
   <%= render 'layouts/alerts' %>
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
   <div class="row">
     <div class="col-xl-12">
       <h1 class="page-header">
@@ -24,4 +28,6 @@
     <%= Saint.find(relationship.followed_id).name %>
   <% end %>
 </div>
-<!-- /.page-wrapper -->
+<!-- /.page-content-wrapper -->
+
+<%= render 'shared/side_menu_script' %>

@@ -1,5 +1,14 @@
-<h1>New Written Work</h1>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <h1>New Written Work</h1>
 
-<%= render 'form', written_work: @written_work %>
+  <%= render 'form', written_work: @written_work %>
 
-<%= link_to 'Back', written_works_path %>
+  <%= link_to 'Back', written_works_path %>
+</div>
+<!-- /.page-content-wrapper -->
+
+<%= render 'shared/side_menu_script' %>

@@ -1,12 +1,21 @@
-<div class="center jumbotron">
-  <h1>Saint Map</h1>
-
-  <h2>
-    Welcome! We want to share the stories of our saints. May they inspire you to become saints too!
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
-
-<%= link_to image_tag("rails.png", alt: "Rails logo"),
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <div class="center jumbotron">
+    <h1>Saint Map</h1>
+  
+    <h2>
+      Welcome! We want to share the stories of our saints. May they inspire you to become saints too!
+    </h2>
+  
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  
+  <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'http://rubyonrails.org/' %>
+</div>
+<!-- /.page-content-wrapper -->
+
+<%= render 'shared/side_menu_script' %>

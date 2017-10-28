@@ -1,10 +1,19 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1>
+          <%= @user.name %>
+        </h1>
+      </section>
+    </aside>
+  </div>
 </div>
+<!-- /.page-content-wrapper -->
+
+<%= render 'shared/side_menu_script' %>

@@ -1,34 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div id="page-content-wrapper">
+  <p id="notice"><%= notice %></p>
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
 
-<h1>Written Works</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Publication Date</th>
-      <th>Description</th>
-      <th>Publication Accuracy</th>
-      <th>Event description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @written_works.each do |written_work| %>
+  <h1>Written Works</h1>
+  
+  <table>
+    <thead>
       <tr>
-        <td><%= written_work.title %></td>
-        <td><%= written_work.publication_date %></td>
-        <td><%= written_work.description %></td>
-        <td><%= written_work.publication_accuracy %></td>
-        <td><%= link_to 'Show', written_work %></td>
-        <td><%= link_to 'Edit', edit_written_work_path(written_work) %></td>
-        <td><%= link_to 'Destroy', written_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Publication Date</th>
+        <th>Description</th>
+        <th>Publication Accuracy</th>
+        <th>Event description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  
+    <tbody>
+      <% @written_works.each do |written_work| %>
+        <tr>
+          <td><%= written_work.title %></td>
+          <td><%= written_work.publication_date %></td>
+          <td><%= written_work.description %></td>
+          <td><%= written_work.publication_accuracy %></td>
+          <td><%= link_to 'Show', written_work %></td>
+          <td><%= link_to 'Edit', edit_written_work_path(written_work) %></td>
+          <td><%= link_to 'Destroy', written_work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'New Written Work', new_written_work_path %>
+</div>
+<!-- /.page-content-wrapper -->
 
-<br>
-
-<%= link_to 'New Written Work', new_written_work_path %>
+<%= render 'shared/side_menu_script' %>

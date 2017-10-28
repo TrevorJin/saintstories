@@ -14,6 +14,7 @@
   <div class="container-fluid">
     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
   </div>
+  <!-- /.container-fluid -->
 
   <div id="mapid", style="height: 550px;"></div>
 
@@ -129,10 +130,4 @@
 </div>
 <!-- /.page-content-wrapper -->
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+<%= render 'shared/side_menu_script' %>

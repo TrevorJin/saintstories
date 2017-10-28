@@ -1,52 +1,61 @@
-<p>
-  <strong>Saint:</strong>
-  <%= link_to @timeline_event.saint.name, @timeline_event.saint %>
-</p>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <p>
+    <strong>Saint:</strong>
+    <%= link_to @timeline_event.saint.name, @timeline_event.saint %>
+  </p>
+  
+  <p>
+    <strong>Event Priority:</strong>
+    <%= @timeline_event.event_priority %>
+  </p>
+  
+  <p>
+    <strong>Event Title:</strong>
+    <%= @timeline_event.event_title %>
+  </p>
+  
+  <p>
+    <strong>Event Description:</strong>
+    <%= @timeline_event.event_description %>
+  </p>
+  
+  <p>
+    <strong>Event Time:</strong>
+    <%= @timeline_event.event_time %>
+  </p>
+  
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @timeline_event.image.url unless @timeline_event.image.blank? %> 
+  </p>
+  
+  <p>
+    <strong>Image caption:</strong>
+    <%= @timeline_event.image_caption %>
+  </p>
+  
+  <p>
+    <strong>Image description:</strong>
+    <%= @timeline_event.image_description %>
+  </p>
+  
+  <p>
+    <strong>Image alternative text:</strong>
+    <%= @timeline_event.image_alternative_text %>
+  </p>
+  
+  <p>
+    <strong>Event description:</strong>
+    <%= @timeline_event.event_description %>
+  </p>
+  
+  <%= link_to 'Edit', edit_timeline_event_path(@timeline_event) %> |
+  <%= link_to 'Back', timeline_events_path %>
+</div>
+<!-- /.page-content-wrapper -->
 
-<p>
-  <strong>Event Priority:</strong>
-  <%= @timeline_event.event_priority %>
-</p>
-
-<p>
-  <strong>Event Title:</strong>
-  <%= @timeline_event.event_title %>
-</p>
-
-<p>
-  <strong>Event Description:</strong>
-  <%= @timeline_event.event_description %>
-</p>
-
-<p>
-  <strong>Event Time:</strong>
-  <%= @timeline_event.event_time %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @timeline_event.image.url unless @timeline_event.image.blank? %> 
-</p>
-
-<p>
-  <strong>Image caption:</strong>
-  <%= @timeline_event.image_caption %>
-</p>
-
-<p>
-  <strong>Image description:</strong>
-  <%= @timeline_event.image_description %>
-</p>
-
-<p>
-  <strong>Image alternative text:</strong>
-  <%= @timeline_event.image_alternative_text %>
-</p>
-
-<p>
-  <strong>Event description:</strong>
-  <%= @timeline_event.event_description %>
-</p>
-
-<%= link_to 'Edit', edit_timeline_event_path(@timeline_event) %> |
-<%= link_to 'Back', timeline_events_path %>
+<%= render 'shared/side_menu_script' %>

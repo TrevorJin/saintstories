@@ -1,5 +1,14 @@
-<h1>New Timeline Event</h1>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <h1>New Timeline Event</h1>
+  
+  <%= render 'form', timeline_event: @timeline_event %>
+  
+  <%= link_to 'Back', timeline_events_path %>
+</div>
+<!-- /.page-content-wrapper -->
 
-<%= render 'form', timeline_event: @timeline_event %>
-
-<%= link_to 'Back', timeline_events_path %>
+<%= render 'shared/side_menu_script' %>

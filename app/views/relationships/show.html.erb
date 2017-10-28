@@ -1,44 +1,52 @@
-<p>
-  <strong>Relationship:</strong>
-  <br>
-  <%= @relationship %>
-</p>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+  </div>
+  <!-- /.container-fluid -->
+  <p>
+    <strong>Relationship:</strong>
+    <br>
+    <%= @relationship %>
+  </p>
+  
+  <p>
+    <strong>Relationship ID:</strong>
+    <br>
+    <%= @relationship.id %>
+  </p>
+  
+  <p>
+    <strong>Follower ID:</strong>
+    <br>
+    <%= @relationship.follower_id %>
+  </p>
+  
+  <p>
+    <strong>Follower Name</strong>
+    <br>
+    <%= Saint.find(@relationship.follower_id).name %>
+  </p>
+  
+  <p>
+    <strong>Followed ID:</strong>
+    <br>
+    <%= @relationship.followed_id %>
+  </p>
+  
+  <p>
+    <strong>Followed Name</strong>
+    <br>
+    <%= Saint.find(@relationship.followed_id).name %>
+  </p>
+  
+  <p>
+    <strong>Status</strong>
+    <br>
+    <%= @relationship.status %>
+  </p>
+  
+  <%= link_to 'Edit', edit_relationship_path(@relationship) %> |
+  <%= link_to 'Back', relationships_path %>
+<!-- /.page-content-wrapper -->
 
-<p>
-  <strong>Relationship ID:</strong>
-  <br>
-  <%= @relationship.id %>
-</p>
-
-<p>
-  <strong>Follower ID:</strong>
-  <br>
-  <%= @relationship.follower_id %>
-</p>
-
-<p>
-  <strong>Follower Name</strong>
-  <br>
-  <%= Saint.find(@relationship.follower_id).name %>
-</p>
-
-<p>
-  <strong>Followed ID:</strong>
-  <br>
-  <%= @relationship.followed_id %>
-</p>
-
-<p>
-  <strong>Followed Name</strong>
-  <br>
-  <%= Saint.find(@relationship.followed_id).name %>
-</p>
-
-<p>
-  <strong>Status</strong>
-  <br>
-  <%= @relationship.status %>
-</p>
-
-<%= link_to 'Edit', edit_relationship_path(@relationship) %> |
-<%= link_to 'Back', relationships_path %>
+<%= render 'shared/side_menu_script' %>

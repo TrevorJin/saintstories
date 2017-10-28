@@ -3,6 +3,7 @@
   <div class="container-fluid">
     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
   </div>
+  <!-- /.container-fluid -->
   <div class="row">
     <div class="col-xl-12">
       <h1 class="page-header">
@@ -23,11 +24,4 @@
 </div>
 <!-- /.page-content-wrapper -->
 
-<!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-    
+<%= render 'shared/side_menu_script' %>
