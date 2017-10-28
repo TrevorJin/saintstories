@@ -2,7 +2,6 @@
 @import 'slick';
 @import 'slick-theme';
 @import 'hover';
-@import 'purecss/menus';
 
 /* mixins, variables, etc. */
 
@@ -10,9 +9,11 @@
 
 /* universal */
 
+/*
 body {
 padding-top: 60px;
 }
+*/
 
 section {
 overflow: auto;
