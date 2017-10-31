@@ -1,0 +1,45 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <a href="#">
+        Saint Stories
+      </a>
+    </li>
+    <li>
+      <%= link_to "Home", root_path %>
+    </li>
+    <li>
+      <%= link_to "The Map", root_path %>
+    </li>
+    <li>
+      <%= link_to "The Saints", saints_path %>
+    </li>
+    <li>
+      <%= link_to "About", about_path %>
+    </li>
+    <% if logged_in? %>
+      <li>
+        <%= link_to "Profile", current_user %>
+      </li>
+      <li>
+        <%= link_to "Settings", edit_user_path(current_user) %>
+      </li>
+      <% if logged_in? && current_user.admin? %>
+        <li>
+          <%= link_to "Users", users_path %>
+        </li>
+        <li>
+          <%= link_to "Pending Users", pending_users_path %>
+        </li>
+        <li>
+          <%= link_to "Add Saint", new_saint_path %>
+        </li>
+        <li>
+          <%= link_to "Log out", logout_path, method: "delete" %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<!-- /.sidebar-wrapper -->
