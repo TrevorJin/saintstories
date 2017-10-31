@@ -1,8 +1,5 @@
 <div id="page-content-wrapper">
-  <div class="container-fluid">
-    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
-  </div>
-  <!-- /.container-fluid -->
+  <%= render 'shared/menu_toggle' %>
   <h1>Editing Relationship</h1>
 
   <%= render 'form', relationship: @relationship %>
