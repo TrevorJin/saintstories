@@ -3,12 +3,12 @@ ruby '2.4.0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt',                  '3.1.11'
-gem 'bootstrap',               '~> 4.0.0.beta'
+gem 'bootstrap',               '~> 4.0.0.beta2'
 gem 'carrierwave',             '0.11.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
-gem 'figaro',                  '~> 1.1.0  '
+gem 'figaro',                  '~> 1.1.0'
 gem 'fog',                     '1.38.0'
 gem 'friendly_id',             '5.1.0'
 gem 'gmaps4rails',             '2.1.2'
@@ -17,7 +17,7 @@ gem 'hover-rails',             '2.0.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder',                '2.4.1'
 # Use jquery as the JavaScript library
-gem 'jquery-rails',            '4.1.1'
+gem 'jquery-rails',            '4.3.1'
 gem 'jquery-slick-rails',      '1.6.0.2'
 gem 'leaflet-rails',           '1.1.0'
 gem 'meta-tags',               '2.4.0'

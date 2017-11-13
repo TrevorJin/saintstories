@@ -1,118 +1,98 @@
 <%= render 'layouts/regular_sidebar' %>
-<div class="page-content-wrapper">
-  <%= render 'shared/menu_toggle' %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xl-12 column">
-        <div class="tabbable" id="tabs-444468">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a href="#panel-200304" data-toggle="tab" class="nav-link active">General</a>
-            </li>
-            <!-- /.active nav-item -->
-            <% if @saint.timeline_events.any? %>
-              <li class="nav-item">
-                <a href="#panel-567649" data-toggle="tab" class="nav-link">Life Timeline</a>
-              </li>
-              <!-- /.nav-item -->
-            <% end %>
-            <% if @following_saints.any? %>
-              <li class="nav-item">
-                <a href="#panel-987654" data-toggle="tab" class="nav-link">Related Saints</a>
-              </li>
-              <!-- /.nav-item -->
-            <% end %>
-            <% if @saint.written_works.any? %>
-              <li class="nav-item">
-                <a href="#panel-123456" data-toggle="tab" class="nav-link">Written Works</a>
-              </li>
-              <!-- /.nav-item -->
-            <% end %>
-            <% if @saint.saint_photos.any? %>
-              <li class="nav-item">
-                <a href="#panel-777777" data-toggle="tab" class="nav-link">Photos</a>
-              </li>
-              <!-- /.nav-item -->
-            <% end %>
-          </ul>
-          <!-- /.nav nav-tabs -->
-          <div class="tab-content">
-            <div class="tab-pane active" id="panel-200304">
-              <div class="row" style="margin-left: 0; margin-right: 0;">
-                <div class="col-xl-3 push-md-8 column">
-                  <% if !@saint.avatar.blank? %>
-                    <% if @saint.avatar_alternative_text? %>
-                      <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
-                    <% else %>
-                      <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
-                    <% end %>
-                  <% end %>
-                  <%= render 'saints/info_sidebar' %>
-                </div>
-                <!-- /.col-xl-3 push-md-8 column -->
-                <div class="col-xl-8 pull-md-3 column saint-info">
-                  <h1 class="saint-title">
-                    <%= title @saint.name %>
-                  </h1>
-                  <% if @saint.long_description.present? %>
-                    <%= @saint.long_description.html_safe %>
-                  <% end %>
-                </div>
-                <!-- /.col-xl-8 pull-md-3 column saint-info -->
-              </div>
-              <!-- /.row -->
-              <% if logged_in? && current_user.admin? %>
-                <%= render 'saints/admin_saint_controls' %>
+<div class="page-content-wrapper" style="padding-top: 53px;" id="general">
+  <nav id="navbar" class="navbar navbar-light" style="background-color: #e3f2fd; position: fixed; top:0; right:0; left:0; z-index: 1030">
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+        <div class="dropdown-menu">
+          <% if @saint.timeline_events.any? %>
+            <a class="dropdown-item" href="#timeline">Life Timeline</a>
+          <% end %>
+          <% if @saint.saint_photos.any? %>
+            <a class="dropdown-item" href="#photos">Photos</a>
+          <% end %>
+          <% if @following_saints.any? %>
+            <a class="dropdown-item" href="#related">Related Saints</a>
+          <% end %>
+          <% if @saint.written_works.any? %>
+            <a class="dropdown-item" href="#written">Written Works</a>
+          <% end %>
+        </div>
+        <!--/. dropdown-menu -->
+        <li class="nav-item">
+          <a class="nav-link" href="#general">Top</a>
+        </li>
+        <!-- /.nav-item-->
+      </li>
+      <!-- /.nav-item dropdown -->
+    </ul>
+  </nav>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-12 column">
+          <div class="row" style="margin-left: 0; margin-right: 0;">
+            <div class="col-xl-3 push-md-8 column">
+              <% if !@saint.avatar.blank? %>
+                <% if @saint.avatar_alternative_text? %>
+                  <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
+                <% else %>
+                  <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
+                <% end %>
+              <% end %>
+              <%= render 'saints/info_sidebar' %>
+            </div>
+            <!-- /.col-xl-3 push-md-8 column -->
+            <div class="col-xl-8 pull-md-3 column saint-info">
+              <h1 class="saint-title">
+                <%= title @saint.name %>
+              </h1>
+              <!-- /.saint-title-->
+              <% if @saint.long_description.present? %>
+                <%= @saint.long_description.html_safe %>
               <% end %>
             </div>
-            <!-- /.tab-pane active -->
-            <% if @saint.timeline_events.any? %>
-              <div class="tab-pane" id="panel-567649">
-                <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0;">
-                  <%= render 'saints/saint_timeline' %>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.tab-pane -->
-            <% end %>
-            <% if @following_saints.any? %>
-              <div class="tab-pane" id="panel-987654">
-                <%= render 'saints/saint_related_saints' %>
-              </div>
-              <!-- /.tab-pane -->
-            <% end %>
-            <% if @saint.written_works.any? %>
-              <div class="tab-pane" id="panel-123456">
-                <div class="row" style="margin-left: 0; margin-right: 0;">
-                  <div class="section section-dark text-center landing-section" style="margin-left: 0; margin-right: 0;">
-                    <%= render 'saints/saint_written_works' %>
-                  </div>
-                  <!-- /.section section-dark text-center landing-section -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.tab-pane -->
-            <% end %>
-            <% if @saint.saint_photos.any? %>
-              <div class="tab-pane" id="panel-777777">
-                <div class="row" style="margin-left: 0; margin-right: 0;">
-                  <%= render 'saints/saint_photo_page' %>
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.tab-pane -->
-            <% end %>
+            <!-- /.col-xl-8 pull-md-3 column saint-info -->
           </div>
-          <!-- /.tab-content -->
+          <!-- /.row -->
+          <% if logged_in? && current_user.admin? %>
+            <%= render 'saints/admin_saint_controls' %>
+          <% end %>
+          <% if @saint.timeline_events.any? %>
+            <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0;" id="timeline">
+              <%= render 'saints/saint_timeline' %>
+            </div>
+            <!-- /.row -->
+          <% end %>
+          <% if @saint.saint_photos.any? %>
+            <div class="row" style="margin-left: 0; margin-right: 0;" id="photos">
+              <%= render 'saints/saint_photo_page' %>
+            </div>
+            <!-- /.row -->
+          <% end %>
+          <% if @following_saints.any? %>
+            <div class="row" style="margin-left: 0; margin-right: 0;" id="related">
+              <%= render 'saints/saint_related_saints' %>
+            </div>
+            <!-- /.row -->
+          <% end %>
+          <% if @saint.written_works.any? %>
+            <div class="row" style="margin-left: 0; margin-right: 0;" id="written">
+              <div class="section section-dark text-center landing-section" style="margin-left: 0; margin-right: 0;">
+                <%= render 'saints/saint_written_works' %>
+              </div>
+              <!-- /.section section-dark text-center landing-section -->
+            </div>
+            <!-- /.row -->
+          <% end %>
         </div>
-        <!-- /.tabbable -->
+        <!-- /.col-xl-12 column -->
       </div>
-      <!-- /.col-xl-12 column -->
+      <!-- /.row -->
     </div>
-    <!-- /.row -->
+    <!-- /.container-fluid -->
   </div>
-  <!-- /.container-fluid -->
 </div>
 <!-- /.page-content-wrapper -->
-
 <%= render 'shared/side_menu_script' %>
