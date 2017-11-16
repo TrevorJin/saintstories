@@ -1,4 +1,4 @@
-<div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+<div class="my-gallery center-block" itemscope itemtype="http://schema.org/ImageGallery">
   <% @saint_photos.each do |saint_photo| %>
     <% if saint_photo.photo? %>
         <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -8,9 +8,6 @@
             <figcaption itemprop="caption description">
                 <%= saint_photo.photo_description %>
             </figcaption>
-            <p style="font-size:14px; width: 175px;">
-                
-            </p>
         </figure>
     <% end %>
   <% end %>
