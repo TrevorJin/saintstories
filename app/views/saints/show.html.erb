@@ -4,9 +4,9 @@
     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
     <ul class="nav nav-pills">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Explore</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Explore Saint</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#general">Top</a>
+          <a class="dropdown-item" href="#general">Back to Top</a>
           <% if @saint.timeline_events.any? %>
             <a class="dropdown-item" href="#timeline">Life Timeline</a>
           <% end %>
@@ -21,10 +21,6 @@
           <% end %>
         </div>
         <!--/. dropdown-menu -->
-        <li class="nav-item">
-          <a class="nav-link" href="#general">Top</a>
-        </li>
-        <!-- /.nav-item-->
       </li>
       <!-- /.nav-item dropdown -->
     </ul>
