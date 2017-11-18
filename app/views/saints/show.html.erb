@@ -29,7 +29,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12 column">
-          <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="general">
+          <h1 class="saint-title" style="padding-top: 60px; margin-top: -40px;" id="general">
+            <%= title @saint.name %>
+          </h1>
+          <!-- /.saint-title-->
+          <div class="row" style="margin-left: 0; margin-right: 0;">
             <div class="col-xl-3 push-md-8 column">
               <% if !@saint.avatar.blank? %>
                 <% if @saint.avatar_alternative_text? %>
@@ -42,10 +46,6 @@
             </div>
             <!-- /.col-xl-3 push-md-8 column -->
             <div class="col-xl-8 pull-md-3 column saint-info">
-              <h1 class="saint-title">
-                <%= title @saint.name %>
-              </h1>
-              <!-- /.saint-title-->
               <% if @saint.long_description.present? %>
                 <%= @saint.long_description.html_safe %>
               <% end %>
