@@ -1,220 +1,220 @@
 <table class="table table-striped">
-	<tbody>
-		<% if logged_in? && current_user.admin? %>
-			<tr>
-				<td>
-					<b>
-						ID
-					</b>
-				</td>
-				<td>
-					<%= @saint.id %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<b>
-						Published?
-					</b>
-				</td>
-				<td>
-					<% if @saint.published? %>
-						Yes
-					<% else %>
-						No
-					<% end %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<b>
-						Fame
-					</b>
-				</td>
-				<td>
-					<%= @saint.fame_level %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @feast_day.present? %>
-			<tr>
-				<td>
-					<b>
-						Feast Day
-					</b>
-				</td>
-				<td>
-					<%= @saint.feast_day.strftime("%B %d") %>
-				</td>
-			</tr>
-		<% end %>
-		<tr>
-			<td>
-				<b>
-					Gender
-				</b>
-			</td>
-			<td>
-				<%= @saint.gender %>
-			</td>
-		</tr>
-		<% if @saint.birth_date.present? %>
-    	<tr>
-				<td>
-					<b>
-						Born
-					</b>
-				</td>
-				<td>
-					<% if @saint.birth_accuracy == 0 %>
-						c. <%= @saint.birth_date.strftime("%-Y") %>
-					<% elsif @saint.birth_accuracy == 1 %>
-						<%= @saint.birth_date.strftime("%-Y") %>
-					<% else %>
-						<%= @saint.birth_date.strftime("%B %d, %-Y") %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @saint.birth_location.present? %>
-			<tr>
-				<td>
-					<b>
-						Birthplace
-					</b>
-				</td>
-				<td>
-					<%= @saint.birth_location %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @saint.death_date.present? %>
-			<tr>
-				<td>
-					<b>
-						Died
-					</b>
-				</td>
-				<td>
-					<% if @saint.death_accuracy == 0 %>
-						c. <%= @saint.death_date.strftime("%-Y") %>
-					<% elsif @saint.death_accuracy == 1 %>
-						<%= @saint.death_date.strftime("%-Y") %>
-					<% else %>
-						<%= @saint.death_date.strftime("%B %d, %-Y") %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @saint.death_location.present? %>
-			<tr>
-				<td>
-					<b>
-						Deathplace
-					</b>
-				</td>
-				<td>
-					<%= @saint.death_location %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @saint.beatification_date.present? %>
-			<tr>
-				<td>
-					<b>
-						Beatified
-					</b>
-				</td>
-				<td>
-					<% if @saint.beatification_accuracy == 0 %>
-						c. <%= @saint.beatification_date.strftime("%-Y") %>
-					<% elsif @saint.beatification_accuracy == 1 %>
-						<%= @saint.beatification_date.strftime("%-Y") %>
-					<% else %>
-						<%= @saint.beatification_date.strftime("%B %d, %-Y") %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		<% if @saint.canonization_date.present? %>
-			<tr>
-				<td>
-					<b>
-						Canonized
-					</b>
-				</td>
-				<td>
-					<% if @saint.canonization_accuracy == 0 %>
-						c. <%= @saint.canonization_date.strftime("%-Y") %>
-					<% elsif @saint.canonization_accuracy == 1 %>
-						<%= @saint.canonization_date.strftime("%-Y") %>
-					<% else %>
-						<%= @saint.canonization_date.strftime("%B %d, %-Y") %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-		<tr>
-			<td>
-				<b>
-					Attributes
-				</b>
-			</td>
-			<td>
-				<% if @saint.pope %>
-					Pope
-					<br>
-				<% end %>
-				<% if @saint.cardinal %>
-					Cardinal
-					<br>
-				<% end %>
-				<% if @saint.bishop %>
-					Bishop
-					<br>
-				<% end %>
-				<% if @saint.priest %>
-					Priest
-					<br>
-				<% end %>
-				<% if @saint.religious %>
-					Religious
-					<br>
-				<% end %>
-				<% if @saint.lay %>
-					Layperson
-					<br>
-				<% end %>
-				<% if @saint.martyr %>
-					Martyr
-					<br>
-				<% end %>
-				<% if @saint.founder %>
-					<% if @saint.gender == "Male" %>
-						Founder
-					<% else %>
-						Foundress
-					<% end %>
-					<br>
-				<% end %>
-				<% if @saint.mystic %>
-					Mystic
-					<br>
-				<% end %>
-				<% if @saint.royalty %>
-					Royalty
-					<br>
-				<% end %>
-				<% if @saint.doctor_of_the_church %>
-					Doctor of the Church
-					<br>
-				<% end %>
-				<% if @saint.early_church_father %>
-					Early Church Father
-					<br>
-				<% end %>
-			</td>
-		</tr>
-	</tbody>
+  <tbody>
+    <% if logged_in? && current_user.admin? %>
+      <tr>
+        <td>
+          <b>
+            ID
+          </b>
+        </td>
+        <td>
+          <%= @saint.id %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>
+            Published?
+          </b>
+        </td>
+        <td>
+          <% if @saint.published? %>
+            Yes
+          <% else %>
+            No
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <b>
+            Fame
+          </b>
+        </td>
+        <td>
+          <%= @saint.fame_level %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @feast_day.present? %>
+      <tr>
+        <td>
+          <b>
+            Feast Day
+          </b>
+        </td>
+        <td>
+          <%= @saint.feast_day.strftime("%B %d") %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>
+        <b>
+          Gender
+        </b>
+      </td>
+      <td>
+        <%= @saint.gender %>
+      </td>
+    </tr>
+    <% if @saint.birth_date.present? %>
+      <tr>
+        <td>
+          <b>
+            Born
+          </b>
+        </td>
+        <td>
+          <% if @saint.birth_accuracy == 0 %>
+            c. <%= @saint.birth_date.strftime("%-Y") %>
+          <% elsif @saint.birth_accuracy == 1 %>
+            <%= @saint.birth_date.strftime("%-Y") %>
+          <% else %>
+            <%= @saint.birth_date.strftime("%B %d, %-Y") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @saint.birth_location.present? %>
+      <tr>
+        <td>
+          <b>
+            Birthplace
+          </b>
+        </td>
+        <td>
+          <%= @saint.birth_location %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @saint.death_date.present? %>
+      <tr>
+        <td>
+          <b>
+            Died
+          </b>
+        </td>
+        <td>
+          <% if @saint.death_accuracy == 0 %>
+            c. <%= @saint.death_date.strftime("%-Y") %>
+          <% elsif @saint.death_accuracy == 1 %>
+            <%= @saint.death_date.strftime("%-Y") %>
+          <% else %>
+            <%= @saint.death_date.strftime("%B %d, %-Y") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @saint.death_location.present? %>
+      <tr>
+        <td>
+          <b>
+            Deathplace
+          </b>
+        </td>
+        <td>
+          <%= @saint.death_location %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @saint.beatification_date.present? %>
+      <tr>
+        <td>
+          <b>
+            Beatified
+          </b>
+        </td>
+        <td>
+          <% if @saint.beatification_accuracy == 0 %>
+            c. <%= @saint.beatification_date.strftime("%-Y") %>
+          <% elsif @saint.beatification_accuracy == 1 %>
+            <%= @saint.beatification_date.strftime("%-Y") %>
+          <% else %>
+            <%= @saint.beatification_date.strftime("%B %d, %-Y") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <% if @saint.canonization_date.present? %>
+      <tr>
+        <td>
+          <b>
+            Canonized
+          </b>
+        </td>
+        <td>
+          <% if @saint.canonization_accuracy == 0 %>
+            c. <%= @saint.canonization_date.strftime("%-Y") %>
+          <% elsif @saint.canonization_accuracy == 1 %>
+            <%= @saint.canonization_date.strftime("%-Y") %>
+          <% else %>
+            <%= @saint.canonization_date.strftime("%B %d, %-Y") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>
+        <b>
+          Attributes
+        </b>
+      </td>
+      <td>
+        <% if @saint.pope %>
+          Pope
+          <br>
+        <% end %>
+        <% if @saint.cardinal %>
+          Cardinal
+          <br>
+        <% end %>
+        <% if @saint.bishop %>
+          Bishop
+          <br>
+        <% end %>
+        <% if @saint.priest %>
+          Priest
+          <br>
+        <% end %>
+        <% if @saint.religious %>
+          Religious
+          <br>
+        <% end %>
+        <% if @saint.lay %>
+          Layperson
+          <br>
+        <% end %>
+        <% if @saint.martyr %>
+          Martyr
+          <br>
+        <% end %>
+        <% if @saint.founder %>
+          <% if @saint.gender == "Male" %>
+            Founder
+          <% else %>
+            Foundress
+          <% end %>
+          <br>
+        <% end %>
+        <% if @saint.mystic %>
+          Mystic
+          <br>
+        <% end %>
+        <% if @saint.royalty %>
+          Royalty
+          <br>
+        <% end %>
+        <% if @saint.doctor_of_the_church %>
+          Doctor of the Church
+          <br>
+        <% end %>
+        <% if @saint.early_church_father %>
+          Early Church Father
+          <br>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <!-- /.table table-striped -->

@@ -28,34 +28,33 @@
   <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-12 column">
+        <div class="col-xl-12">
           <h1 class="saint-title" style="padding-top: 60px; margin-top: -40px;" id="general">
             <%= title @saint.name %>
           </h1>
           <!-- /.saint-title-->
-          <div class="row" style="margin-left: 0; margin-right: 0;">
-            <div class="col-xl-3 push-md-8 column">
-              <% if !@saint.avatar.blank? %>
-                <% if @saint.avatar_alternative_text? %>
-                  <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
-                <% else %>
-                  <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
-                <% end %>
-              <% end %>
-              <%= render 'saints/info_sidebar' %>
-            </div>
-            <!-- /.col-xl-3 push-md-8 column -->
-            <div class="col-xl-8 pull-md-3 column saint-info">
-              <% if @saint.long_description.present? %>
-                <%= @saint.long_description.html_safe %>
-              <% end %>
-            </div>
-            <!-- /.col-xl-8 pull-md-3 column saint-info -->
-          </div>
-          <!-- /.row -->
-          <% if logged_in? && current_user.admin? %>
-            <%= render 'saints/admin_saint_controls' %>
+          <% if !@saint.avatar.blank? %>
+            <% if @saint.avatar_alternative_text? %>
+              <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
+            <% else %>
+              <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
+            <% end %>
           <% end %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
+            Show Basic Info
+          </button>
+          <% if logged_in? && current_user.admin? %>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminModal">
+              Show Admin Options
+            </button>
+            <%= render 'saints/admin_modal' %>
+          <% end %>
+          <%= render 'saints/basic_info_modal' %>
+          <% if @saint.long_description.present? %>
+            <%= @saint.long_description.html_safe %>
+          <% end %>
+        </div>
+        <!-- /.col-xl-12 -->
           <% if @saint.timeline_events.any? %>
             <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="timeline">
               <%= render 'saints/saint_timeline' %>
