@@ -1,5 +1,5 @@
 <%= render 'layouts/regular_sidebar' %>
-<div class="page-content-wrapper" style="padding-top: 53px;" id="general">
+<div class="page-content-wrapper" style="padding-top: 53px;">
   <nav id="navbar" class="navbar navbar-light" style="background-color: #e3f2fd; position: fixed; top:0; right:0; left:0; z-index: 1030">
     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
     <ul class="nav nav-pills">
@@ -17,7 +17,7 @@
             <a class="dropdown-item" href="#related">Related Saints</a>
           <% end %>
           <% if @saint.written_works.any? %>
-            <a class="dropdown-item" href="#written">Written Works</a>
+            <a class="dropdown-item" href="#writings">Writings</a>
           <% end %>
         </div>
         <!--/. dropdown-menu -->
@@ -29,7 +29,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12 column">
-          <div class="row" style="margin-left: 0; margin-right: 0;">
+          <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="general">
             <div class="col-xl-3 push-md-8 column">
               <% if !@saint.avatar.blank? %>
                 <% if @saint.avatar_alternative_text? %>
@@ -57,25 +57,25 @@
             <%= render 'saints/admin_saint_controls' %>
           <% end %>
           <% if @saint.timeline_events.any? %>
-            <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0;" id="timeline">
+            <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="timeline">
               <%= render 'saints/saint_timeline' %>
             </div>
             <!-- /.row -->
           <% end %>
           <% if @saint.saint_photos.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0;" id="photos">
+            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="photos">
               <%= render 'saints/saint_photo_page' %>
             </div>
             <!-- /.row -->
           <% end %>
           <% if @following_saints.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0;" id="related">
+            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="related">
               <%= render 'saints/saint_related_saints' %>
             </div>
             <!-- /.row -->
           <% end %>
           <% if @saint.written_works.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0;" id="written">
+            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="writing">
               <div class="section section-dark text-center landing-section" style="margin-left: 0; margin-right: 0;">
                 <%= render 'saints/saint_written_works' %>
               </div>

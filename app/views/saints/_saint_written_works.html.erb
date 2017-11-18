@@ -1,29 +1,29 @@
-<h1>
-	Writings of <%= @saint.name %>
+<h1 class="saint-section-title">
+  Writings
 </h1>
-
+<!-- /.saint-section-title -->
 <div class="written-works-list">
-	<% @written_works.each do |written_work| %>
-		<div class="team-player">
-			<h3>
-				<%= written_work.title %>
-				<br>
-				<small class="text-muted">
-					<% if written_work.publication_accuracy == 0 %>
-						<%= written_work.publication_date.strftime("%-Y") %>
-					<% elsif written_work.publication_accuracy == 1 %>
-						<%= written_work.publication_date.strftime("%-Y") %>
-					<% else %>
-						<%= written_work.publication_date.strftime("%B %d, %-Y") %>
-					<% end %>
-				</small>
-			</h3>
-			<p class="written-work-description">
-				<%= written_work.description %>
-			</p>
-			<!-- /.written-work-description -->
-		</div>
-		<!-- /.team-player -->
-	<% end %>
+  <% @written_works.each do |written_work| %>
+    <div class="team-player">
+      <h3>
+        <%= written_work.title %>
+        <br>
+        <small class="text-muted">
+          <% if written_work.publication_accuracy == 0 %>
+            <%= written_work.publication_date.strftime("%-Y") %>
+          <% elsif written_work.publication_accuracy == 1 %>
+            <%= written_work.publication_date.strftime("%-Y") %>
+          <% else %>
+            <%= written_work.publication_date.strftime("%B %d, %-Y") %>
+          <% end %>
+        </small>
+      </h3>
+      <p class="written-work-description">
+        <%= written_work.description %>
+      </p>
+      <!-- /.written-work-description -->
+    </div>
+    <!-- /.team-player -->
+  <% end %>
 </div>
 <!-- /.written-works-list -->
