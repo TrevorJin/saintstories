@@ -1,0 +1,71 @@
+.saint-section-title {
+  text-align: center;
+}
+
+.saint-info {
+  font-size: 1.3em;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+.saint-image {
+  display: block;
+  margin: 10px auto;
+}
+
+// Photo Gallery
+
+.my-gallery {
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+
+  img {
+    display: block;
+    height: 150px;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  figure {
+    display: block;
+    float: left;
+    margin: 0 5px 5px 0;
+    width: auto;
+  }
+
+  figcaption {
+    display: none;
+  }
+}
+
+// Related Saints
+
+.related-saints {
+  float: left;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.related-saint {
+  display: block;
+  float: left;
+  margin: 0 15px;
+  width: 200px;
+
+  p {
+    text-align: center;
+  }
+}
+
+// Written Works
+
+.written-works-list {
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+}

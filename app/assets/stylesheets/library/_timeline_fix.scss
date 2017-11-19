@@ -1,0 +1,12 @@
+// Bootstrap hack: Fix content width inside hidden tabs.
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: block;     // Undo display:none
+  height: 0;          // height:0 is also invisible
+  overflow-y: hidden; // No-overflow
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  height: auto;       // Let the content decide height.
+}
