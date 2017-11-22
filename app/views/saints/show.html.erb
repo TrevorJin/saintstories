@@ -6,7 +6,6 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Table of Contents</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#general">Back to Top</a>
           <% if @saint.timeline_events.any? %>
             <a class="dropdown-item" href="#timeline">Life Timeline</a>
           <% end %>
@@ -29,7 +28,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12">
-          <h1 class="saint-title" style="padding-top: 60px; margin-top: -40px;" id="general">
+          <h1 class="saint-title" style="padding-top: 60px; margin-top: -40px;">
             <%= title @saint.name %>
           </h1>
           <!-- /.saint-title-->
@@ -91,4 +90,6 @@
   </div>
 </div>
 <!-- /.page-content-wrapper -->
+<%= render 'shared/top_of_page_button' %>
+<%= render 'shared/top_of_page_script' %>
 <%= render 'shared/side_menu_script' %>

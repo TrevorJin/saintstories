@@ -11,6 +11,7 @@ gem 'coffee-rails',            '4.2.1'
 gem 'faker',                   '1.6.6'
 gem 'figaro',                  '~> 1.1.0'
 gem 'fog',                     '1.38.0'
+gem "font-awesome-rails"
 gem 'friendly_id',             '5.1.0'
 gem 'gmaps4rails',             '2.1.2'
 gem 'gon',                     '6.1.0'
