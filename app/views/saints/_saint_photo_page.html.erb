@@ -3,7 +3,7 @@
     Photos
   </h1>
   <!-- /.saint-section-title -->
-  <div class="my-gallery d-flex justify-content-center" itemscope itemtype="http://schema.org/ImageGallery">
+  <div class="my-gallery d-flex flex-wrap justify-content-center" itemscope itemtype="http://schema.org/ImageGallery">
     <% @saint_photos.each do |saint_photo| %>
       <% if saint_photo.photo? %>
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
