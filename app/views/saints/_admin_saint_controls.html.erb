@@ -1,293 +1,348 @@
-<div class="container-fluid">
-  <h1>
-    <%= link_to "Edit Saint", edit_saint_path(@saint) %>
-  </h1>
-  <br>
-  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseCreateTimelineEvent" aria-expanded="false" aria-controls="collapseCreateTimelineEvent">
-    Create Timeline Event
-  </a>
-  <!-- /.btn btn-primary -->
-  <div class="collapse" id="collapseCreateTimelineEvent">
-    <div class="card bg-faded card-block mb-3">
-      <%= form_for(@saint.timeline_events.build) do |f| %>
-        <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-        <%= label_tag(:event_priority, "Event Priority Level (Required)") %>
-        <%= text_field_tag(:event_priority) %>
-        <%= label_tag(:event_title, "Event Title (Required)") %>
-        <%= text_field_tag(:event_title) %>
-        <%= label_tag(:event_time, "Event Time (Required)") %>
-        <%= text_field_tag(:event_time) %>
-        <%= label_tag(:event_description, "Write the event's description") %>
-        <%= text_field_tag(:event_description) %>
-        <%= label_tag(:image, "Upload Image") %>
-        <%= f.file_field :image %>
-        <%= label_tag(:image_caption, "Write an Image Caption") %>
-        <%= text_field_tag(:image_caption) %>
-        <%= label_tag(:image_description, "Write an Image Description") %>
-        <%= text_field_tag(:image_description) %>
-        <%= label_tag(:image_alternative_text, "Write the alternative text for the image") %>
-        <%= text_field_tag(:image_alternative_text) %>
-        <%= f.submit "Create Timeline Event", class: "btn btn-primary" %>
-      <% end %>
+<h1>
+  <%= link_to "Edit Saint", edit_saint_path(@saint) %>
+</h1>
+<div id="accordion" role="tablist">
+  <div class="card">
+    <div class="card-header" role="tab" id="timelineEvent">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseTimelineEvent" aria-expanded="true" aria-controls="collapseTimelineEvent">
+          Create Timeline Event
+        </a>
+      </h5>
+      <!-- /.mb-0 -->
     </div>
-    <!-- /.card bg-faded card-block mb-3 -->
-  </div>
-  <!-- /.collapse -->
-  <br>
-  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseCreateSaintPhoto" aria-expanded="false" aria-controls="collapseCreateSaintPhoto">
-    Create Saint Photo
-  </a>
-  <!-- /.btn btn-primary -->
-  <div class="collapse" id="collapseCreateSaintPhoto">
-    <div class="card bg-faded card-block mb-3">
-      <%= form_for(@saint.saint_photos.build) do |f| %>
-        <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-        <%= label_tag(:photo, "Upload Photo") %>
-        <%= f.file_field :photo %>
-        <%= label_tag(:photo_priority, "Photo Priority Level (Required)") %>
-        <%= text_field_tag(:photo_priority) %>
-        <%= label_tag(:photo_caption, "Write a Photo Caption") %>
-        <%= text_field_tag(:photo_caption) %>
-        <%= label_tag(:photo_description, "Write a Photo Description") %>
-        <%= text_field_tag(:photo_description) %>
-        <%= label_tag(:photo_alternative_text, "Write the alternative text for the photo") %>
-        <%= text_field_tag(:photo_alternative_text) %>
-        <%= label_tag(:width, "Width (Required)") %>
-        <%= text_field_tag(:width) %>
-        <%= label_tag(:height, "Height (Required)") %>
-        <%= text_field_tag(:height) %>
-        <%= f.submit "Create Saint Photo", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <!-- /.card bg-faded card-block mb-3 -->
-  </div>
-  <!-- /.collapse -->
-  <br>
-  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseCreateWrittenWork" aria-expanded="false" aria-controls="collapseCreateWrittenWork">
-    Create Written Work
-  </a>
-  <!-- /.btn btn-primary -->
-  <div class="collapse" id="collapseCreateWrittenWork">
-    <div class="card bg-faded card-block mb-3">
-      <%= form_for(@saint.written_works.build) do |f| %>
-        <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-         <%= label_tag(:title, "Write the title of the written work:") %>
-         <%= text_field_tag(:title) %>
-        <%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
-        <%= text_field_tag(:publication_date) %>
-        <%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
-         <%= text_field_tag(:publication_accuracy) %>
-         <%= label_tag(:description, "Create optional description") %>
-        <%= text_area_tag(:description) %>
-        <%= f.submit "Create Written Work", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <!-- /.card bg-faded card-block mb-3 -->
-  </div>
-  <!-- /.collapse -->
-  <br>
-  <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseCreateRelatedSaint" aria-expanded="false" aria-controls="collapseCreateRelatedSaint">
-    Create Related Saint
-  </a>
-  <!-- /.btn btn-primary -->
-  <div class="collapse" id="collapseCreateRelatedSaint">
-    <div class="card bg-faded card-block mb-3">
-      <%= form_for(@saint.active_relationships.build) do |f| %>
-         <%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
-         <%= text_field_tag(:followed_id) %>
-         <%= label_tag(:status, "Explain this relationship:") %>
-         <%= text_field_tag(:status) %>
-        <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-        <%= f.submit "Create Relationship", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-    <!-- /.card bg-faded card-block mb-3 -->
-  </div>
-  <!-- /.collapse -->
-  <br>
-  <% if @saint.timeline_events.any? %>
-    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseSaintTimelineEvents" aria-expanded="false" aria-controls="collapseSaintTimelineEvents">
-      Saint Timeline Events
-    </a>
-    <!-- /.btn btn-primary -->
-    <div class="collapse" id="collapseSaintTimelineEvents">
-      <div class="card bg-faded card-block mb-3">
-        <% @timeline_events.each do |timeline_event| %>
-          <br>
-          <b>
-            Event Priority
-          </b>
-          <br>
-          <%= timeline_event.event_priority %>
-          <br>
-          <b>
-            Event Title
-          </b>
-          <br>
-          <%= timeline_event.event_title %>
-          <br>
-          <b>
-            Event Time
-          </b>
-          <br>
-          <%= timeline_event.event_time %>
-          <br>
-          <b>
-            Event Description
-          </b>
-          <br>
-          <%= timeline_event.event_description %>
-          <br>
-          <%= image_tag timeline_event.image.url unless timeline_event.image.blank? %> 
-          <br>
-          <b>
-            Image Caption
-          </b>
-          <br>
-          <%= timeline_event.image_caption %>
-          <br>
-          <b>
-            Image Description
-          </b>
-          <br>
-          <%= timeline_event.image_description %>
-          <br>
-          <b>
-            Image Alternative Text
-          </b>
-          <br>
-          <%= timeline_event.image_alternative_text %>
-          <br>
-          <%= link_to "Edit Timeline Event", edit_timeline_event_path(timeline_event) %>
-          <br>
+    <!-- /.card-header -->
+    <div id="collapseTimelineEvent" class="collapse" role="tabpanel" aria-labelledby="timelineEvent" data-parent="#accordion">
+      <div class="card-body">
+        <%= form_for(@saint.timeline_events.build) do |f| %>
+          <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+          <%= label_tag(:event_priority, "Event Priority Level (Required)") %>
+          <%= text_field_tag(:event_priority) %>
+          <%= label_tag(:event_title, "Event Title (Required)") %>
+          <%= text_field_tag(:event_title) %>
+          <%= label_tag(:event_time, "Event Time (Required)") %>
+          <%= text_field_tag(:event_time) %>
+          <%= label_tag(:event_description, "Write the event's description") %>
+          <%= text_field_tag(:event_description) %>
+          <%= label_tag(:image, "Upload Image") %>
+          <%= f.file_field :image %>
+          <%= label_tag(:image_caption, "Write an Image Caption") %>
+          <%= text_field_tag(:image_caption) %>
+          <%= label_tag(:image_description, "Write an Image Description") %>
+          <%= text_field_tag(:image_description) %>
+          <%= label_tag(:image_alternative_text, "Write the alternative text for the image") %>
+          <%= text_field_tag(:image_alternative_text) %>
+          <%= f.submit "Create Timeline Event", class: "btn btn-primary" %>
         <% end %>
       </div>
-      <!-- /.card bg-faded card-block mb-3 -->
+      <!-- /.card-body -->
     </div>
     <!-- /.collapse -->
-    <br>
+  </div>
+  <!-- /.card -->
+  <div class="card">
+    <div class="card-header" role="tab" id="photo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapsePhoto" aria-expanded="false" aria-controls="collapsePhoto">
+          Create Photo
+        </a>
+      </h5>
+      <!-- /.mb-0 -->
+    </div>
+    <!-- /.card-header -->
+    <div id="collapsePhoto" class="collapse" role="tabpanel" aria-labelledby="photo" data-parent="#accordion">
+      <div class="card-body">
+        <%= form_for(@saint.saint_photos.build) do |f| %>
+          <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+          <%= label_tag(:photo, "Upload Photo") %>
+          <%= f.file_field :photo %>
+          <%= label_tag(:photo_priority, "Photo Priority Level (Required)") %>
+          <%= text_field_tag(:photo_priority) %>
+          <%= label_tag(:photo_caption, "Write a Photo Caption") %>
+          <%= text_field_tag(:photo_caption) %>
+          <%= label_tag(:photo_description, "Write a Photo Description") %>
+          <%= text_field_tag(:photo_description) %>
+          <%= label_tag(:photo_alternative_text, "Write the alternative text for the photo") %>
+          <%= text_field_tag(:photo_alternative_text) %>
+          <%= label_tag(:width, "Width (Required)") %>
+          <%= text_field_tag(:width) %>
+          <%= label_tag(:height, "Height (Required)") %>
+          <%= text_field_tag(:height) %>
+          <%= f.submit "Create Photo", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.collapse -->
+  </div>
+  <!-- /.card -->
+  <div class="card">
+    <div class="card-header" role="tab" id="writtenWork">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseWrittenWork" aria-expanded="false" aria-controls="collapseWrittenWork">
+          Create Written Work
+        </a>
+      </h5>
+      <!-- /. mb-0 -->
+    </div>
+    <!-- /.card-header -->
+    <div id="collapseWrittenWork" class="collapse" role="tabpanel" aria-labelledby="writtenWork" data-parent="#accordion">
+      <div class="card-body">
+        <%= form_for(@saint.written_works.build) do |f| %>
+          <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+            <%= label_tag(:title, "Write the title of the written work:") %>
+            <%= text_field_tag(:title) %>
+            <%= label_tag(:publication_date, "Write publication date. (e.g. YYYY-MM-DD)") %>
+            <%= text_field_tag(:publication_date) %>
+            <%= label_tag(:publication_accuracy, "Write publication accuracy.") %>
+            <%= text_field_tag(:publication_accuracy) %>
+            <%= label_tag(:description, "Create optional description") %>
+            <%= text_area_tag(:description) %>
+            <%= f.submit "Create Written Work", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.collapse -->
+  </div>
+  <!-- /.card -->
+  <div class="card">
+    <div class="card-header" role="tab" id="relatedSaint">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseRelatedSaint" aria-expanded="false" aria-controls="collapseRelatedSaint">
+          Create Related Saint
+        </a>
+      </h5>
+      <!-- /. mb-0 -->
+    </div>
+    <!-- /.card-header -->
+    <div id="collapseRelatedSaint" class="collapse" role="tabpanel" aria-labelledby="relatedSaint" data-parent="#accordion">
+      <div class="card-body">
+        <%= form_for(@saint.active_relationships.build) do |f| %>
+          <%= label_tag(:followed_id, "Write the id of the appropriate saint:") %>
+          <%= text_field_tag(:followed_id) %>
+          <%= label_tag(:status, "Explain this relationship:") %>
+          <%= text_field_tag(:status) %>
+          <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+          <%= f.submit "Create Relationship", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.collapse -->
+  </div>
+  <!-- /.card -->
+  <% if @saint.timeline_events.any? %>
+    <div class="card">
+      <div class="card-header" role="tab" id="timelineEvents">
+        <h5 class="mb-0">
+          <a class="collapsed" data-toggle="collapse" href="#collapseTimelineEvents" aria-expanded="false" aria-controls="collapseTimelineEvents">
+            Timeline Events
+          </a>
+        </h5>
+        <!-- /. mb-0 -->
+      </div>
+      <!-- /.card-header -->
+      <div id="collapseTimelineEvents" class="collapse" role="tabpanel" aria-labelledby="timelineEvents" data-parent="#accordion">
+        <div class="card-body">
+          <% @timeline_events.each do |timeline_event| %>
+            <br>
+            <b>
+              Event Priority
+            </b>
+            <br>
+            <%= timeline_event.event_priority %>
+            <br>
+            <b>
+              Event Title
+            </b>
+            <br>
+            <%= timeline_event.event_title %>
+            <br>
+            <b>
+              Event Time
+            </b>
+            <br>
+            <%= timeline_event.event_time %>
+            <br>
+            <b>
+              Event Description
+            </b>
+            <br>
+            <%= timeline_event.event_description %>
+            <br>
+            <%= image_tag timeline_event.image.url unless timeline_event.image.blank? %> 
+            <br>
+            <b>
+              Image Caption
+            </b>
+            <br>
+            <%= timeline_event.image_caption %>
+            <br>
+            <b>
+              Image Description
+            </b>
+            <br>
+            <%= timeline_event.image_description %>
+            <br>
+            <b>
+              Image Alternative Text
+            </b>
+            <br>
+            <%= timeline_event.image_alternative_text %>
+            <br>
+            <%= link_to "Edit Timeline Event", edit_timeline_event_path(timeline_event) %>
+            <br>
+          <% end %>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.collapse -->
+    </div>
+    <!-- /.card -->
   <% end %>
   <% if @saint_photos.any? %>
-    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseSaintPhotos" aria-expanded="false" aria-controls="collapseSaintPhotos">
-      Saint Photos
-    </a>
-    <!-- /.btn btn-primary -->
-    <div class="collapse" id="collapseSaintPhotos">
-      <div class="card bg-faded card-block mb-3">
-        <% @saint_photos.each do |saint_photo| %>
-          <br>
-          <%= image_tag saint_photo.photo.thumb.url unless saint_photo.photo.blank? %> 
-          <br>
-          <b>
-            Photo Priority
-          </b>
-          <br>
-          <%= saint_photo.photo_priority %>
-          <br>
-          <b>
-            Caption:
-          </b>
-          <br>
-          <%= saint_photo.photo_caption %>
-          <br>
-          <b>
-            Description:
-          </b>
-          <br>
-          <%= saint_photo.photo_description %>
-          <br>
-          <b>
-            Alternative Text:
-          </b>
-          <br>
-          <%= saint_photo.photo_alternative_text %>
-          <br>
-          <b>
-            Width:
-          </b>
-          <br>
-          <%= saint_photo.width %>
-          <br>
-          <b>
-            Height:
-          </b>
-          <br>
-          <%= saint_photo.height %>
-          <br>
-          <%= link_to "Edit Saint Photo", edit_saint_photo_path(saint_photo) %>
-          <br>
-          <%= link_to "Delete", saint_photo, method: :delete,
-                                data: { confirm: "Are you sure?" } %>
-        <% end %>
+    <div class="card">
+      <div class="card-header" role="tab" id="photos">
+        <h5 class="mb-0">
+          <a class="collapsed" data-toggle="collapse" href="#collapsePhotos" aria-expanded="false" aria-controls="collapsePhotos">
+            Photos
+          </a>
+        </h5>
+        <!-- /. mb-0 -->
       </div>
-      <!-- /.card bg-faded card-block mb-3 -->
+      <!-- /.card-header -->
+      <div id="collapsePhotos" class="collapse" role="tabpanel" aria-labelledby="photos" data-parent="#accordion">
+        <div class="card-body">
+          <% @saint_photos.each do |saint_photo| %>
+            <br>
+            <%= image_tag saint_photo.photo.thumb.url unless saint_photo.photo.blank? %> 
+            <br>
+            <b>
+              Photo Priority
+            </b>
+            <br>
+            <%= saint_photo.photo_priority %>
+            <br>
+            <b>
+              Caption:
+            </b>
+            <br>
+            <%= saint_photo.photo_caption %>
+            <br>
+            <b>
+              Description:
+            </b>
+            <br>
+            <%= saint_photo.photo_description %>
+            <br>
+            <b>
+              Alternative Text:
+            </b>
+            <br>
+            <%= saint_photo.photo_alternative_text %>
+            <br>
+            <b>
+              Width:
+            </b>
+            <br>
+            <%= saint_photo.width %>
+            <br>
+            <b>
+              Height:
+            </b>
+            <br>
+            <%= saint_photo.height %>
+            <br>
+            <%= link_to "Edit Saint Photo", edit_saint_photo_path(saint_photo) %>
+            <br>
+            <%= link_to "Delete", saint_photo, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.collapse -->
     </div>
-    <!-- /.collapse -->
-    <br>
+    <!-- /.card -->
   <% end %>
   <% if @written_works.any? %>
-    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseWrittenWorks" aria-expanded="false" aria-controls="collapseWrittenWorks">
-      Written Works
-    </a>
-    <!-- /.btn btn-primary -->
-    <div class="collapse" id="collapseWrittenWorks">
-      <div class="card bg-faded card-block mb-3">
-        <% @written_works.each do |written_work| %>
-          <br>
-          <%= written_work.title %> - 
-          <% if written_work.publication_accuracy == 0 %>
-            <%= written_work.publication_date.strftime("%-Y") %>
-          <% elsif written_work.publication_accuracy == 1 %>
-            <%= written_work.publication_date.strftime("%-Y") %>
-          <% else %>
-            <%= written_work.publication_date.strftime("%B %d, %-Y") %>
-          <% end %>
-          <% if logged_in? && current_user.admin? %>
-            <%= link_to 'Edit', edit_written_work_path(written_work) %> - 
-            <%= link_to "Delete", written_work, method: :delete,
-                                data: { confirm: "Are you sure?" } %>
-          <% end %>
-        <% end %>
+    <div class="card">
+      <div class="card-header" role="tab" id="writtenWorks">
+        <h5 class="mb-0">
+          <a class="collapsed" data-toggle="collapse" href="#collapseWrittenWorks" aria-expanded="false" aria-controls="collapseWrittenWorks">
+            Written Works
+          </a>
+        </h5>
+        <!-- /. mb-0 -->
       </div>
-      <!-- /.card bg-faded card-block mb-3 -->
-    </div>
-    <!-- /.collapse -->
-    <br>
-  <% end %>
-  <% if @following_saints.any? %>
-    <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseRelatedSaints" aria-expanded="false" aria-controls="collapseRelatedSaints">
-      Relationship Maintenance
-    </a>
-    <!-- /.btn btn-primary -->
-    <div class="collapse" id="collapseRelatedSaints">
-      <div class="card bg-faded card-block mb-3">
-        <% @saint.active_relationships.each do |relationship| %>
-          Relationship: <%= relationship %>
-          <br>
-          Relationship ID: <%= relationship.id %>
-          <br>
-          Follower ID: <%= relationship.follower_id %>
-          <br>
-          Followed ID: <%= relationship.followed_id %>
-          <br>
-          Follower Saint Name: <%= Saint.find(relationship.follower_id).name %>
-          <br>
-          Status: <%= relationship.status %>
-          <br>
-          <% if relationship.id? %>
-            <%= link_to 'Edit', edit_relationship_path(relationship) %>
+      <!-- /.card-header -->
+      <div id="collapseWrittenWorks" class="collapse" role="tabpanel" aria-labelledby="writtenWorks" data-parent="#accordion">
+        <div class="card-body">
+          <% @written_works.each do |written_work| %>
             <br>
-            <%= form_for(@saint.active_relationships.find_by(followed_id: relationship.followed_id), html: { method: :delete }) do |f| %>
-              <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
-              <%= f.submit "Destroy relationship", class: "btn" %>
+            <%= written_work.title %> - 
+            <% if written_work.publication_accuracy == 0 %>
+              <%= written_work.publication_date.strftime("%-Y") %>
+            <% elsif written_work.publication_accuracy == 1 %>
+              <%= written_work.publication_date.strftime("%-Y") %>
+            <% else %>
+              <%= written_work.publication_date.strftime("%B %d, %-Y") %>
+            <% end %>
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to 'Edit', edit_written_work_path(written_work) %> - 
+              <%= link_to "Delete", written_work, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
             <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <!-- /.card-body -->
       </div>
-      <!-- /.card bg-faded card-block mb-3 -->
+      <!-- /.collapse -->
     </div>
-    <!-- /.collapse -->
-    <br>
+    <!-- /.card -->
+  <% end %>
+  <% if @following_saints.any? %>
+    <div class="card">
+      <div class="card-header" role="tab" id="relatedSaints">
+        <h5 class="mb-0">
+          <a class="collapsed" data-toggle="collapse" href="#collapseRelatedSaints" aria-expanded="false" aria-controls="collapseRelatedSaints">
+            Manage Relationships
+          </a>
+        </h5>
+        <!-- /. mb-0 -->
+      </div>
+      <!-- /.card-header -->
+      <div id="collapseRelatedSaints" class="collapse" role="tabpanel" aria-labelledby="relatedSaints" data-parent="#accordion">
+        <div class="card-body">
+          <% @saint.active_relationships.each do |relationship| %>
+            Relationship: <%= relationship %>
+            <br>
+            Relationship ID: <%= relationship.id %>
+            <br>
+            Follower ID: <%= relationship.follower_id %>
+            <br>
+            Followed ID: <%= relationship.followed_id %>
+            <br>
+            Follower Saint Name: <%= Saint.find(relationship.follower_id).name %>
+            <br>
+            Status: <%= relationship.status %>
+            <br>
+            <% if relationship.id? %>
+              <%= link_to 'Edit', edit_relationship_path(relationship) %>
+              <br>
+              <%= form_for(@saint.active_relationships.find_by(followed_id: relationship.followed_id), html: { method: :delete }) do |f| %>
+                <div><%= hidden_field_tag :current_saint_id, @saint.id %></div>
+                <%= f.submit "Destroy relationship", class: "btn" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.collapse -->
+    </div>
+    <!-- /.card -->
   <% end %>
 </div>
-<!-- /.container-fluid -->
+<!-- /#accordion -->
