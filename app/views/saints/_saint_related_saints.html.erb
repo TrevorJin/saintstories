@@ -3,23 +3,29 @@
     Related Saints
   </h1>
   <!-- /.saint-section-title -->
-	<% @following_saints.each do |saint| %>
-		<div class="related-saint">
-			<% if !saint.avatar.blank? %>
-    		<% if saint.avatar_alternative_text? %>
-      		<%= image_tag saint.avatar.url, class: "rounded-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
-    		<% else %>
-      		<%= image_tag saint.avatar.url, class: "rounded-circle saint-image" %>
-    		<% end %>
-  		<% end %>
-			<p>
-				<%= link_to saint.name, saint %>
-			</p>
-			<p>
-				<%= Relationship.where("follower_id = ? AND followed_id = ?", @saint.id, saint.id).first.status %>
-			</p>
-		</div>
-		<!--/.related-saint -->
-	<% end %>
+  <div class="row d-flex justify-content-center">
+    <% @following_saints.each do |saint| %>
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <% if !saint.avatar.blank? %>
+            <% if saint.avatar_alternative_text? %>
+              <%= image_tag saint.avatar.url, class: "rounded-circle saint-image", alt: saint.avatar_alternative_text, title: saint.avatar_alternative_text %>
+            <% else %>
+              <%= image_tag saint.avatar.url, class: "rounded-circle saint-image" %>
+            <% end %>
+          <% end %>
+          <h4 class="card-title">
+          	<%= link_to saint.name, saint %>
+          </h4>
+          <p class="card-text">
+            <%= Relationship.where("follower_id = ? AND followed_id = ?", @saint.id, saint.id).first.status %>
+          </p>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    <% end %>
+  </div>
+  <!-- /.row d-flex justify-content-center -->
 </div>
 <!-- /.related-saints scrollnav-offset -->
