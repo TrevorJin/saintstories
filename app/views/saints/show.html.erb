@@ -10,7 +10,7 @@
             <a class="dropdown-item" href="#timeline">Life Timeline</a>
           <% end %>
           <% if @saint.saint_photos.any? %>
-            <a class="dropdown-item" href="#photos">Photos</a>
+            <a class="dropdown-item" href="#phototime">Photos</a>
           <% end %>
           <% if @following_saints.any? %>
             <a class="dropdown-item" href="#related">Related Saints</a>
@@ -39,50 +39,36 @@
               <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
             <% end %>
           <% end %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
-            Show Basic Info
-          </button>
-          <% if logged_in? && current_user.admin? %>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminModal">
-              Show Admin Options
+          <p class="saint-buttons">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
+              Show Basic Info
             </button>
-            <%= render 'saints/admin_modal' %>
-          <% end %>
+            <% if logged_in? && current_user.admin? %>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminModal">
+                Show Admin Options
+              </button>
+              <%= render 'saints/admin_modal' %>
+            <% end %>
+          </p>
+          <!-- /.saint-buttons -->
           <%= render 'saints/basic_info_modal' %>
           <% if @saint.long_description.present? %>
             <%= @saint.long_description.html_safe %>
           <% end %>
         </div>
         <!-- /.col-xl-12 -->
-          <% if @saint.timeline_events.any? %>
-            <div class="row" style="margin-left: 0; margin-top:20px; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="timeline">
-              <%= render 'saints/saint_timeline' %>
-            </div>
-            <!-- /.row -->
-          <% end %>
-          <% if @saint.saint_photos.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="photos">
-              <%= render 'saints/saint_photo_page' %>
-            </div>
-            <!-- /.row -->
-          <% end %>
-          <% if @following_saints.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="related">
-              <%= render 'saints/saint_related_saints' %>
-            </div>
-            <!-- /.row -->
-          <% end %>
-          <% if @saint.written_works.any? %>
-            <div class="row" style="margin-left: 0; margin-right: 0; padding-top: 60px; margin-top: -40px;" id="writings">
-              <div class="section section-dark text-center landing-section" style="margin-left: 0; margin-right: 0;">
-                <%= render 'saints/saint_written_works' %>
-              </div>
-              <!-- /.section section-dark text-center landing-section -->
-            </div>
-            <!-- /.row -->
-          <% end %>
-        </div>
-        <!-- /.col-xl-12 column -->
+        <% if @saint.timeline_events.any? %>
+            <%= render 'saints/saint_timeline' %>
+        <% end %>
+        <% if @saint.saint_photos.any? %>
+            <%= render 'saints/saint_photo_page' %>
+        <% end %>
+        <% if @following_saints.any? %>
+            <%= render 'saints/saint_related_saints' %>
+        <% end %>
+        <% if @saint.written_works.any? %>
+          <%= render 'saints/saint_written_works' %>
+        <% end %>
       </div>
       <!-- /.row -->
     </div>
