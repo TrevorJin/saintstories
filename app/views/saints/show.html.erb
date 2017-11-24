@@ -1,30 +1,49 @@
 <%= render 'layouts/regular_sidebar' %>
 <div class="page-content-wrapper" style="padding-top: 53px;">
   <nav id="navbar" class="navbar navbar-light" style="background-color: #e3f2fd; position: fixed; top:0; right:0; left:0; z-index: 1030">
-    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Menu</a>
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">
+      Menu
+    </a>
+    <!-- /.btn btn-secondary -->
     <ul class="nav nav-pills">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Table of Contents</a>
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          Table of Contents
+        </a>
+        <!-- /.nav-link dropdown-toggle -->
         <div class="dropdown-menu">
           <% if @saint.timeline_events.any? %>
-            <a class="dropdown-item" href="#timeline">Life Timeline</a>
+            <a class="dropdown-item" href="#timeline">
+              Life Timeline
+            </a>
+            <!-- /.dropdown-item -->
           <% end %>
           <% if @saint.saint_photos.any? %>
-            <a class="dropdown-item" href="#phototime">Photos</a>
+            <a class="dropdown-item" href="#phototime">
+              Photos
+            </a>
+            <!-- /.dropdown-item -->
           <% end %>
           <% if @following_saints.any? %>
-            <a class="dropdown-item" href="#related">Related Saints</a>
+            <a class="dropdown-item" href="#related">
+              Related Saints
+            </a>
+            <!-- /.dropdown-item -->
           <% end %>
           <% if @saint.written_works.any? %>
-            <a class="dropdown-item" href="#writings">Writings</a>
+            <a class="dropdown-item" href="#writings">
+              Writings
+            </a>
+            <!-- /.dropdown-item -->
           <% end %>
         </div>
         <!--/. dropdown-menu -->
       </li>
       <!-- /.nav-item dropdown -->
     </ul>
+    <!-- /.nav nav-pills -->
   </nav>
-  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+  <div data-spy="scroll" data-target="#navbar-saintstories" data-offset="0">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-12">
