@@ -60,11 +60,11 @@
           <% end %>
           <p class="saint-buttons">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal">
-              Show Basic Info
+              Basic Info
             </button>
             <% if logged_in? && current_user.admin? %>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adminModal">
-                Show Admin Options
+                Admin Options
               </button>
               <%= render 'saints/admin_modal' %>
             <% end %>

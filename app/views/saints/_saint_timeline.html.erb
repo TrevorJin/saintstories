@@ -3,7 +3,7 @@
     Life Timeline
     <p>
       <% if logged_in? && current_user.admin? %>
-        <%= link_to "New", new_timeline_event_path, class: "badge badge-success" %>
+        <%= link_to "Create", new_timeline_event_path, class: "badge badge-success" %>
       <% end %>
     </p>
   </h1>
@@ -33,11 +33,12 @@
           </div>
           <!-- /.timeline-heading -->
           <div class="timeline-body">
+            <% if logged_in? && current_user.admin? %>
+              <%= link_to "Info", timeline_event_path(timeline_event), class: "badge badge-info" %>
+              <%= link_to "Edit", edit_timeline_event_path(timeline_event), class: "badge badge-primary" %>
+            <% end %>
             <p class="text-muted">
               <%= timeline_event.event_description %>
-              <% if logged_in? && current_user.admin? %>
-                <%= link_to "Edit", edit_timeline_event_path(timeline_event), class: "badge badge-primary" %>
-              <% end %>
             </p>
             <!-- /.text-muted -->
           </div>
