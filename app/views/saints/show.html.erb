@@ -12,25 +12,25 @@
         </a>
         <!-- /.nav-link dropdown-toggle -->
         <div class="dropdown-menu">
-          <% if @saint.timeline_events.any? %>
+          <% if !@saint.timeline_events.empty? %>
             <a class="dropdown-item" href="#timeline">
               Life Timeline
             </a>
             <!-- /.dropdown-item -->
           <% end %>
-          <% if @saint.saint_photos.any? %>
+          <% if !@saint.saint_photos.empty? %>
             <a class="dropdown-item" href="#phototime">
               Photos
             </a>
             <!-- /.dropdown-item -->
           <% end %>
-          <% if @following_saints.any? %>
+          <% if !@following_saints.empty? %>
             <a class="dropdown-item" href="#related">
               Related Saints
             </a>
             <!-- /.dropdown-item -->
           <% end %>
-          <% if @saint.written_works.any? %>
+          <% if !@saint.written_works.empty? %>
             <a class="dropdown-item" href="#writings">
               Writings
             </a>
@@ -76,16 +76,16 @@
           <% end %>
         </div>
         <!-- /.col-xl-12 -->
-        <% if @saint.timeline_events.any? %>
+        <% if !@saint.timeline_events.empty? %>
             <%= render 'saints/saint_timeline' %>
         <% end %>
-        <% if @saint.saint_photos.any? %>
+        <% if !@saint.saint_photos.empty? %>
             <%= render 'saints/saint_photo_page' %>
         <% end %>
-        <% if @following_saints.any? %>
+        <% if !@following_saints.empty? %>
             <%= render 'saints/saint_related_saints' %>
         <% end %>
-        <% if @saint.written_works.any? %>
+        <% if !@saint.written_works.empty? %>
           <%= render 'saints/saint_written_works' %>
         <% end %>
       </div>
