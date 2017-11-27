@@ -5,7 +5,7 @@ gem 'autoprefixer-rails',      '7.1.6'
 # Use ActiveModel has_secure_password
 gem 'bcrypt',                  '3.1.11'
 gem 'bootstrap',               '~> 4.0.0.beta2.1'
-gem 'carrierwave',             '0.11.2'
+gem 'carrierwave',             '1.2.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.2'
 gem 'faker',                   '1.8.4'
