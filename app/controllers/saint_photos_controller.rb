@@ -35,7 +35,7 @@ class SaintPhotosController < ApplicationController
     @saint_photo = SaintPhoto.find(params[:id])
     respond_to do |format|
       if @saint_photo.update(saint_photo_params)
-        format.html { redirect_to @saint_photo, notice: 'Saint photo was successfully updated.' }
+        format.html { redirect_to @saint_photo, notice: 'Photo successfully updated.' }
         format.json { render :show, status: :ok, location: @saint_photo }
       else
         format.html { render :edit }
@@ -47,11 +47,11 @@ class SaintPhotosController < ApplicationController
   def destroy
     # @saint_photo.destroy
     # respond_to do |format|
-    #   format.html { redirect_to saint_photos_url, notice: 'Saint photo was successfully destroyed.' }
+    #   format.html { redirect_to saint_photos_url, notice: 'Photo successfully destroyed.' }
     #   format.json { head :no_content }
     # end
     SaintPhoto.find(params[:id]).destroy
-    flash[:success] = "Saint photo deleted"
+    flash[:success] = "Photo deleted"
     redirect_to saint_photos_url
   end
 
