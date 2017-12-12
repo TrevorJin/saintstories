@@ -99,12 +99,12 @@ class User < ApplicationRecord
 
   # Change to admin.
   def change_to_admin
-    update_attribute(:admin,    true)
+    update_attribute(:admin, true)
   end
 
   # Change to user
   def change_to_user
-    update_attribute(:admin,    false)
+    update_attribute(:admin, false)
   end
 
   private

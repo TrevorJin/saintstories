@@ -33,9 +33,61 @@ FactoryGirl.define do
     early_church_father false
     canonization_status 'Saint'
     fame_level 80
-    published true
+    published false
 
-    factory :published_saint do
+    trait :female do
+      gender 'Female'
+    end
+
+    trait :pope do
+      pope true
+    end
+
+    trait :cardinal do
+      cardinal true
+    end
+
+    trait :bishop do
+      bishop true
+    end
+
+    trait :priest do
+      priest true
+    end
+
+    trait :religious do
+      religious true
+    end
+
+    trait :lay do
+      lay true
+    end
+
+    trait :martyr do
+      martyr true
+    end
+
+    trait :founder do
+      founder true
+    end
+
+    trait :mystic do
+      mystic true
+    end
+
+    trait :royalty do
+      royalty true
+    end
+
+    trait :doctor_of_the_church do
+      doctor_of_the_church true
+    end
+
+    trait :early_church_father do
+      early_church_father true
+    end
+
+    trait :published do
       published true
     end
   end
