@@ -8,6 +8,8 @@ gem 'bootstrap',               '~> 4.0.0.beta2.1'
 gem 'carrierwave',             '1.2.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.2'
+# Translate enums to SimpleForm select field
+gem 'enum_help',               '0.0.17'
 gem 'faker',                   '1.8.4'
 gem 'figaro',                  '~> 1.1.0'
 gem 'fog',                     '1.42.0'

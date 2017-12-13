@@ -19,21 +19,8 @@ FactoryGirl.define do
     death_longitude 19.2018
     short_description 'Martyr of Charity at Auschwitz.'
     long_description 'Martyr of Charity at Auschwitz.'
-    pope false
-    cardinal false
-    bishop false
-    priest true
-    religious true
-    lay false
-    martyr true
-    founder false
-    mystic false
-    royalty false
-    doctor_of_the_church false
-    early_church_father false
-    canonization_status 'Saint'
+    title 0
     fame_level 80
-    published false
 
     trait :female do
       gender 'Female'

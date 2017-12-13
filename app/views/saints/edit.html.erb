@@ -18,13 +18,13 @@
       <%= simple_form_for @saint do |f| %>
         <%= f.input :published, label: 'Publish to the public?' %>
         <%= f.input :name %>
-        <%= f.input :canonization_status, :collection => canonization_status_options %>
+        <%= f.input :title %>
         <%= f.input :gender, :collection => gender_options %>
         <%= f.input :feast_day, as: :date, order: [:month, :day] %>
         <%= f.input :birth_date, as: :string, label: 'Birth Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :birth_accuracy, label: 'Birth Accuracy: 0-3' %>
+        <%= f.input :birth_accuracy %>
         <%= f.input :death_date, as: :string, label: 'Death Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :death_accuracy, label: 'Death Accuracy: 0-3' %>
+        <%= f.input :death_accuracy %>
         <%= f.input :birth_location %>
         <%= f.input :birth_latitude %>
         <%= f.input :birth_longitude %>
@@ -32,9 +32,9 @@
         <%= f.input :death_latitude %>
         <%= f.input :death_longitude %>
         <%= f.input :beatification_date, as: :string, label: 'Beatification Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :beatification_accuracy, label: 'Beatification Accuracy: 0-3' %>
+        <%= f.input :beatification_accuracy %>
         <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :canonization_accuracy, label: 'Canonization Accuracy: 0-3' %>
+        <%= f.input :canonization_accuracy %>
         <%= f.input :fame_level, label: 'Fame Level: 1-100 (100 is most famous)' %>
         <%= f.file_field :avatar %>
         <%= f.input :avatar_caption %>

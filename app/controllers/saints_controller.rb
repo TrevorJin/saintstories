@@ -21,6 +21,10 @@ class SaintsController < ApplicationController
     end
 
     if @saint.published || current_user
+      @accurate_birth_date = @saint.accurate_birth_date
+      @accurate_death_date = @saint.accurate_death_date
+      @accurate_beatification_date = @saint.accurate_beatification_date
+      @accurate_canonization_date = @saint.accurate_canonization_date
       @following_saints = @saint.following
       @follower_saints = @saint.followers
       @written_works = @saint.written_works.order(publication_date: :asc)
@@ -154,7 +158,7 @@ class SaintsController < ApplicationController
       :doctor_of_the_church, :early_church_father, :avatar,
       :avatar_caption, :avatar_description, :avatar_alternative_text,
       :beatification_accuracy, :canonization_accuracy,
-      :short_description, :long_description, :canonization_status,
+      :short_description, :long_description, :title,
       :fame_level, :published)
   end
 

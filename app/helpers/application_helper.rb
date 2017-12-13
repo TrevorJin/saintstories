@@ -19,13 +19,4 @@ module ApplicationHelper
       %w(Female Female)
     ]
   end
-
-  def canonization_status_options
-    [
-      ['Saint', 'Saint'],
-      ['Blessed', 'Blessed'],
-      ['Venerable', 'Venerable'],
-      ['Servant of God', 'Servant of God']
-    ]
-  end
 end
