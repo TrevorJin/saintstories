@@ -45,7 +45,7 @@ RSpec.describe Saint, type: :model do
       it { should have_db_column(:avatar_caption).of_type(:string) }
       it { should have_db_column(:avatar_description).of_type(:string) }
       it { should have_db_column(:avatar_alternative_text).of_type(:string) }
-      it { should have_db_column(:canonization_status).of_type(:string) }
+      it { should have_db_column(:title).of_type(:integer) }
       it { should have_db_column(:fame_level).of_type(:integer) }
       it { should have_db_column(:published).of_type(:boolean).with_options(default: false) }
     end
@@ -92,23 +92,13 @@ RSpec.describe Saint, type: :model do
     end
 
     it do
-    	should validate_presence_of(:canonization_status).
-    		with_message('canonization status required')
+    	should validate_presence_of(:title).
+    		with_message('title required')
     end
 
     it do
     	should validate_presence_of(:fame_level).
     		with_message('fame level required')
     end
-
-	  it "is valid with valid attributes" do
-    	expect(Saint.new(name: 'St. Maximilian Kolbe',
-    									 gender: 'Male',
-    									 feast_day: '2017-08-14',
-    									 short_description: 'Martyr of Charity at Auschwitz.',
-    									 long_description: 'Martyr of Charity at Auschwitz.',
-    									 canonization_status: 'Saint',
-    									 fame_level: 80)).to be_valid
-	  end
   end
 end
