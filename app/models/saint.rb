@@ -6,10 +6,12 @@ class Saint < ApplicationRecord
   YEAR_FORMAT = "%-Y"
   MONTH_YEAR_FORMAT = "%B %-Y"
   MONTH_DAY_YEAR_FORMAT = "%B %d, %-Y"
-  DATE_ACCURACIES = { 'We only know the approximate year.' => APPROX_YEAR,
-                      'We only know the exact year.' => EXACT_YEAR,
-                      'We only know the exact month and year.' => EXACT_MONTH_YEAR,
-                      'We know the exact day, month, and year.' => EXACT_DATE }
+  DATE_ACCURACIES = {
+    'We only know the approximate year.' => APPROX_YEAR,
+    'We only know the exact year.' => EXACT_YEAR,
+    'We only know the exact month and year.' => EXACT_MONTH_YEAR,
+    'We know the exact day, month, and year.' => EXACT_DATE
+    }.freeze
   enum birth_accuracy: DATE_ACCURACIES, _prefix: true
   enum death_accuracy: DATE_ACCURACIES, _prefix: true
   enum beatification_accuracy: DATE_ACCURACIES, _prefix: true
@@ -38,16 +40,18 @@ class Saint < ApplicationRecord
     length: { maximum: 255, message: 'must be 255 characters or less' }
   validates :gender, presence: { message: 'gender required' }
   validates :feast_day, presence: { message: 'feast day required' }
-  validates :short_description, presence: { message: 'short description required' }
-  validates :long_description, presence: { message: 'long description required' }
   validates :birth_accuracy, inclusion: { in: birth_accuracies.keys },
                              presence: { message: 'birth accuracy required' }
   validates :death_accuracy, inclusion: { in: death_accuracies.keys },
                              presence: { message: 'death accuracy required' }
-  validates :beatification_accuracy, inclusion: { in: beatification_accuracies.keys },
-                                     presence: { message: 'beatification accuracy required' }
-  validates :canonization_accuracy, inclusion: { in: canonization_accuracies.keys },
-                                    presence: { message: 'canonization accuracy required' }
+  validates :birth_location,
+    length: { maximum: 255, message: 'must be 255 characters or less' }
+  validates :death_location,
+    length: { maximum: 255, message: 'must be 255 characters or less' }
+  validates :beatification_accuracy, inclusion: { in: beatification_accuracies.keys }
+  validates :canonization_accuracy, inclusion: { in: canonization_accuracies.keys }
+  validates :short_description, presence: { message: 'short description required' }
+  validates :long_description, presence: { message: 'long description required' }
   validates :title, inclusion: { in: titles.keys },
                                  presence: { message: 'title required' }
   validates :fame_level, presence: { message: 'fame level required' }
@@ -99,55 +103,38 @@ class Saint < ApplicationRecord
     canonization_date.present?
   end
 
-  def accurate_birth_date
-    case birth_accuracy
-    when DATE_ACCURACIES.key(APPROX_YEAR)
-      'c. ' + birth_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_YEAR)
-      birth_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_MONTH_YEAR)
-      birth_date.strftime(MONTH_YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_DATE)
-      birth_date.strftime(MONTH_DAY_YEAR_FORMAT)
+  def accurate_saint_date(date_type)
+    saint_date = birth_date
+    date_accuracy = 0
+    case date_type
+    when 'birth'
+      saint_date = birth_date
+      date_accuracy = birth_accuracy
+    when 'death'
+      saint_date = death_date
+      date_accuracy = death_accuracy
+    when 'beatification'
+      saint_date = beatification_date
+      date_accuracy = beatification_accuracy
+    when 'canonization'
+      saint_date = canonization_date
+      date_accuracy = canonization_accuracy
     end
+    apply_accuracy(saint_date, date_accuracy)
   end
 
-  def accurate_death_date
-    case death_accuracy
-    when DATE_ACCURACIES.key(APPROX_YEAR)
-      'c. ' + death_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_YEAR)
-      death_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_MONTH_YEAR)
-      death_date.strftime(MONTH_YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_DATE)
-      death_date.strftime(MONTH_DAY_YEAR_FORMAT)
-    end
-  end
+  private
 
-  def accurate_beatification_date
-    case beatification_accuracy
+  def apply_accuracy(saint_date, date_accuracy)
+    case date_accuracy
     when DATE_ACCURACIES.key(APPROX_YEAR)
-      'c. ' + beatification_date.strftime(YEAR_FORMAT)
+      'c. ' + saint_date.strftime(YEAR_FORMAT)
     when DATE_ACCURACIES.key(EXACT_YEAR)
-      beatification_date.strftime(YEAR_FORMAT)
+      saint_date.strftime(YEAR_FORMAT)
     when DATE_ACCURACIES.key(EXACT_MONTH_YEAR)
-      beatification_date.strftime(MONTH_YEAR_FORMAT)
+      saint_date.strftime(MONTH_YEAR_FORMAT)
     when DATE_ACCURACIES.key(EXACT_DATE)
-      beatification_date.strftime(MONTH_DAY_YEAR_FORMAT)
-    end
-  end
-
-  def accurate_canonization_date
-    case canonization_accuracy
-    when DATE_ACCURACIES.key(APPROX_YEAR)
-      'c. ' + canonization_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_YEAR)
-      canonization_date.strftime(YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_MONTH_YEAR)
-      canonization_date.strftime(MONTH_YEAR_FORMAT)
-    when DATE_ACCURACIES.key(EXACT_DATE)
-      canonization_date.strftime(MONTH_DAY_YEAR_FORMAT)
+      saint_date.strftime(MONTH_DAY_YEAR_FORMAT)
     end
   end
 end

@@ -7,6 +7,21 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :name }
     it { should validate_length_of(:name).is_at_most(50) }
 
+    context 'a user with a valid name' do
+      let(:valid_name) { 'Pier Giorgio Frassati' }
+      before do
+        user.name = valid_name
+      end
+
+      it 'is valid' do
+        expect(user).to be_valid
+      end
+
+      it 'may be stored in the database' do
+        expect(user.save).to be_truthy
+      end
+    end
+
     context 'a user with an overly long name (> 50 chars)' do
       before do
         user.name = 'a' * 51
@@ -38,7 +53,7 @@ RSpec.describe User, type: :model do
         end
       end
 
-      it 'may not be stored in the database' do
+      it 'may be stored in the database' do
         valid_addresses.each do |valid_address|
           user.email = valid_address
           expect(user.save).to be_truthy
@@ -86,9 +101,26 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of :password }
     it { should validate_length_of(:password).is_at_least(6) }
 
+    context 'a user with a valid password' do
+      let(:valid_password) { 'padrepioisgreat' }
+      before do
+        user.password = valid_password
+        user.password_confirmation = valid_password
+      end
+
+      it 'is valid' do
+        expect(user).to be_valid
+      end
+
+      it 'may be stored in the database' do
+        expect(user.save).to be_truthy
+      end
+    end
+
     context 'a user with an overly short password (< 6 chars)' do
       before do
         user.password = 'a' * 5
+        user.password_confirmation = 'a' * 5
       end
 
       it 'is invalid' do

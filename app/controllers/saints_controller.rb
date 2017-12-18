@@ -21,10 +21,10 @@ class SaintsController < ApplicationController
     end
 
     if @saint.published || current_user
-      @accurate_birth_date = @saint.accurate_birth_date
-      @accurate_death_date = @saint.accurate_death_date
-      @accurate_beatification_date = @saint.accurate_beatification_date
-      @accurate_canonization_date = @saint.accurate_canonization_date
+      @accurate_birth_date = @saint.accurate_saint_date('birth')
+      @accurate_death_date = @saint.accurate_saint_date('death')
+      @accurate_beatification_date = @saint.accurate_saint_date('beatification')
+      @accurate_canonization_date = @saint.accurate_saint_date('canonization')
       @following_saints = @saint.following
       @follower_saints = @saint.followers
       @written_works = @saint.written_works.order(publication_date: :asc)

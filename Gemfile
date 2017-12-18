@@ -83,6 +83,7 @@ group :test do
   gem 'codeclimate-test-reporter', '1.0.8'
   gem 'guard',                     '2.14.1'
   gem 'guard-minitest',            '2.4.6'
+  gem 'guard-rspec', require: false
   gem 'minitest-reporters',        '1.1.19'
   # Provides Travis CI with rack access.
   gem 'rack',                      '2.0.3'
