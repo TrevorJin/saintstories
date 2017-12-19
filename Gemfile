@@ -4,6 +4,8 @@ ruby '2.4.0'
 gem 'autoprefixer-rails',      '7.1.6'
 # Use ActiveModel has_secure_password
 gem 'bcrypt',                  '3.1.11'
+# Cuts boot times in half
+gem 'bootsnap', require: false
 gem 'bootstrap',               '~> 4.0.0.beta2.1'
 gem 'carrierwave',             '1.2.1'
 # Use CoffeeScript for .coffee assets and views
