@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.5.0'
 
 gem 'autoprefixer-rails',      '7.1.6'
 # Use ActiveModel has_secure_password
