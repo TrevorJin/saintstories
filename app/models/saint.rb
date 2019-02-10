@@ -50,6 +50,7 @@ class Saint < ApplicationRecord
     length: { maximum: 255, message: 'must be 255 characters or less' }
   # validates :beatification_accuracy, inclusion: { in: beatification_accuracies.keys }
   # validates :canonization_accuracy, inclusion: { in: canonization_accuracies.keys }
+  #
   validates :short_description, presence: { message: 'short description required' }
   validates :long_description, presence: { message: 'long description required' }
   validates :title, inclusion: { in: titles.keys },
