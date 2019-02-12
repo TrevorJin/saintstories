@@ -1,37 +1,36 @@
 source 'https://rubygems.org'
 ruby '2.5.0'
 
-gem 'autoprefixer-rails',      '7.1.6'
+gem 'autoprefixer-rails',      '9.4.7'
 # Use ActiveModel has_secure_password
-gem 'bcrypt',                  '3.1.11'
+gem 'bcrypt',                  '3.1.12'
 # Cuts boot times in half
 gem 'bootsnap', require: false
-gem 'bootstrap',               '~> 4.0.0.beta2.1'
-gem 'carrierwave',             '1.2.1'
+gem 'bootstrap',               '4.2.1'
+gem 'carrierwave',             '1.3.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.2'
 # Translate enums to SimpleForm select field
 gem 'enum_help',               '0.0.17'
-gem 'faker',                   '1.8.4'
-gem 'figaro',                  '~> 1.1.0'
-gem 'fog',                     '1.42.0'
+gem 'faker',                   '1.9.1'
+gem 'figaro',                  '1.1.1'
+gem 'fog',                     '2.1.0'
 gem 'font-awesome-rails'
-gem 'friendly_id',             '5.1.0'
+gem 'friendly_id',             '5.2.5'
 gem 'gmaps4rails',             '2.1.2'
-gem 'gon',                     '6.2.0'
-gem 'hover-rails',             '2.0.2'
+gem 'gon',                     '6.2.1'
+gem 'hover-rails',             '2.3.2.1'
 # Build JSON APIs with ease
-gem 'jbuilder',                '2.7.0'
+gem 'jbuilder',                '2.8.0'
 # Use jquery as the JavaScript library
-gem 'jquery-rails',            '4.3.1'
-gem 'leaflet-rails',           '1.2.0'
-gem 'meta-tags',               '2.7.0'
-gem 'mini_magick',             '4.8.0'
+gem 'jquery-rails',            '4.3.3'
+gem 'leaflet-rails',           '1.3.1'
+gem 'meta-tags',               '2.11.1'
+gem 'mini_magick',             '4.9.2'
 gem 'photoswipe-rails',        '4.1.2'
-gem 'puma',                    '3.11.0'
-gem 'rails',                   '5.0.2'
-# Use SCSS for stylesheets
-gem 'sass-rails',              '5.0.7'
+gem 'puma',                    '3.12.0'
+gem 'rails',                   '5.1.0'
+gem 'sassc-rails',             '2.1.0'
 # Easy forms
 gem 'simple_form',             '3.5.0'
 # Turbolinks makes following links in your web application faster.
