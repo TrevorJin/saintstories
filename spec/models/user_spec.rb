@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let (:user) { FactoryGirl.build(:user) }
+  let (:user) { FactoryBot.build(:user) }
 
   describe 'name' do
     it { should validate_presence_of :name }
@@ -165,7 +165,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#forget' do
-    let (:remembered_user) { FactoryGirl.build(:remembered_user) }
+    let (:remembered_user) { FactoryBot.build(:remembered_user) }
 
     it 'forgets user' do
       expect(remembered_user.remember_digest).to be_truthy
@@ -236,7 +236,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#reactivate_user' do
-    let (:inactive_user) { FactoryGirl.build(:inactive_user) }
+    let (:inactive_user) { FactoryBot.build(:inactive_user) }
 
     it 'reactivates user' do
       expect(inactive_user.active).to be_falsey
@@ -255,7 +255,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#change_to_user' do
-    let (:admin) { FactoryGirl.build(:admin) }
+    let (:admin) { FactoryBot.build(:admin) }
 
     it 'changes admin to a regular user' do
       expect(admin.admin).to be_truthy

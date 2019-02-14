@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SaintPhoto, type: :model do
-  let (:saint_photo) { FactoryGirl.build(:saint_photo) }
+  let (:saint_photo) { FactoryBot.build(:saint_photo) }
 
   it { should belong_to :saint }
   it { should validate_presence_of :saint_id }

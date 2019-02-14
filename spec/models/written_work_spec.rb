@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe WrittenWork, type: :model do
-  let (:written_work) { FactoryGirl.build(:written_work) }
+  let (:written_work) { FactoryBot.build(:written_work) }
 
   it { should belong_to :saint }
   it { should validate_presence_of :saint_id }
