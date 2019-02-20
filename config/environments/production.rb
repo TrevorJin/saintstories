@@ -108,4 +108,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.active_record.sqlite3.represent_boolean_as_integer = true
 end
