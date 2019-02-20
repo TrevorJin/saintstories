@@ -104,7 +104,7 @@ GEM
     erubi (1.8.0)
     excon (0.62.0)
     execjs (2.7.0)
-    factory_bot (5.0.0)
+    factory_bot (5.0.1)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.1)
       factory_bot (~> 5.0.0)
@@ -431,6 +431,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     rbovirt (0.1.7)
       nokogiri
       rest-client (> 1.7.0)
@@ -587,6 +588,7 @@ DEPENDENCIES
   rails-controller-testing (= 1.0.4)
   rails_12factor (= 0.0.3)
   rails_real_favicon (= 0.0.12)
+  rb-readline
   rspec-rails (= 3.8.2)
   sassc-rails (= 2.1.0)
   selenium-webdriver (= 3.141.0)

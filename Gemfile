@@ -30,6 +30,7 @@ gem 'mini_magick',             '4.9.2'
 gem 'photoswipe-rails',        '4.1.2'
 gem 'puma',                    '3.12.0'
 gem 'rails',                   '5.2.2'
+gem 'rb-readline'
 gem 'sassc-rails',             '2.1.0'
 # Easy forms
 gem 'simple_form',             '4.1.0'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TimelineEvent, type: :model do
-  let (:timeline_event) { FactoryBot.build(:timeline_event) }
+  let (:timeline_event) { FactoryBot.create(:timeline_event) }
 
   it { should belong_to :saint }
   it { should validate_presence_of :saint_id }

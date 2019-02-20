@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Saint, type: :model do
-  let (:saint) { FactoryBot.build(:saint) }
+  let (:saint) { FactoryBot.create(:saint) }
 
   it { should have_many(:active_relationships).dependent(:destroy) }
   it { should have_many(:passive_relationships).dependent(:destroy) }

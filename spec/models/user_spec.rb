@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let (:user) { FactoryBot.build(:user) }
+  let (:user) { FactoryBot.create(:user) }
 
   describe 'name' do
     it { should validate_presence_of :name }
