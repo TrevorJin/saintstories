@@ -6,7 +6,7 @@ gem 'autoprefixer-rails',      '9.4.7'
 gem 'bcrypt',                  '3.1.12'
 # Cuts boot times in half
 gem 'bootsnap', require: false
-gem 'bootstrap',               '4.2.1'
+gem 'bootstrap',               '4.3.1'
 gem 'carrierwave',             '1.3.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '4.2.2'

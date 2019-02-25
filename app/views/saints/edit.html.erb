@@ -1,61 +1,165 @@
-<% provide(:title, 'Edit A Saint') %>
+<% provide(:title, 'Edit Saint') %>
 <%= render 'layouts/regular_sidebar' %>
 <div id="page-content-wrapper">
   <%= render 'layouts/alerts' %>
   <%= render 'shared/menu_toggle' %>
-  <div class="row">
-    <div class="col-xl-12">
-      <h1 class="page-header">
-        Edit A Saint
-      </h1>
-      <!-- /.page-header -->
-    </div>
-    <!-- /.col-xl-12 -->
+  <div class="row justify-content-center">
+    <h3 class="text-center">
+      Edit <%= @saint.name %>
+    </h3>
+    <!-- /.page-header -->
   </div>
   <!-- /.row -->
-  <div class="row">
-    <div class="col-lg-8 offset-md-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
       <%= simple_form_for @saint do |f| %>
-        <%= f.input :published, label: 'Publish to the public?' %>
-        <%= f.input :name %>
-        <%= f.input :title %>
-        <%= f.input :gender, :collection => gender_options %>
-        <%= f.input :feast_day, as: :date, order: [:month, :day] %>
-        <%= f.input :birth_date, as: :string, label: 'Birth Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :birth_accuracy %>
-        <%= f.input :death_date, as: :string, label: 'Death Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :death_accuracy %>
-        <%= f.input :birth_location %>
-        <%= f.input :birth_latitude %>
-        <%= f.input :birth_longitude %>
-        <%= f.input :death_location %>
-        <%= f.input :death_latitude %>
-        <%= f.input :death_longitude %>
-        <%= f.input :beatification_date, as: :string, label: 'Beatification Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :beatification_accuracy %>
-        <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Strict Format YYYY-MM-DD' %>
-        <%= f.input :canonization_accuracy %>
-        <%= f.input :fame_level, label: 'Fame Level: 1-100 (100 is most famous)' %>
-        <%= f.file_field :avatar %>
-        <%= f.input :avatar_caption %>
-        <%= f.input :avatar_description %>
-        <%= f.input :avatar_alternative_text %>
-        <%= f.input :short_description %>
-        <%= f.input :long_description %>
-        <%= f.label "Descriptors" %>
-        <%= f.input :pope %>
-        <%= f.input :cardinal %>
-        <%= f.input :bishop %>
-        <%= f.input :priest %>
-        <%= f.input :religious %>
-        <%= f.input :lay %>
-        <%= f.input :martyr %>
-        <%= f.input :founder %>
-        <%= f.input :mystic %>
-        <%= f.input :royalty %>
-        <%= f.input :doctor_of_the_church %>
-        <%= f.input :early_church_father %>
-        <%= f.submit "Edit Saint", class: "btn btn-primary" %>
+        <div class="row">
+          <div class="col">
+            <%= f.input :title %>
+          </div>
+          <div class="col">
+            <%= f.input :name %>
+          </div>
+          <div class="col">
+            <%= f.input :gender, :collection => gender_options %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :fame_level, label: 'Fame Level: 1-100' %>
+          </div>
+          <div class="col">
+            <%= f.input :feast_day, as: :date, order: [:month, :day] %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :birth_date, as: :string, label: 'Birth Date: Strict Format YYYY-MM-DD' %>
+          </div>
+          <div class="col">
+            <%= f.input :birth_accuracy %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :death_date, as: :string, label: 'Death Date: Strict Format YYYY-MM-DD' %>
+          </div>
+          <div class="col">
+            <%= f.input :death_accuracy %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :birth_location %>
+          </div>
+          <div class="col">
+            <%= f.input :birth_latitude %>
+          </div>
+          <div class="col">
+            <%= f.input :birth_longitude %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :death_location %>
+          </div>
+          <div class="col">
+            <%= f.input :death_latitude %>
+          </div>
+          <div class="col">
+            <%= f.input :death_longitude %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :beatification_date, as: :string, label: 'Beatification Date: Format YYYY-MM-DD' %>
+          </div>
+          <div class="col">
+            <%= f.input :beatification_accuracy %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :canonization_date, as: :string, label: 'Canonization Date: Format YYYY-MM-DD' %>
+          </div>
+          <div class="col">
+            <%= f.input :canonization_accuracy %>
+          </div>
+        </div>
+        <div class="row">
+          <% if !@saint.avatar.blank? %>
+            <% if @saint.avatar_alternative_text? %>
+            <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image", alt: @saint.avatar_alternative_text, title: @saint.avatar_alternative_text %>
+            <% else %>
+              <%= image_tag @saint.avatar.url, class: "rounded-circle saint-image" %>
+            <% end %>
+          <% end %>
+          <div class="col">
+            <label class="control-label">
+              Avatar
+            </label>
+            <%= f.file_field :avatar %>
+            <%= f.input :avatar_description %>
+          </div>
+          <div class="col">
+            <%= f.input :avatar_caption %>
+            <%= f.input :avatar_alternative_text %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :short_description %>
+          </div>
+          <div class="col">
+            <%= f.input :long_description %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :pope %>
+          </div>
+          <div class="col">
+            <%= f.input :cardinal %>
+          </div>
+          <div class="col">
+            <%= f.input :bishop %>
+          </div>
+          <div class="col">
+            <%= f.input :priest %>
+          </div>
+          <div class="col">
+            <%= f.input :religious %>
+          </div>
+          <div class="col">
+            <%= f.input :lay %>
+          </div>
+          <div class="col">
+            <%= f.input :martyr %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <%= f.input :founder %>
+          </div>
+          <div class="col">
+            <%= f.input :mystic %>
+          </div>
+          <div class="col">
+            <%= f.input :royalty %>
+          </div>
+          <div class="col">
+            <%= f.input :doctor_of_the_church %>
+          </div>
+          <div class="col">
+            <%= f.input :early_church_father %>
+          </div>
+          <div class="col">
+            <%= f.input :published, label: 'Publish to the public?' %>
+          </div>
+        </div>
+        <div class="text-center">
+          <%= f.submit "Submit Changes", class: "btn btn-success col-lg-6" %>
+        </div>
       <% end %>
     </div>
     <!-- /.col-lg-8 offset-md-2 -->

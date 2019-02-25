@@ -57,7 +57,7 @@ questions in a timely manner.
 Our internal tests are passed through Travis, testing against the following
 Ruby versions on Linux:
 
-- 2.4.0
+- 2.5.0
 
 ## Saint Stories Blog
 
@@ -67,7 +67,7 @@ Check out the separate code for the Saint Stories [blog](https://github.com/Trev
 
 ## License
 
-Copyright (c) 2017 Trevor Jin.
+Copyright (c) 2019 Trevor Jin.
 
 AMDG - JMJ
 
