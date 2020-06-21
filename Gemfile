@@ -29,7 +29,7 @@ gem 'meta-tags',               '2.13.0'
 gem 'mini_magick',             '4.10.1'
 gem 'photoswipe-rails',        '4.1.2'
 gem 'puma',                    '4.3.5'
-gem 'rails',                   '5.2.4.3'
+gem 'rails',                   '6.0.3.2'
 gem 'rb-readline'
 gem 'sassc-rails',             '2.1.2'
 # Easy forms
@@ -38,6 +38,7 @@ gem 'simple_form',             '5.0.2'
 # Read more: https://github.com/rails/turbolinks
 # Disabled to stop javascript glitches
 # gem 'turbolinks',              '5.0.1'
+gem 'webpacker'
 gem 'will_paginate',           '3.1.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier',                '4.2.0'
@@ -54,7 +55,7 @@ group :development, :test do
   # Testing Framework
   gem 'rspec-rails',           '4.0.1'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3',               '~> 1.3.6'
+  gem 'sqlite3',               '~> 1.4.0'
 end
 
 group :development do
