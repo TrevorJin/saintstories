@@ -29,7 +29,7 @@ gem 'meta-tags',               '2.13.0'
 gem 'mini_magick',             '4.10.1'
 gem 'photoswipe-rails',        '4.1.2'
 gem 'puma',                    '4.3.5'
-gem 'rails',                   '5.2.2'
+gem 'rails',                   '5.2.4.3'
 gem 'rb-readline'
 gem 'sassc-rails',             '2.1.2'
 # Easy forms
