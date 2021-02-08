@@ -7,7 +7,7 @@ gem 'bcrypt',                  '3.1.13'
 # Cuts boot times in half
 gem 'bootsnap', require: false
 gem 'bootstrap',               '4.3.1'
-gem 'carrierwave',             '2.1.0'
+gem 'carrierwave',             '2.1.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '5.0.0'
 # Translate enums to SimpleForm select field
