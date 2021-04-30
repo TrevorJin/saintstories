@@ -18,7 +18,7 @@ gem 'fog',                     '2.2.0'
 gem 'font-awesome-rails'
 gem 'friendly_id',             '5.3.0'
 gem 'gmaps4rails',             '2.1.2'
-gem 'gon',                     '6.3.2'
+gem 'gon',                     '6.4.0'
 gem 'hover-rails',             '2.3.2.1'
 # Build JSON APIs with ease
 gem 'jbuilder',                '2.10.0'
