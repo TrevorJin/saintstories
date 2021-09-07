@@ -60,7 +60,7 @@ end
 
 group :development do
   # Improved error screens
-  gem 'better_errors',         '2.7.1'
+  gem 'better_errors',         '2.8.0'
   gem 'binding_of_caller',     '0.8.0'
   # Check for security vulnerabilities
   gem 'brakeman', require: false
