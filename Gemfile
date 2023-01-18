@@ -89,7 +89,7 @@ group :test do
   gem 'guard-rspec', require: false
   gem 'minitest-reporters',        '1.4.2'
   # Provides Travis CI with rack access.
-  gem 'rack',                      '2.2.3'
+  gem 'rack',                      '2.2.6.2'
   gem 'rails-controller-testing',  '1.0.4'
   # A browser automation framework and ecosystem.
   gem 'selenium-webdriver',        '3.142.7'
